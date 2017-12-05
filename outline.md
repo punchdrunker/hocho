@@ -2,13 +2,12 @@
 
 ## 開発環境の準備
 
-* パソコン
-* OS
+* 開発用PCの推奨スペック
 * Android Studio
-* gradle
 
 ## Android アプリの基礎知識
 
+* Android OSの概要
 * Activity, Fragment, ライフサイクル
 * アプリのリソース管理
 
@@ -25,9 +24,9 @@
 
 ## 非同期処理
 
-* レガシーな機能達
-* rx
-* coroutine
+* スレッド
+* 非同期処理の歴史
+* Service
 
 ## ネットワーク通信
 
