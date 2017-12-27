@@ -5,7 +5,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import retrofit2.Callback
 import tokyo.punchdrunker.hocho.databinding.ActivityMainBinding
+import retrofit2.Call
+import retrofit2.Response
+import timber.log.Timber
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -26,5 +31,22 @@ class MainActivity : AppCompatActivity() {
                     Article("asdfa", "asfassd"))
             adapter = FeedAdapter(this@MainActivity, items)
         }
+        fetchEntries()
+    }
+
+    fun fetchEntries() {
+        val service = BlogService.create()
+        service.fetch("rss").enqueue(object : Callback<AtomResponse> {
+            override fun onResponse(call: Call<AtomResponse>, response: Response<AtomResponse>) {
+                val atom = response.body()
+                if (atom != null) {
+                    atom.entryList
+                }
+            }
+
+            override fun onFailure(call: Call<AtomResponse>, t: Throwable) {
+                Timber.d(t)
+            }
+        })
     }
 }
