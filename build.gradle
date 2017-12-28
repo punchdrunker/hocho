@@ -4,7 +4,8 @@ buildscript {
     ext.versions = [
             'kotlin': '1.2.10',
             'supportLibrary': '27.0.2',
-            'retrofit': '2.3.0'
+            'retrofit': '2.3.0',
+            'okhttp': '3.9.1'
     ]
     repositories {
         google()
