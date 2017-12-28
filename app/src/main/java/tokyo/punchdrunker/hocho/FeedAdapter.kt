@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import timber.log.Timber
 import tokyo.punchdrunker.hocho.databinding.ItemArticleBinding
 
-class FeedAdapter(val context: Context, var articles: List<Article>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class FeedAdapter(val context: Context, var articles: List<EntryXml>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemCount(): Int {
         Timber.d(articles.size.toString())
@@ -23,7 +23,7 @@ class FeedAdapter(val context: Context, var articles: List<Article>): RecyclerVi
         if (holder is ArticleViewHolder) {
             holder.binding.apply {
                 title.text = articles[position].title
-                description.text = articles[position].description
+                description.text = articles[position].shortContent()
             }
         }
     }

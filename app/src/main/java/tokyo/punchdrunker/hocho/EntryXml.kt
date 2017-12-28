@@ -12,4 +12,10 @@ class EntryXml {
     @set:Element
     @get:Element
     var content: String = ""
+
+    fun shortContent(): String {
+        var str = content
+        str = str.replace("""<.+?>""".toRegex(), "")
+        return str
+    }
 }
