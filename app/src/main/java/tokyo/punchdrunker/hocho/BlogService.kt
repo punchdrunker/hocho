@@ -21,7 +21,7 @@ public interface BlogService {
                     .baseUrl("https://android-developers.googleblog.com/")
                     .build()
 
-            return retrofit.create<BlogService>(BlogService::class.java!!)
+            return retrofit.create<BlogService>(BlogService::class.java)
         }
     }
 }

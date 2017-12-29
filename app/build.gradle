@@ -39,6 +39,8 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit"
     implementation "com.squareup.retrofit2:converter-simplexml:$versions.retrofit"
     implementation "com.squareup.okhttp3:okhttp:$versions.okhttp"
+    implementation "com.github.bumptech.glide:glide:$versions.glide"
+    kapt "com.github.bumptech.glide:compiler:$versions.glide"
 
     // rx
     implementation "io.reactivex.rxjava2:rxandroid:2.0.1"

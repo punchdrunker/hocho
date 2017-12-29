@@ -22,5 +22,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="desc"/>
+        <ImageView
+            android:contentDescription="image"
+            android:id="@+id/entry_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </layout>

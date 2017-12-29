@@ -14,8 +14,19 @@ class EntryXml {
     var content: String = ""
 
     fun shortContent(): String {
-        var str = content
-        str = str.replace("""<.+?>""".toRegex(), "")
-        return str
+        var string = content.replace("\n".toRegex(), "")
+        return string.replace("""<.+?>""".toRegex(), "").subSequence(0, 140).toString() + "..."
+    }
+
+    fun imageUrl(): String? {
+        var rawBody = content.replace("\n".toRegex(), "")
+        val imageContentRegex = """<meta name="twitter:image" content="([^"]*)""".toRegex()
+        val result = imageContentRegex.find(rawBody)
+        if (result != null) {
+            return result.groupValues[1]
+        } else {
+            return null
+        }
+
     }
 }

@@ -21,9 +21,11 @@ class FeedAdapter(val context: Context, var articles: List<EntryXml>): RecyclerV
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
         if (holder is ArticleViewHolder) {
+            val article = articles[position]
             holder.binding.apply {
-                title.text = articles[position].title
-                description.text = articles[position].shortContent()
+                title.text = article.title
+                description.text = article.shortContent()
+                GlideApp.with(context).load(article.imageUrl()).into(entryImage)
             }
         }
     }
