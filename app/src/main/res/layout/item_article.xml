@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             tools:text="desc"/>
         <ImageView
-            android:contentDescription="image"
+            android:contentDescription="@string/image_description"
             android:id="@+id/entry_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
