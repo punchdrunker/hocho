@@ -35,9 +35,6 @@ jobs:
       - run:
           name: Test
           command: ./gradlew --stacktrace testDebug
-      - run:
-          name: Deploy
-          command: ./gradlew --stacktrace uploadDeployGateDebug
       - store_artifacts:
           path: app/build/reports
           destination: reports
