@@ -5,10 +5,8 @@ import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Test
-
 import retrofit2.Retrofit
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory
-import java.io.File
 
 class BlogServiceTest {
     private var server = MockWebServer()
@@ -19,7 +17,8 @@ class BlogServiceTest {
 
     @Test
     fun fetchFeed() {
-        val stream = File("app/src/test/assets", "android-developer-blog.xml").inputStream()
+        val stream = javaClass.classLoader.getResourceAsStream("android-developer-blog.xml")
+        // val stream = File("app/src/test/assets", "android-developer-blog.xml").inputStream()
         val mockXmlString = stream.bufferedReader().use { it.readText()}
         val response = createMockResponse(mockXmlString)
         server.enqueue(response)
