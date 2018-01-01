@@ -31,7 +31,6 @@ class EntryXml {
 
     fun shortContent(): String? {
         var string = content.replace("\n".toRegex(), " ")
-        //return string.replace("""<.+?>""".toRegex(), "").subSequence(0, 140).toString() + "..."
         val contentRegex = """<p>(.*)?</p>""".toRegex()
         val result = contentRegex.find(string)
         if (result != null) {
