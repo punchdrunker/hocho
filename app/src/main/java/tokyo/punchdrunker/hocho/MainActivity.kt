@@ -1,10 +1,14 @@
 package tokyo.punchdrunker.hocho
 
 import android.databinding.DataBindingUtil
+import android.net.Uri
 import android.os.Bundle
+import android.support.customtabs.CustomTabsIntent
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.View
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,18 +29,34 @@ class MainActivity : AppCompatActivity() {
         fetchEntries()
     }
 
-    fun fetchEntries() {
+    private fun fetchEntries() {
         val service = BlogService.create()
         service.fetch("rss").enqueue(object : Callback<AtomResponse> {
             override fun onResponse(call: Call<AtomResponse>, response: Response<AtomResponse>) {
                 val atom = response.body()
-                if (atom == null || atom.entryList == null) return
+                if (atom?.entryList == null) return
 
                 recyclerView.run {
                     setHasFixedSize(true)
                     layoutManager = this@MainActivity.layoutManager
 
-                    adapter = FeedAdapter(this@MainActivity, atom.entryList!!)
+                    val feedAdapter = FeedAdapter(this@MainActivity, atom.entryList!!)
+                    val listener = object : FeedAdapter.ArticleClickListener {
+                        override fun onClick(view: View, url: String) {
+                            this@MainActivity.run {
+                                val tabsIntent = CustomTabsIntent.Builder()
+                                        .setShowTitle(true)
+                                        .setToolbarColor(ContextCompat.getColor(this, R.color.colorPrimary))
+                                        .setStartAnimations(this, R.anim.slide_in_right, R.anim.slide_out_left)
+                                        .setExitAnimations(this, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                                        .build()
+
+                                tabsIntent.launchUrl(this, Uri.parse(url))
+                            }
+                        }
+                    }
+                    feedAdapter.setOnclickListener(listener)
+                    adapter = feedAdapter
                 }
             }
 

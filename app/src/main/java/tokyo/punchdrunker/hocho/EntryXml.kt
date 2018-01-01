@@ -1,5 +1,7 @@
 package tokyo.punchdrunker.hocho
 
+import org.joda.time.DateTime
+import org.joda.time.format.DateTimeFormat
 import org.simpleframework.xml.Element
 import org.simpleframework.xml.Root
 
@@ -13,9 +15,31 @@ class EntryXml {
     @get:Element
     var content: String = ""
 
-    fun shortContent(): String {
-        var string = content.replace("\n".toRegex(), "")
-        return string.replace("""<.+?>""".toRegex(), "").subSequence(0, 140).toString() + "..."
+    @set:Element
+    @get:Element
+    var published: String = ""
+
+    @set:Element
+    @get:Element
+    var origLink: String = ""
+
+    fun dateForDisplay(): String {
+        val dateTime = DateTime.parse(published)
+        val format = DateTimeFormat.shortDateTime()
+        return format.print(dateTime)
+    }
+
+    fun shortContent(): String? {
+        var string = content.replace("\n".toRegex(), " ")
+        //return string.replace("""<.+?>""".toRegex(), "").subSequence(0, 140).toString() + "..."
+        val contentRegex = """<p>(.*)?</p>""".toRegex()
+        val result = contentRegex.find(string)
+        if (result != null) {
+            var body = result.groupValues[1]
+            return body.replace("""<.+?>""".toRegex(), "").subSequence(0, 140).toString() + "..."
+        } else {
+            return null
+        }
     }
 
     fun imageUrl(): String? {
@@ -28,5 +52,9 @@ class EntryXml {
             return null
         }
 
+    }
+
+    fun articleUrl(): String {
+        return origLink
     }
 }
