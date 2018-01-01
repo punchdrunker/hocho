@@ -65,3 +65,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     testImplementation "com.squareup.okhttp3:mockwebserver:$versions.okhttp"
 }
+
+configurations {
+    all {
+        exclude module: 'httpclient'
+    }
+}
