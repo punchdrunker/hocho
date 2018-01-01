@@ -46,8 +46,6 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit"
     implementation("com.squareup.retrofit2:converter-simplexml:$versions.retrofit") {
-        exclude module: 'stax'
-        exclude module: 'stax-api'
         exclude module: 'xpp3'
     }
     implementation "com.squareup.okhttp3:okhttp:$versions.okhttp"
