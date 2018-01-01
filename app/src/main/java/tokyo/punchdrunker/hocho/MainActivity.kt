@@ -13,6 +13,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import timber.log.Timber
+import tokyo.punchdrunker.hocho.ViewUtil.bitmapFromVectorDrawable
 import tokyo.punchdrunker.hocho.databinding.ActivityMainBinding
 
 
@@ -44,8 +45,10 @@ class MainActivity : AppCompatActivity() {
                     val listener = object : FeedAdapter.ArticleClickListener {
                         override fun onClick(view: View, url: String) {
                             this@MainActivity.run {
+                                val backArrow = bitmapFromVectorDrawable(this, R.drawable.ic_arrow_back)
                                 val tabsIntent = CustomTabsIntent.Builder()
                                         .setShowTitle(true)
+                                        .setCloseButtonIcon(backArrow)
                                         .setToolbarColor(ContextCompat.getColor(this, R.color.colorPrimary))
                                         .setStartAnimations(this, R.anim.slide_in_right, R.anim.slide_out_left)
                                         .setExitAnimations(this, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
