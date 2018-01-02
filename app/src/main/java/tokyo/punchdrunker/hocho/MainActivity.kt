@@ -27,6 +27,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_bookmarks -> {
                     supportFragmentManager.beginTransaction().replace(R.id.container, BookmarksFragment.newInstance()).commitAllowingStateLoss()
                 }
+                R.id.navigation_help -> {
+                    supportFragmentManager.beginTransaction().replace(R.id.container, HelpFragment.newInstance()).commitAllowingStateLoss()
+                }
                 else -> throw NotImplementedError()
             }
             supportActionBar?.title = ""

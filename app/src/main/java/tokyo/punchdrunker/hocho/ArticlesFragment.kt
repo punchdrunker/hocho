@@ -19,9 +19,11 @@ import tokyo.punchdrunker.hocho.databinding.FragmentArticlesBinding
 class ArticlesFragment : Fragment() {
     private lateinit var binding: FragmentArticlesBinding
     private lateinit var recyclerView: RecyclerView
+    private var test = "onStart"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        Timber.d("onCreateView")
         binding = FragmentArticlesBinding.inflate(inflater, container!!, false)
         recyclerView = binding.myRecyclerView
         return binding.root
@@ -29,8 +31,30 @@ class ArticlesFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
+        Timber.d("onActivityCreated")
         fetchEntries()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Timber.d(test)
+        test = "onStart several times"
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Timber.d("onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Timber.d("onStop")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        Timber.d("onSaveInstanceState")
+        outState.putString("test", test)
+        super.onSaveInstanceState(outState)
     }
 
     private fun fetchEntries() {
