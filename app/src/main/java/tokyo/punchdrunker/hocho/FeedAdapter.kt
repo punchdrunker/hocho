@@ -1,15 +1,13 @@
 package tokyo.punchdrunker.hocho
 
 import android.content.Context
-import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import tokyo.punchdrunker.hocho.ViewUtil.convertDpToPx
 import tokyo.punchdrunker.hocho.databinding.ItemArticleBinding
 
-class FeedAdapter(val context: Context, var articles: List<EntryXml>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class FeedAdapter(val context: Context, private var articles: List<EntryXml>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var onClickListener: ArticleClickListener? = null
 
@@ -38,10 +36,9 @@ class FeedAdapter(val context: Context, var articles: List<EntryXml>): RecyclerV
                 description.text = article.shortContent()
                 publishedDate.text = article.dateForDisplay()
                 if (article.imageUrl().isNullOrEmpty()) {
-                    entryImage.layoutParams = ConstraintLayout.LayoutParams(0, 0)
+                    entryImage.visibility = View.GONE
                 } else {
-                    val heightPixel = convertDpToPx(160.0f, context).toInt()
-                    entryImage.layoutParams = ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, heightPixel)
+                    entryImage.visibility = View.VISIBLE
                     GlideApp.with(context).load(article.imageUrl()).into(entryImage)
                 }
             }
