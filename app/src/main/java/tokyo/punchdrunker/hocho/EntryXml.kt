@@ -2,6 +2,7 @@ package tokyo.punchdrunker.hocho
 
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
+import org.joda.time.format.DateTimeFormatter
 import org.simpleframework.xml.Element
 import org.simpleframework.xml.Root
 
@@ -25,8 +26,7 @@ class EntryXml {
 
     fun dateForDisplay(): String {
         val dateTime = DateTime.parse(published)
-        val format = DateTimeFormat.shortDateTime()
-        return format.print(dateTime)
+        return DATE_FORMATTER.print(dateTime)
     }
 
     fun shortContent(): String? {
@@ -55,5 +55,9 @@ class EntryXml {
 
     fun articleUrl(): String {
         return origLink
+    }
+
+    companion object {
+        val DATE_FORMATTER: DateTimeFormatter = DateTimeFormat.shortDateTime()
     }
 }
