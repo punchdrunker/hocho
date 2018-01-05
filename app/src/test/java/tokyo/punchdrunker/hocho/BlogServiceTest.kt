@@ -34,7 +34,6 @@ class BlogServiceTest {
             assertEquals(" At Google I/O 2017, we announced a redesign of the Android TV's home screen. We expanded the recommendation row concept so that each app ca...", this[0].shortContent())
             assertEquals("https://1.bp.blogspot.com/-RikbUBpFVUo/Wjwe6_5qNdI/AAAAAAAAE8A/-oxT_LLrYzsToH0Jf2XOjeOAV3DIkUf4ACLcBGAs/s1600/image1.png", this[0].imageUrl())
         }
-
     }
 
     private fun createMockResponse(mockBody: String) = MockResponse()
