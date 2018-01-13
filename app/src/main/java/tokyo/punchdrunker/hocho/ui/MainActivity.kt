@@ -1,13 +1,12 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.ui
 
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import tokyo.punchdrunker.hocho.R
 import tokyo.punchdrunker.hocho.databinding.ActivityMainBinding
-
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -37,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.setOnNavigationItemSelectedListener({ item ->
             when (item.itemId) {
                 R.id.navigation_home -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.container, ArticlesFragment.newInstance()).commitAllowingStateLoss()
+                    supportFragmentManager.beginTransaction().replace(R.id.container, BlogsFragment.newInstance()).commitAllowingStateLoss()
                 }
                 R.id.navigation_bookmarks -> {
                     supportFragmentManager.beginTransaction().replace(R.id.container, BookmarksFragment.newInstance()).commitAllowingStateLoss()

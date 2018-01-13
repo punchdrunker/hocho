@@ -1,13 +1,15 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.ui
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import tokyo.punchdrunker.hocho.GlideApp
+import tokyo.punchdrunker.hocho.data.GoogleBlogXml
 import tokyo.punchdrunker.hocho.databinding.ItemArticleBinding
 
-class FeedAdapter(val context: Context, private var articles: List<EntryXml>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class FeedAdapter(val context: Context, private var articles: List<GoogleBlogXml>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var onClickListener: ArticleClickListener? = null
 

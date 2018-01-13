@@ -7,8 +7,9 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 import retrofit2.Retrofit
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory
+import tokyo.punchdrunker.hocho.data.GoogleBlogService
 
-class BlogServiceTest {
+class GoogleBlogServiceTest {
     private var server = MockWebServer()
 
     @After
@@ -26,7 +27,7 @@ class BlogServiceTest {
         val service = createService()
         val actual = service.fetch("rss")
                 .execute()
-        actual.body()!!.entryList!!.run {
+        actual.body()!!.googleBlogList!!.run {
             assertEquals(25, size)
             assertEquals("Phasing out legacy recommendations on Android TV", this[0].title)
             assertEquals("12/22/17 10:00 AM", this[0].dateForDisplay())
@@ -45,5 +46,5 @@ class BlogServiceTest {
             .baseUrl(server.url("/").toString())
             .addConverterFactory(SimpleXmlConverterFactory.create())
             .build()
-            .create(BlogService::class.java)
+            .create(GoogleBlogService::class.java)
 }

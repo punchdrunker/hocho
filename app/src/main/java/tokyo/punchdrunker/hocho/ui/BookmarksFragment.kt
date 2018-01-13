@@ -1,4 +1,4 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.ui
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

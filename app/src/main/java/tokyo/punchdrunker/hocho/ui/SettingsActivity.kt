@@ -1,8 +1,9 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.ui
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import tokyo.punchdrunker.hocho.R
 import tokyo.punchdrunker.hocho.databinding.ActivitySettingsBinding
 
 class SettingsActivity : AppCompatActivity() {

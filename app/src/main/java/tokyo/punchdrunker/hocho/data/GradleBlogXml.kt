@@ -1,4 +1,4 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.data
 
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
@@ -7,7 +7,7 @@ import org.simpleframework.xml.Element
 import org.simpleframework.xml.Root
 
 @Root(name = "entry", strict = false)
-class EntryXml {
+class GradleBlogXml: BlogXml {
     @set:Element
     @get:Element
     var title: String = ""
@@ -22,7 +22,7 @@ class EntryXml {
 
     @set:Element
     @get:Element
-    var origLink: String = ""
+    var link: String = ""
 
     fun dateForDisplay(): String {
         val dateTime = DateTime.parse(published)
@@ -51,9 +51,28 @@ class EntryXml {
     }
 
     fun articleUrl(): String {
-        return origLink
+        return link
     }
 
+    override fun getBlogTitle(): String {
+        return title
+    }
+
+    override fun getBody(): String {
+        return content
+    }
+
+    override fun getUrl(): String {
+        return link
+    }
+
+    override fun getPublishedDate(): String {
+        return ""
+    }
+
+    override fun getImageUrl(): String? {
+        return ""
+    }
     companion object {
         val DATE_FORMATTER: DateTimeFormatter = DateTimeFormat.shortDateTime()
     }
