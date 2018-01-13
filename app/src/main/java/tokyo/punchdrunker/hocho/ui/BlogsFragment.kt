@@ -55,7 +55,7 @@ class BlogsViewPagerAdapter(
                 GoogleBlogFragment.newInstance()
             }
             is Tab.Gradle -> {
-                AllBlogsFragment.newInstance()
+                GradleBlogsFragment.newInstance()
             }
         }
     }

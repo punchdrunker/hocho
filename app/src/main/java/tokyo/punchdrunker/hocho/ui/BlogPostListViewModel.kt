@@ -21,4 +21,16 @@ class BlogPostListViewModel constructor(private val repository: BlogRepository) 
                     e -> Timber.e(e)
                 })
     }
+
+    fun loadGradleBlog() {
+        repository.loadGradleBlog()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ list ->
+                    posts.clear()
+                    posts.addAll(list)
+                },{
+                    e -> Timber.e(e)
+                })
+    }
 }

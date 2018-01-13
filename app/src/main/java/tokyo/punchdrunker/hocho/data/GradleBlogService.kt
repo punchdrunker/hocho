@@ -1,7 +1,7 @@
 package tokyo.punchdrunker.hocho.data
 
+import io.reactivex.Single
 import okhttp3.OkHttpClient
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory
@@ -9,7 +9,7 @@ import retrofit2.http.GET
 
 public interface GradleBlogService {
     @GET("/blog.atom")
-    fun fetch(): Call<GradleBlogResponse>
+    fun fetch(): Single<GradleBlogResponse>
 
     companion object Factory {
         fun create(): GradleBlogService {

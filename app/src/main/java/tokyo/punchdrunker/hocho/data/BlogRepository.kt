@@ -9,11 +9,18 @@ class BlogRepository {
             resp.googleBlogList
         }
     }
-    fun loadGoogleBlog() : Single<List<BlogXml>> {
+
+    fun loadGoogleBlog(): Single<List<BlogXml>> {
         val service = GoogleBlogService.create()
         return service.fetch("rss").map { resp ->
             resp.googleBlogList
         }
     }
-    fun loadGradleBlog() {}
+
+    fun loadGradleBlog(): Single<List<BlogXml>> {
+        val service = GradleBlogService.create()
+        return service.fetch().map { resp ->
+            resp.entryList
+        }
+    }
 }
