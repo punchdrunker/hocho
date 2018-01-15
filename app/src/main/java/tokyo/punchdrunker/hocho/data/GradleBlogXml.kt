@@ -19,11 +19,18 @@ class GradleBlogXml : BlogXml {
 
     @set:Element
     @get:Element
-    private var updated: String = ""
+    var updated: String = ""
 
-    @get:Attribute(name = "href", required = false)
-    @set:Attribute(name = "href", required = false)
-    private var link: String = ""
+    @get:Element
+    @set:Element
+    var link: Link = Link()
+
+    @Root(name = "link")
+    class Link {
+        @get:Attribute
+        @set:Attribute
+        var href: String = ""
+    }
 
     override fun getBlogTitle(): String {
         return title
@@ -41,7 +48,7 @@ class GradleBlogXml : BlogXml {
     }
 
     override fun getUrl(): String {
-        return link
+        return link.href
     }
 
     override fun getPublishedDate(): String {

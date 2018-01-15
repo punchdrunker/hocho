@@ -9,10 +9,10 @@ import org.junit.Test
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory
-import tokyo.punchdrunker.hocho.data.GoogleBlogResponse
-import tokyo.punchdrunker.hocho.data.GoogleBlogService
+import tokyo.punchdrunker.hocho.data.GradleBlogResponse
+import tokyo.punchdrunker.hocho.data.GradleBlogService
 
-class GoogleBlogServiceTest {
+class GradleBlogServiceTest {
     private var server = MockWebServer()
 
     @After
@@ -21,26 +21,26 @@ class GoogleBlogServiceTest {
 
     @Test
     fun fetch() {
-        val stream = javaClass.classLoader.getResourceAsStream("android-developer-blog.xml")
+        val stream = javaClass.classLoader.getResourceAsStream("gradle-blog.xml")
         val mockXmlString = stream.bufferedReader().use { it.readText()}
         val response = createMockResponse(mockXmlString)
         server.enqueue(response)
         server.start()
 
 
-        val observer = TestObserver<GoogleBlogResponse>()
+        val observer = TestObserver<GradleBlogResponse>()
         val service = createService()
-        service.fetch("rss").subscribe(observer)
+        service.fetch().subscribe(observer)
         observer.assertComplete()
         observer.assertNoErrors()
         observer.assertValueCount(1)
-        observer.values()[0].googleBlogList!!.run {
-            assertEquals(25, size)
-            assertEquals("Phasing out legacy recommendations on Android TV", this[0].title)
-            assertEquals("12/22/17 10:00 AM", this[0].dateForDisplay())
-            assertEquals("http://android-developers.googleblog.com/2017/12/phasing-out-legacy-recommendations-on.html", this[0].getUrl())
-            assertEquals(" At Google I/O 2017, we announced a redesign of the Android TV's home screen. We expanded the recommendation row concept so that each app ca...", this[0].shortContent())
-            assertEquals("https://1.bp.blogspot.com/-RikbUBpFVUo/Wjwe6_5qNdI/AAAAAAAAE8A/-oxT_LLrYzsToH0Jf2XOjeOAV3DIkUf4ACLcBGAs/s1600/image1.png", this[0].imageUrl())
+        observer.values()[0].entryList!!.run {
+            assertEquals(20, size)
+            assertEquals("Introducing the new C++ plugins", this[0].title)
+            assertEquals("1/10/18 12:00 AM", this[0].getPublishedDate())
+            assertEquals("https://blog.gradle.org/introducing-the-new-cpp-plugins", this[0].getUrl())
+            assertEquals("This post introduces some new plugins for C++ that we’ve been working on. These plugins can build C++ libraries and applications. They work ...", this[0].getBody())
+            assertEquals("https://blog.gradle.org/images/introducing-the-new-cpp-plugins/01-application.gif", this[0].getImageUrl())
         }
     }
 
@@ -54,5 +54,5 @@ class GoogleBlogServiceTest {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(SimpleXmlConverterFactory.create())
             .build()
-            .create(GoogleBlogService::class.java)
+            .create(GradleBlogService::class.java)
 }

@@ -7,7 +7,7 @@ import org.simpleframework.xml.Element
 import org.simpleframework.xml.Root
 
 @Root(name = "entry", strict = false)
-class GoogleBlogXml: BlogXml {
+class GoogleBlogXml : BlogXml {
     @set:Element
     @get:Element
     var title: String = ""
@@ -18,19 +18,15 @@ class GoogleBlogXml: BlogXml {
 
     @set:Element
     @get:Element
-    private var published: String = ""
+    var published: String = ""
 
     @set:Element
     @get:Element
-    private var origLink: String = ""
+    var origLink: String = ""
 
     fun dateForDisplay(): String {
-        try {
-            val dateTime = DateTime.parse(published)
-            return DATE_FORMATTER.print(dateTime)
-        } catch (e: IllegalArgumentException) {
-            return "jfjfj"
-        }
+        val dateTime = DateTime.parse(published)
+        return DATE_FORMATTER.print(dateTime)
     }
 
     fun shortContent(): String? {
