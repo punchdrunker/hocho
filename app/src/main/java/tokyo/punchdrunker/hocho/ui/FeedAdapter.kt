@@ -5,17 +5,20 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import tokyo.punchdrunker.hocho.BookmarkService
 import tokyo.punchdrunker.hocho.GlideApp
 import tokyo.punchdrunker.hocho.data.response.GoogleBlogXml
 import tokyo.punchdrunker.hocho.databinding.ItemArticleBinding
 
-class FeedAdapter(val context: Context, private var articles: List<GoogleBlogXml>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+class FeedAdapter(val context: Context, private var articles: List<GoogleBlogXml>, private val fixSize: Boolean = true) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var onClickListener: ArticleClickListener? = null
 
     interface ArticleClickListener {
         fun onClick(view: View, url: String)
     }
+
     override fun getItemCount(): Int {
         return articles.size
     }
@@ -42,6 +45,20 @@ class FeedAdapter(val context: Context, private var articles: List<GoogleBlogXml
                 } else {
                     entryImage.visibility = View.VISIBLE
                     GlideApp.with(context).load(article.imageUrl()).into(entryImage)
+                }
+                imageButton.setOnClickListener { view ->
+                    BookmarkService(view.context).run {
+                        when (isBookmarked(article)) {
+                            true -> {
+                                if (!fixSize) {
+                                    articles = articles.filter { it != article }
+                                    notifyDataSetChanged()
+                                }
+                                removeBookmark(article)
+                            }
+                            else -> putBookmark(article)
+                        }
+                    }
                 }
             }
         }
