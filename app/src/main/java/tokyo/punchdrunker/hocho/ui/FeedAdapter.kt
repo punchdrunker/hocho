@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import tokyo.punchdrunker.hocho.BookmarkService
+import tokyo.punchdrunker.hocho.data.service.BookmarkService
 import tokyo.punchdrunker.hocho.GlideApp
 import tokyo.punchdrunker.hocho.data.response.GoogleBlogXml
 import tokyo.punchdrunker.hocho.databinding.ItemArticleBinding

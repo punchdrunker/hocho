@@ -1,4 +1,4 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.data.service
 
 import android.content.Context
 import android.content.SharedPreferences
