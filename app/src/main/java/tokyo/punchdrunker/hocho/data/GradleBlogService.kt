@@ -7,7 +7,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory
 import retrofit2.http.GET
 
-public interface GradleBlogService {
+interface GradleBlogService {
     @GET("/blog.atom")
     fun fetch(): Single<GradleBlogResponse>
 

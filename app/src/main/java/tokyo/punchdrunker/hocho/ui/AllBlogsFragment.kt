@@ -25,7 +25,7 @@ class AllBlogsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        viewModel.refresh()
+        viewModel.loadAllBlogs()
     }
 
     companion object {

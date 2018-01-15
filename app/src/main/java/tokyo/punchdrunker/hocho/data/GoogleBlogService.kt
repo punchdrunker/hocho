@@ -8,7 +8,7 @@ import retrofit2.converter.simplexml.SimpleXmlConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-public interface GoogleBlogService {
+interface GoogleBlogService {
     @GET("/feeds/posts/default")
     fun fetch(@Query("alt") alt: String): Single<GoogleBlogResponse>
 

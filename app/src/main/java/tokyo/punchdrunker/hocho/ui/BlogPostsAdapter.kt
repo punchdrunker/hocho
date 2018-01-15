@@ -7,11 +7,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import timber.log.Timber
 import tokyo.punchdrunker.hocho.GlideApp
 import tokyo.punchdrunker.hocho.data.BlogXml
 import tokyo.punchdrunker.hocho.databinding.ItemBlogPostBinding
-
+import tokyo.punchdrunker.hocho.usecase.OpenBlogItemUseCase
 
 
 class BlogPostsAdapter(
@@ -44,14 +43,13 @@ class BlogPostsAdapter(
     }
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
         if (holder is BlogPostViewHolder) {
-            holder.binding.viewModel = BlogPostListItemViewModel(posts[position])
-            val post = posts[position]
+            holder.binding.viewModel = BlogPostListItemViewModel(posts[position], OpenBlogItemUseCase(context))
             holder.binding.apply {
-                if (post.getImageUrl().isNullOrEmpty()) {
+                if (viewModel?.imageUrl.isNullOrEmpty()) {
                     entryImage.visibility = View.GONE
                 } else {
                     entryImage.visibility = View.VISIBLE
-                    GlideApp.with(context).load(post.getImageUrl()).into(entryImage)
+                    GlideApp.with(context).load(viewModel?.imageUrl).into(entryImage)
                 }
             }
         }
@@ -65,7 +63,6 @@ class BlogPostsAdapter(
     }
 
     override fun getItemCount(): Int {
-        Timber.d(posts.size.toString())
         return posts.size
     }
 

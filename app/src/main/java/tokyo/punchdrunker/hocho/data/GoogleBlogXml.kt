@@ -18,15 +18,19 @@ class GoogleBlogXml: BlogXml {
 
     @set:Element
     @get:Element
-    var published: String = ""
+    private var published: String = ""
 
     @set:Element
     @get:Element
-    var origLink: String = ""
+    private var origLink: String = ""
 
     fun dateForDisplay(): String {
-        val dateTime = DateTime.parse(published)
-        return DATE_FORMATTER.print(dateTime)
+        try {
+            val dateTime = DateTime.parse(published)
+            return DATE_FORMATTER.print(dateTime)
+        } catch (e: IllegalArgumentException) {
+            return "jfjfj"
+        }
     }
 
     fun shortContent(): String? {

@@ -3,11 +3,12 @@ package tokyo.punchdrunker.hocho.data
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
 import org.joda.time.format.DateTimeFormatter
+import org.simpleframework.xml.Attribute
 import org.simpleframework.xml.Element
 import org.simpleframework.xml.Root
 
 @Root(name = "entry", strict = false)
-class GradleBlogXml: BlogXml {
+class GradleBlogXml : BlogXml {
     @set:Element
     @get:Element
     var title: String = ""
@@ -18,18 +19,17 @@ class GradleBlogXml: BlogXml {
 
     @set:Element
     @get:Element
-    var published: String = ""
+    private var updated: String = ""
 
-    @set:Element
-    @get:Element
-    var link: String = ""
+    @get:Attribute(name = "href", required = false)
+    @set:Attribute(name = "href", required = false)
+    private var link: String = ""
 
-    fun dateForDisplay(): String {
-        val dateTime = DateTime.parse(published)
-        return DATE_FORMATTER.print(dateTime)
+    override fun getBlogTitle(): String {
+        return title
     }
 
-    fun shortContent(): String? {
+    override fun getBody(): String? {
         val string = content.replace("\n".toRegex(), " ")
         val contentRegex = """<p>(.*)?</p>""".toRegex()
         val result = contentRegex.find(string)
@@ -40,39 +40,25 @@ class GradleBlogXml: BlogXml {
         return null
     }
 
-    fun imageUrl(): String? {
-        val rawBody = content.replace("\n".toRegex(), "")
-        val imageContentRegex = """<meta name="twitter:image" content="([^"]*)""".toRegex()
-        val result = imageContentRegex.find(rawBody)
-        if (result != null) {
-            return result.groupValues[1]
-        }
-        return null
-    }
-
-    fun articleUrl(): String {
-        return link
-    }
-
-    override fun getBlogTitle(): String {
-        return title
-    }
-
-    override fun getBody(): String {
-        return content
-    }
-
     override fun getUrl(): String {
         return link
     }
 
     override fun getPublishedDate(): String {
-        return ""
+        val dateTime = DateTime.parse(updated)
+        return DATE_FORMATTER.print(dateTime)
     }
 
     override fun getImageUrl(): String? {
-        return ""
+        val rawBody = content.replace("\n".toRegex(), "")
+        val imageContentRegex = """<img src="([^"]*)""".toRegex()
+        val result = imageContentRegex.find(rawBody)
+        if (result != null) {
+            return "https://blog.gradle.org" + result.groupValues[1]
+        }
+        return null
     }
+
     companion object {
         val DATE_FORMATTER: DateTimeFormatter = DateTimeFormat.shortDateTime()
     }

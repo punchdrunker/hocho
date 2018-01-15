@@ -1,12 +1,15 @@
 package tokyo.punchdrunker.hocho
 
+import io.reactivex.observers.TestObserver
+import junit.framework.Assert.assertEquals
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
-import org.junit.Assert.assertEquals
 import org.junit.Test
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory
+import tokyo.punchdrunker.hocho.data.GoogleBlogResponse
 import tokyo.punchdrunker.hocho.data.GoogleBlogService
 
 class GoogleBlogServiceTest {
@@ -17,17 +20,21 @@ class GoogleBlogServiceTest {
     fun tearDown() = server.shutdown()
 
     @Test
-    fun fetchFeed() {
+    fun fetch() {
         val stream = javaClass.classLoader.getResourceAsStream("android-developer-blog.xml")
         val mockXmlString = stream.bufferedReader().use { it.readText()}
         val response = createMockResponse(mockXmlString)
         server.enqueue(response)
         server.start()
 
+
+        val observer = TestObserver<GoogleBlogResponse>()
         val service = createService()
-        val actual = service.fetch("rss")
-                .execute()
-        actual.body()!!.googleBlogList!!.run {
+        service.fetch("rss").subscribe(observer)
+        observer.assertComplete()
+        observer.assertNoErrors()
+        observer.assertValueCount(1)
+        observer.values()[0].googleBlogList!!.run {
             assertEquals(25, size)
             assertEquals("Phasing out legacy recommendations on Android TV", this[0].title)
             assertEquals("12/22/17 10:00 AM", this[0].dateForDisplay())
@@ -44,6 +51,7 @@ class GoogleBlogServiceTest {
 
     private fun createService() = Retrofit.Builder()
             .baseUrl(server.url("/").toString())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(SimpleXmlConverterFactory.create())
             .build()
             .create(GoogleBlogService::class.java)
