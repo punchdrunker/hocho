@@ -34,26 +34,27 @@ class BookmarksFragment : Fragment() {
         val context = this.context ?: return
         val service = BookmarkService.create(context)
         recyclerView.run {
-            val items = service.fetchAll()
-            val feedAdapter = FeedAdapter(context, items, false)
-            val listener = object : FeedAdapter.ArticleClickListener {
-                override fun onClick(view: View, url: String) {
-                    view.context.run {
-                        val backArrow = bitmapFromVectorDrawable(this, R.drawable.ic_arrow_back)
-                        val tabsIntent = CustomTabsIntent.Builder()
-                                .setShowTitle(true)
-                                .setCloseButtonIcon(backArrow)
-                                .setToolbarColor(ContextCompat.getColor(this, R.color.colorPrimary))
-                                .setStartAnimations(this, R.anim.slide_in_right, R.anim.slide_out_left)
-                                .setExitAnimations(this, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
-                                .build()
+            service.fetchAll().subscribe { items ->
+                val feedAdapter = FeedAdapter(context, items, false)
+                val listener = object : FeedAdapter.ArticleClickListener {
+                    override fun onClick(view: View, url: String) {
+                        view.context.run {
+                            val backArrow = bitmapFromVectorDrawable(this, R.drawable.ic_arrow_back)
+                            val tabsIntent = CustomTabsIntent.Builder()
+                                    .setShowTitle(true)
+                                    .setCloseButtonIcon(backArrow)
+                                    .setToolbarColor(ContextCompat.getColor(this, R.color.colorPrimary))
+                                    .setStartAnimations(this, R.anim.slide_in_right, R.anim.slide_out_left)
+                                    .setExitAnimations(this, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                                    .build()
 
-                        tabsIntent.launchUrl(this, Uri.parse(url))
+                            tabsIntent.launchUrl(this, Uri.parse(url))
+                        }
                     }
                 }
+                feedAdapter.setOnclickListener(listener)
+                adapter = feedAdapter
             }
-            feedAdapter.setOnclickListener(listener)
-            adapter = feedAdapter
         }
     }
 
