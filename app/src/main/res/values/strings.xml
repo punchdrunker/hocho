@@ -8,4 +8,6 @@
     <string name="content_description_drawer_close">Close drawer</string>
     <string name="nav_item_setting">Settings</string>
     <string name="settings_title">Settings</string>
+    <string name="nav_item_layout">layout</string>
+    <string name="layout_title">layout</string>
 </resources>
