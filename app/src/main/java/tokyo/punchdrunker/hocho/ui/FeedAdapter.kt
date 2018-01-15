@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import tokyo.punchdrunker.hocho.GlideApp
-import tokyo.punchdrunker.hocho.data.GoogleBlogXml
+import tokyo.punchdrunker.hocho.data.response.GoogleBlogXml
 import tokyo.punchdrunker.hocho.databinding.ItemArticleBinding
 
 class FeedAdapter(val context: Context, private var articles: List<GoogleBlogXml>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {

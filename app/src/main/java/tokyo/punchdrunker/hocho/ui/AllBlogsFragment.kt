@@ -6,8 +6,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import tokyo.punchdrunker.hocho.data.BlogRepository
+import tokyo.punchdrunker.hocho.data.repository.BlogRepository
 import tokyo.punchdrunker.hocho.databinding.FragmentArticlesBinding
+import tokyo.punchdrunker.hocho.viewmodel.BlogPostListViewModel
 
 class AllBlogsFragment : Fragment() {
     private lateinit var binding: FragmentArticlesBinding

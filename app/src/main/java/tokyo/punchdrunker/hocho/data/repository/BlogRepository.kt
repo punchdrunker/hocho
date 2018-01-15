@@ -1,7 +1,10 @@
-package tokyo.punchdrunker.hocho.data
+package tokyo.punchdrunker.hocho.data.repository
 
 import io.reactivex.Observable
 import io.reactivex.Single
+import tokyo.punchdrunker.hocho.data.response.BlogXml
+import tokyo.punchdrunker.hocho.data.service.GoogleBlogService
+import tokyo.punchdrunker.hocho.data.service.GradleBlogService
 
 class BlogRepository {
     fun loadAllBlogs(): Observable<List<BlogXml>> {

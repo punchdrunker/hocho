@@ -1,7 +1,7 @@
-package tokyo.punchdrunker.hocho.ui
+package tokyo.punchdrunker.hocho.viewmodel
 
 import android.view.View
-import tokyo.punchdrunker.hocho.data.BlogXml
+import tokyo.punchdrunker.hocho.data.response.BlogXml
 import tokyo.punchdrunker.hocho.usecase.OpenBlogItemUseCase
 
 class BlogPostListItemViewModel(post: BlogXml, val openUseCase: OpenBlogItemUseCase) {

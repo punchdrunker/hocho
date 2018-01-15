@@ -1,4 +1,4 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.data
 
 import io.reactivex.observers.TestObserver
 import junit.framework.Assert.assertEquals
@@ -9,8 +9,8 @@ import org.junit.Test
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory
-import tokyo.punchdrunker.hocho.data.GradleBlogResponse
-import tokyo.punchdrunker.hocho.data.GradleBlogService
+import tokyo.punchdrunker.hocho.data.response.GradleBlogResponse
+import tokyo.punchdrunker.hocho.data.service.GradleBlogService
 
 class GradleBlogServiceTest {
     private var server = MockWebServer()

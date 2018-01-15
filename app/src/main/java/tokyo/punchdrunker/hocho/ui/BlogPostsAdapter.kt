@@ -8,9 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import tokyo.punchdrunker.hocho.GlideApp
-import tokyo.punchdrunker.hocho.data.BlogXml
+import tokyo.punchdrunker.hocho.data.response.BlogXml
 import tokyo.punchdrunker.hocho.databinding.ItemBlogPostBinding
 import tokyo.punchdrunker.hocho.usecase.OpenBlogItemUseCase
+import tokyo.punchdrunker.hocho.viewmodel.BlogPostListItemViewModel
 
 
 class BlogPostsAdapter(

@@ -1,4 +1,4 @@
-package tokyo.punchdrunker.hocho.data
+package tokyo.punchdrunker.hocho.data.response
 
 interface BlogXml {
     fun getBlogTitle() : String

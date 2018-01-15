@@ -13,7 +13,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import tokyo.punchdrunker.hocho.R
 import tokyo.punchdrunker.hocho.ViewUtil.bitmapFromVectorDrawable
-import tokyo.punchdrunker.hocho.data.GoogleBlogService
+import tokyo.punchdrunker.hocho.data.service.GoogleBlogService
 import tokyo.punchdrunker.hocho.databinding.FragmentGoogleBlogBinding
 
 class GoogleBlogFragment: Fragment() {
