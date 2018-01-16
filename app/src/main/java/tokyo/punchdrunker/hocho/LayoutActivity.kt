@@ -2,7 +2,9 @@ package tokyo.punchdrunker.hocho
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import tokyo.punchdrunker.hocho.databinding.ActivityLayoutBinding
 
 class LayoutActivity : AppCompatActivity() {
@@ -14,6 +16,9 @@ class LayoutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setupToolbar()
+        binding.button.setOnClickListener(View.OnClickListener {
+            Snackbar.make(binding.scrollView, "hi", Snackbar.LENGTH_SHORT)
+        })
     }
 
     private fun setupToolbar() {
