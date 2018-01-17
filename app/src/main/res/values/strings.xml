@@ -26,4 +26,7 @@
     <string name="button">Button</string>
     <string name="imageview">ImageView</string>
     <string name="togglebutton">ToggleButton</string>
+    <string name="databinding">DataBinding</string>
+    <string name="snackbar_message">hi, this is a snackbar!</string>
+    <string name="show_snackbar">show snackbar</string>
 </resources>

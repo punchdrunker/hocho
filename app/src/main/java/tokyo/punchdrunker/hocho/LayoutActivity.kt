@@ -4,7 +4,6 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
-import android.view.View
 import tokyo.punchdrunker.hocho.databinding.ActivityLayoutBinding
 
 class LayoutActivity : AppCompatActivity() {
@@ -16,9 +15,10 @@ class LayoutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setupToolbar()
-        binding.button.setOnClickListener(View.OnClickListener {
-            Snackbar.make(binding.scrollView, "hi", Snackbar.LENGTH_SHORT)
+        binding.button.setOnClickListener({ view ->
+            Snackbar.make(view, getString(R.string.snackbar_message), Snackbar.LENGTH_SHORT).show()
         })
+        binding.user = User("punchdrunker", "engineer")
     }
 
     private fun setupToolbar() {
@@ -29,4 +29,6 @@ class LayoutActivity : AppCompatActivity() {
         }
         binding.toolbarTitle.text = getString(R.string.layout_title)
     }
+
+    data class User constructor(val name: String, val title: String)
 }
