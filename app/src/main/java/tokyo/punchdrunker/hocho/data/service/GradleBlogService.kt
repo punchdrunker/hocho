@@ -1,27 +1,27 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.data.service
 
+import io.reactivex.Single
 import okhttp3.OkHttpClient
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Query
+import tokyo.punchdrunker.hocho.data.response.GradleBlogResponse
 
-public interface BlogService {
-    @GET("/feeds/posts/default")
-    fun fetch(@Query("alt") alt: String): Call<AtomResponse>
+interface GradleBlogService {
+    @GET("/blog.atom")
+    fun fetch(): Single<GradleBlogResponse>
 
     companion object Factory {
-        fun create(): BlogService {
+        fun create(): GradleBlogService {
             val retrofit = Retrofit.Builder()
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(SimpleXmlConverterFactory.create())
                     .client(OkHttpClient())
-                    .baseUrl("https://android-developers.googleblog.com/")
+                    .baseUrl("https://feed.gradle.org/")
                     .build()
 
-            return retrofit.create<BlogService>(BlogService::class.java)
+            return retrofit.create<GradleBlogService>(GradleBlogService::class.java)
         }
     }
 }

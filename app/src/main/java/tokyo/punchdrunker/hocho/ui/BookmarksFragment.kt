@@ -1,4 +1,4 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.ui
 
 import android.net.Uri
 import android.os.Bundle
@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import tokyo.punchdrunker.hocho.BookmarkService
+import tokyo.punchdrunker.hocho.R
 import tokyo.punchdrunker.hocho.ViewUtil.bitmapFromVectorDrawable
 import tokyo.punchdrunker.hocho.databinding.FragmentBookmarksBinding
 

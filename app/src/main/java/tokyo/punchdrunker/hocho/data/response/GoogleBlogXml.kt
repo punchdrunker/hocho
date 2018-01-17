@@ -1,4 +1,4 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.data.response
 
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
@@ -7,7 +7,7 @@ import org.simpleframework.xml.Element
 import org.simpleframework.xml.Root
 
 @Root(name = "entry", strict = false)
-class EntryXml {
+class GoogleBlogXml : BlogXml {
     @set:Element
     @get:Element
     var title: String = ""
@@ -52,6 +52,26 @@ class EntryXml {
 
     fun articleUrl(): String {
         return origLink
+    }
+
+    override fun getBlogTitle(): String {
+        return title
+    }
+
+    override fun getBody(): String? {
+        return this.shortContent()
+    }
+
+    override fun getUrl(): String {
+        return origLink
+    }
+
+    override fun getPublishedDate(): String {
+        return this.dateForDisplay()
+    }
+
+    override fun getImageUrl(): String? {
+        return imageUrl()
     }
 
     companion object {
