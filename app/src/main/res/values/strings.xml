@@ -8,4 +8,25 @@
     <string name="content_description_drawer_close">Close drawer</string>
     <string name="nav_item_setting">Settings</string>
     <string name="settings_title">Settings</string>
+    <string name="nav_item_layout">layout</string>
+    <string name="layout_title">layout</string>
+    <string name="relativelayout">RelativeLayout</string>
+    <string name="text1">text1</string>
+    <string name="right_of_text1">right of text1</string>
+    <string name="below_text1">below text1</string>
+    <string name="framelayout">FrameLayout</string>
+    <string name="layered_text">layered text</string>
+    <string name="layout_gravity_is_center">layout_gravity is center</string>
+    <string name="linearlayout_vertical">LinearLayout(vertical)</string>
+    <string name="text2">text2</string>
+    <string name="text3">text3</string>
+    <string name="linearlayout_horizontal">LinearLayout(horizontal)</string>
+    <string name="constraintlayout">ConstraintLayout</string>
+    <string name="text4">text4</string>
+    <string name="button">Button</string>
+    <string name="imageview">ImageView</string>
+    <string name="togglebutton">ToggleButton</string>
+    <string name="databinding">DataBinding</string>
+    <string name="snackbar_message">hi, this is a snackbar!</string>
+    <string name="show_snackbar">show snackbar</string>
 </resources>

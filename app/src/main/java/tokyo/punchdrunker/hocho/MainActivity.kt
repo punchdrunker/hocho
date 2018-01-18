@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         actionBarDrawerToggle.syncState()
         binding.navigation.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
+                R.id.nav_item_layout -> startActivity(Intent(this, LayoutActivity::class.java))
                 R.id.nav_item_setting -> startActivity(Intent(this, SettingsActivity::class.java))
             }
             true
