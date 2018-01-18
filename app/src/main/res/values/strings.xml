@@ -8,7 +8,7 @@
     <string name="content_description_drawer_close">Close drawer</string>
     <string name="nav_item_setting">Settings</string>
     <string name="settings_title">Settings</string>
-    <string name="nav_item_layout">layout</string>
+    <string name="nav_item_layout">Layout</string>
     <string name="layout_title">layout</string>
     <string name="relativelayout">RelativeLayout</string>
     <string name="text1">text1</string>
@@ -29,4 +29,7 @@
     <string name="databinding">DataBinding</string>
     <string name="snackbar_message">hi, this is a snackbar!</string>
     <string name="show_snackbar">show snackbar</string>
+    <string name="notification">Notification</string>
+    <string name="channel_name">hocho news</string>
+    <string name="channel_description">hocho channel description</string>
 </resources>
