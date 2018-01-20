@@ -32,4 +32,6 @@
     <string name="notification">Notification</string>
     <string name="channel_name">hocho news</string>
     <string name="channel_description">hocho channel description</string>
+    <string name="notification_title">Notification</string>
+    <string name="notification_title_v26">Notification for O</string>
 </resources>

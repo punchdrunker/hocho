@@ -43,14 +43,61 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:text="show notification channels" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{activity::showNotificationChannels}"
+            android:text="show channels" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="create notification channels" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{activity::createNotificationChannel}"
+            android:text="create" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="show notification" />
 
         <Button
-            android:id="@+id/button_create_channel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="@{activity::showNotification}"
-            android:text="@string/text1" />
+            android:text="show notification" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="delete notification chennels" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{activity::deleteNotificationChannels}"
+            android:text="delete channels" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="create group and channels" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{activity::createGroupAndChannels}"
+            android:text="create" />
 
         <TextView
             android:layout_width="wrap_content"
