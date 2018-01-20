@@ -7,6 +7,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.databinding.DataBindingUtil
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.net.Uri
 import android.os.Build
@@ -62,26 +63,34 @@ class NotificationActivity : AppCompatActivity() {
         builder.setContentIntent(resultPendingIntent)
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(2, builder.build())
+
+        Snackbar.make(view, "check notification instatus bar", Snackbar.LENGTH_SHORT).show()
+    }
+
+    fun showBigPictureNotification(view: View) {
+        val bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.img_drawer_droidkaigi)
+        val builder = NotificationCompat.Builder(this, Channel.C1.id)
+                .setSmallIcon(R.drawable.ic_notifications_active_black_24dp)
+                .setContentTitle("Using Big Picture")
+                .setContentText("this notification is using big picture style")
+                .setStyle(NotificationCompat.BigPictureStyle().bigPicture(bitmap))
+
+        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.notify(2, builder.build())
+
+        Snackbar.make(view, "check notification instatus bar", Snackbar.LENGTH_SHORT).show()
     }
 
     fun showImportantNotification(view: View) {
         val builder = NotificationCompat.Builder(this, Channel.C4.id)
                 .setSmallIcon(R.drawable.ic_notifications_active_black_24dp)
                 .setContentTitle("Super Important!!!!")
-                .setContentText("Hello World!!!!!")
-        val resultIntent = Intent(this, NotificationActivity::class.java)
+                .setContentText("Hello Woooooooooorldddddzdzdz!!!!!")
 
-
-        val stackBuilder = TaskStackBuilder.create(this)
-        stackBuilder.addParentStack(NotificationActivity::class.java)
-        stackBuilder.addNextIntent(resultIntent)
-        val resultPendingIntent = stackBuilder.getPendingIntent(
-                0,
-                PendingIntent.FLAG_UPDATE_CURRENT
-        )
-        builder.setContentIntent(resultPendingIntent)
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(2, builder.build())
+
+        Snackbar.make(view, "this is head up notification", Snackbar.LENGTH_SHORT).show()
     }
 
     // api level 26 以上の端末用
@@ -89,19 +98,6 @@ class NotificationActivity : AppCompatActivity() {
     fun showNotificationChannels(view: View) {
         val names = notificationManager.notificationChannels.map { it.name }
         Snackbar.make(view, "Channels: " + names.joinToString(","), Snackbar.LENGTH_SHORT).show()
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun showNotificationChannelGroups(view: View) {
-        val names = notificationManager.notificationChannelGroups.map { it.name }
-        Snackbar.make(view, "Groups: " + names.joinToString(","), Snackbar.LENGTH_SHORT).show()
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun createNotificationChannel(view: View) {
-        createChannel(Channel.C1)
-        createChannel(Channel.C2)
-        Snackbar.make(view, "created channels", Snackbar.LENGTH_SHORT).show()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

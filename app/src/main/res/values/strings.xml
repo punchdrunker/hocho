@@ -44,4 +44,5 @@
     <string name="show_notification_channels">Show notification channels</string>
     <string name="show_channels">show channels</string>
     <string name="show_important_notification">show important notification</string>
+    <string name="use_big_picture_notification">use big picture</string>
 </resources>

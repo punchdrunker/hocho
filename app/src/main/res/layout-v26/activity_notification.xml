@@ -91,6 +91,13 @@
                     style="@style/NotificationActivityButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="@{activity::showBigPictureNotification}"
+                    android:text="@string/use_big_picture_notification" />
+
+                <Button
+                    style="@style/NotificationActivityButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:onClick="@{activity::showImportantNotification}"
                     android:text="@string/show_important_notification" />
 
