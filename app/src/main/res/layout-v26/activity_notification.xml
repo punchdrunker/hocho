@@ -10,105 +10,116 @@
             type="tokyo.punchdrunker.hocho.NotificationActivity" />
     </data>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:titleTextColor="@color/colorWhite">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/toolbar_title"
-                android:layout_width="wrap_content"
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:titleTextColor="@color/colorWhite">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="14dp"
+                    tools:text="title" />
+            </android.support.v7.widget.Toolbar>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="serif"
-                android:textColor="@color/colorBlack"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="14dp"
-                tools:text="title" />
-        </android.support.v7.widget.Toolbar>
+                android:orientation="vertical"
+                android:padding="16dp">
 
+                <TextView
+                    style="@style/NotificationActivityTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_notification_channels" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="show notification channels" />
+                <Button
+                    style="@style/NotificationActivityButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{activity::showNotificationChannels}"
+                    android:text="@string/show_channels" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{activity::showNotificationChannels}"
-            android:text="show channels" />
+                <TextView
+                    style="@style/NotificationActivityTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/create_group_and_channels" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="create notification channels" />
+                <Button
+                    style="@style/NotificationActivityButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{activity::createGroupAndChannels}"
+                    android:text="@string/create" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{activity::createNotificationChannel}"
-            android:text="create" />
+                <TextView
+                    style="@style/NotificationActivityTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_notification" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="show notification" />
+                <Button
+                    style="@style/NotificationActivityButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{activity::showNotification}"
+                    android:text="@string/show_notification" />
+                <Button
+                    style="@style/NotificationActivityButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{activity::showImportantNotification}"
+                    android:text="@string/show_important_notification" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{activity::showNotification}"
-            android:text="show notification" />
+                <TextView
+                    style="@style/NotificationActivityTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/delete_notification_chennels" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="delete notification chennels" />
+                <Button
+                    style="@style/NotificationActivityButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{activity::deleteNotificationChannels}"
+                    android:text="@string/delete_channels" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{activity::deleteNotificationChannels}"
-            android:text="delete channels" />
+                <TextView
+                    style="@style/NotificationActivityTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/go_to_setting" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="create group and channels" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{activity::createGroupAndChannels}"
-            android:text="create" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Go to setting" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{activity.navigateToSetting}"
-            android:text="Go" />
-    </LinearLayout>
+                <Button
+                    style="@style/NotificationActivityButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{activity.navigateToSetting}"
+                    android:text="@string/setting" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </layout>

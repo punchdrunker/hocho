@@ -22,7 +22,7 @@ import tokyo.punchdrunker.hocho.databinding.ActivityNotificationBinding
 
 
 class NotificationActivity : AppCompatActivity() {
-    val notificationManager: NotificationManager by lazy {
+    private val notificationManager: NotificationManager by lazy {
         getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     }
 
@@ -45,10 +45,30 @@ class NotificationActivity : AppCompatActivity() {
 
     // api level 26 より古い端末用
     fun showNotification(view: View) {
-        val builder = NotificationCompat.Builder(this, CHANNEL_1)
+        val builder = NotificationCompat.Builder(this, Channel.C1.id)
                 .setSmallIcon(R.drawable.ic_notifications_active_black_24dp)
                 .setContentTitle("My first notification")
                 .setContentText("Hello World!")
+        val resultIntent = Intent(this, NotificationActivity::class.java)
+
+
+        val stackBuilder = TaskStackBuilder.create(this)
+        stackBuilder.addParentStack(NotificationActivity::class.java)
+        stackBuilder.addNextIntent(resultIntent)
+        val resultPendingIntent = stackBuilder.getPendingIntent(
+                0,
+                PendingIntent.FLAG_UPDATE_CURRENT
+        )
+        builder.setContentIntent(resultPendingIntent)
+        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.notify(2, builder.build())
+    }
+
+    fun showImportantNotification(view: View) {
+        val builder = NotificationCompat.Builder(this, Channel.C4.id)
+                .setSmallIcon(R.drawable.ic_notifications_active_black_24dp)
+                .setContentTitle("Super Important!!!!")
+                .setContentText("Hello World!!!!!")
         val resultIntent = Intent(this, NotificationActivity::class.java)
 
 
@@ -71,7 +91,6 @@ class NotificationActivity : AppCompatActivity() {
         Snackbar.make(view, "Channels: " + names.joinToString(","), Snackbar.LENGTH_SHORT).show()
     }
 
-    // api level 26 以上の端末用
     @RequiresApi(Build.VERSION_CODES.O)
     fun showNotificationChannelGroups(view: View) {
         val names = notificationManager.notificationChannelGroups.map { it.name }
@@ -80,8 +99,9 @@ class NotificationActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun createNotificationChannel(view: View) {
-        createChannel(CHANNEL_1, "news", "This channel is news from hocho app")
-        createChannel(CHANNEL_2, "promotion", "This channel is a promotion from hocho app")
+        createChannel(Channel.C1)
+        createChannel(Channel.C2)
+        Snackbar.make(view, "created channels", Snackbar.LENGTH_SHORT).show()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -92,64 +112,51 @@ class NotificationActivity : AppCompatActivity() {
         notificationManager.notificationChannelGroups.forEach {
             notificationManager.deleteNotificationChannelGroup(it.id)
         }
+        Snackbar.make(view, "deleted channels and groups", Snackbar.LENGTH_SHORT).show()
+
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun createGroupAndChannels(view: View) {
-        var group = createGroup(GROUP_1, "Hocho")
-        createChannel(
-                CHANNEL_1,
-                "news",
-                "This channel is a news from hocho app",
-                NotificationManager.IMPORTANCE_HIGH,
-                group.id)
-        createChannel(
-                CHANNEL_2,
-                "promotion",
-                "This channel is a promotion from hocho app",
-                NotificationManager.IMPORTANCE_HIGH,
-                group.id)
+        val group1 = createGroup(Group.First)
+        createChannel(Channel.C1, group1.id)
+        createChannel(Channel.C2, group1.id)
 
-        group = createGroup(GROUP_2, "Friends")
-        createChannel(
-                CHANNEL_3,
-                "comment",
-                "Comments from friends",
-                NotificationManager.IMPORTANCE_HIGH,
-                group.id)
-        createChannel(
-                CHANNEL_4,
-                "like",
-                "Likes from friends",
-                NotificationManager.IMPORTANCE_HIGH,
-                group.id)
+        val group2 = createGroup(Group.Second)
+        createChannel(Channel.C3, group2.id)
+        createChannel(Channel.C4, group2.id)
+
+        val group3 = createGroup(Group.Third)
+        createChannel(Channel.C5, group3.id)
+        createChannel(Channel.C6, group3.id)
+
+        Snackbar.make(view, "created channels and groups", Snackbar.LENGTH_SHORT).show()
+
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun createGroup(id: String, name: String) : NotificationChannelGroup {
-        val group = NotificationChannelGroup(id, name)
-        notificationManager.createNotificationChannelGroup(group)
-        return group
+    private fun createGroup(group: Group): NotificationChannelGroup {
+        val notificationGroup = NotificationChannelGroup(group.id, group.groupName)
+        notificationManager.createNotificationChannelGroup(notificationGroup)
+        return notificationGroup
     }
+
     @RequiresApi(Build.VERSION_CODES.O)
     private fun createChannel(
-            id: String,
-            name: String,
-            description: String,
-            importance: Int = NotificationManager.IMPORTANCE_HIGH,
+            channel: Channel,
             groupId: String? = null
     ) {
-        val channel = NotificationChannel(id, name, importance)
+        val notificationChannel = NotificationChannel(channel.id, channel.channelName, channel.impotance)
 
-        channel.description = description
-        channel.enableLights(true)
-        channel.lightColor = Color.RED
-        channel.enableVibration(true)
-        channel.vibrationPattern = longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400)
+        notificationChannel.description = channel.description
+        notificationChannel.enableLights(true)
+        notificationChannel.lightColor = Color.RED
+        notificationChannel.enableVibration(true)
+        notificationChannel.vibrationPattern = longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400)
         if (!groupId.isNullOrEmpty()) {
-            channel.group = groupId
+            notificationChannel.group = groupId
         }
-        notificationManager.createNotificationChannel(channel)
+        notificationManager.createNotificationChannel(notificationChannel)
     }
 
     private fun setupToolbar() {
@@ -166,14 +173,22 @@ class NotificationActivity : AppCompatActivity() {
         }
     }
 
-    companion object {
-        const val GROUP_1 = "group_1"
-        const val GROUP_2 = "group_2"
-
-        const val CHANNEL_1 = "channel_1"
-        const val CHANNEL_2 = "channel_2"
-        const val CHANNEL_3 = "channel_3"
-        const val CHANNEL_4 = "channel_4"
-
+    enum class Group(val id: String, val groupName: String) {
+        First("group_1", "DroidKaigi"),
+        Second("group_2", "Hocho"),
+        Third("group_3", "Tokyo")
     }
+}
+
+enum class Channel(
+        val id: String,
+        val channelName: String,
+        val description: String,
+        val impotance: Int) {
+    C1("channel_1", "news", "This channel is a news from hocho app", NotificationManager.IMPORTANCE_HIGH),
+    C2("channel_2", "promotion", "This channel is a promotion from hocho app", NotificationManager.IMPORTANCE_LOW),
+    C3("channel_3", "comment", "Comments from friends", NotificationManager.IMPORTANCE_DEFAULT),
+    C4("channel_4", "like", "like from friends", NotificationManager.IMPORTANCE_MAX),
+    C5("channel_5", "fizz", "fizz notification", NotificationManager.IMPORTANCE_MIN),
+    C6("channel_6", "buzz", "buzz notification", NotificationManager.IMPORTANCE_NONE)
 }
