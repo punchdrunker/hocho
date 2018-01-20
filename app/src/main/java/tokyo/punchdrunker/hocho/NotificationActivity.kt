@@ -75,7 +75,7 @@ class NotificationActivity : AppCompatActivity() {
     }
 
     fun showBigPictureNotification(view: View) {
-        val bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.img_drawer_droidkaigi)
+        val bitmap = BitmapFactory.decodeResource(resources, R.drawable.img_drawer_droidkaigi)
         val builder = NotificationCompat.Builder(this, Channel.C1.id)
                 .setSmallIcon(R.drawable.ic_notifications_active_black_24dp)
                 .setContentTitle("Using Big Picture")
