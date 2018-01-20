@@ -23,6 +23,7 @@ import tokyo.punchdrunker.hocho.databinding.ActivityNotificationBinding
 
 
 class NotificationActivity : AppCompatActivity() {
+    private val notificationAppId = 2
     private val notificationManager: NotificationManager by lazy {
         getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     }
@@ -62,7 +63,7 @@ class NotificationActivity : AppCompatActivity() {
         )
         builder.setContentIntent(resultPendingIntent)
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(2, builder.build())
+        notificationManager.notify(notificationAppId, builder.build())
 
         Snackbar.make(view, "check notification instatus bar", Snackbar.LENGTH_SHORT).show()
     }
@@ -76,7 +77,7 @@ class NotificationActivity : AppCompatActivity() {
                 .setStyle(NotificationCompat.BigPictureStyle().bigPicture(bitmap))
 
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(2, builder.build())
+        notificationManager.notify(notificationAppId, builder.build())
 
         Snackbar.make(view, "check notification instatus bar", Snackbar.LENGTH_SHORT).show()
     }
@@ -88,7 +89,7 @@ class NotificationActivity : AppCompatActivity() {
                 .setContentText("Hello Woooooooooorldddddzdzdz!!!!!")
 
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(2, builder.build())
+        notificationManager.notify(notificationAppId, builder.build())
 
         Snackbar.make(view, "this is head up notification", Snackbar.LENGTH_SHORT).show()
     }
@@ -174,17 +175,18 @@ class NotificationActivity : AppCompatActivity() {
         Second("group_2", "Hocho"),
         Third("group_3", "Tokyo")
     }
+
+    enum class Channel(
+            val id: String,
+            val channelName: String,
+            val description: String,
+            val impotance: Int) {
+        C1("channel_1", "news", "This channel is a news from hocho app", NotificationManager.IMPORTANCE_HIGH),
+        C2("channel_2", "promotion", "This channel is a promotion from hocho app", NotificationManager.IMPORTANCE_LOW),
+        C3("channel_3", "comment", "Comments from friends", NotificationManager.IMPORTANCE_DEFAULT),
+        C4("channel_4", "like", "like from friends", NotificationManager.IMPORTANCE_MAX),
+        C5("channel_5", "fizz", "fizz notification", NotificationManager.IMPORTANCE_MIN),
+        C6("channel_6", "buzz", "buzz notification", NotificationManager.IMPORTANCE_NONE)
+    }
 }
 
-enum class Channel(
-        val id: String,
-        val channelName: String,
-        val description: String,
-        val impotance: Int) {
-    C1("channel_1", "news", "This channel is a news from hocho app", NotificationManager.IMPORTANCE_HIGH),
-    C2("channel_2", "promotion", "This channel is a promotion from hocho app", NotificationManager.IMPORTANCE_LOW),
-    C3("channel_3", "comment", "Comments from friends", NotificationManager.IMPORTANCE_DEFAULT),
-    C4("channel_4", "like", "like from friends", NotificationManager.IMPORTANCE_MAX),
-    C5("channel_5", "fizz", "fizz notification", NotificationManager.IMPORTANCE_MIN),
-    C6("channel_6", "buzz", "buzz notification", NotificationManager.IMPORTANCE_NONE)
-}
