@@ -24,6 +24,7 @@ import tokyo.punchdrunker.hocho.databinding.ActivityNotificationBinding
 
 class NotificationActivity : AppCompatActivity() {
     private val notificationAppId = 2
+    private val intentExtraKey = "notify"
     private val notificationManager: NotificationManager by lazy {
         getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     }
@@ -37,6 +38,11 @@ class NotificationActivity : AppCompatActivity() {
 
         setupToolbar()
         binding.activity = this
+
+        // 通知を開いた時だけ、メッセージを表示する
+        if (intent.getBooleanExtra(intentExtraKey, false)) {
+            Snackbar.make(binding.root, "Did you tap notification?", Snackbar.LENGTH_SHORT).show()
+        }
     }
 
     fun navigateToSetting(view: View) {
@@ -45,14 +51,14 @@ class NotificationActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    // api level 26 より古い端末用
     fun showNotification(view: View) {
         val builder = NotificationCompat.Builder(this, Channel.C1.id)
                 .setSmallIcon(R.drawable.ic_notifications_active_black_24dp)
                 .setContentTitle("My first notification")
                 .setContentText("Hello World!")
         val resultIntent = Intent(this, NotificationActivity::class.java)
-
+        // Activityにパラメータを渡す
+        resultIntent.putExtra(intentExtraKey, true)
 
         val stackBuilder = TaskStackBuilder.create(this)
         stackBuilder.addParentStack(NotificationActivity::class.java)
