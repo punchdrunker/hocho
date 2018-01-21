@@ -44,6 +44,14 @@
                 android:value="tokyo.punchdrunker.hocho.MainActivity" />
         </activity>
         <activity
+            android:name=".AsyncActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tokyo.punchdrunker.hocho.MainActivity" />
+        </activity>
+        <activity
             android:name=".SettingsActivity"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
