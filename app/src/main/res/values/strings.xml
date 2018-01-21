@@ -8,7 +8,7 @@
     <string name="content_description_drawer_close">Close drawer</string>
     <string name="nav_item_setting">Settings</string>
     <string name="settings_title">Settings</string>
-    <string name="nav_item_layout">layout</string>
+    <string name="nav_item_layout">Layout</string>
     <string name="layout_title">layout</string>
     <string name="relativelayout">RelativeLayout</string>
     <string name="text1">text1</string>
@@ -29,4 +29,20 @@
     <string name="databinding">DataBinding</string>
     <string name="snackbar_message">hi, this is a snackbar!</string>
     <string name="show_snackbar">show snackbar</string>
+    <string name="notification">Notification</string>
+    <string name="channel_name">hocho news</string>
+    <string name="channel_description">hocho channel description</string>
+    <string name="notification_title">Notification</string>
+    <string name="notification_title_v26">Notification for Android O</string>
+    <string name="show_notification">Show notification</string>
+    <string name="go_to_setting">Go to setting</string>
+    <string name="setting">setting</string>
+    <string name="create">create</string>
+    <string name="create_group_and_channels">Create group and channels</string>
+    <string name="delete_channels">delete channels</string>
+    <string name="delete_notification_chennels">Delete notification chennels</string>
+    <string name="show_notification_channels">Show notification channels</string>
+    <string name="show_channels">show channels</string>
+    <string name="show_important_notification">show important notification</string>
+    <string name="use_big_picture_notification">use big picture</string>
 </resources>

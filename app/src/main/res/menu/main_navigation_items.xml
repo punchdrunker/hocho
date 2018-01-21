@@ -6,6 +6,10 @@
             android:icon="@drawable/ic_layers_black_24dp"
             android:title="@string/nav_item_layout" />
         <item
+            android:id="@+id/nav_item_notification"
+            android:icon="@drawable/ic_notifications_active_black_24dp"
+            android:title="@string/notification" />
+        <item
             android:id="@+id/nav_item_setting"
             android:icon="@drawable/ic_settings_black_24dp"
             android:title="@string/nav_item_setting" />
