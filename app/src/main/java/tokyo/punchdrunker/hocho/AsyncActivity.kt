@@ -28,7 +28,7 @@ class AsyncActivity : AppCompatActivity() {
         }
 
         override fun onLoadFinished(loader: Loader<String>, data: String) {
-            supportLoaderManager.destroyLoader(loader.getId())
+            supportLoaderManager.destroyLoader(loader.id)
             taskResult = data
             Timber.d(taskResult)
         }
@@ -59,7 +59,7 @@ class AsyncActivity : AppCompatActivity() {
 
         val request = Request.Builder().url(url).build()
         val call = client.newCall(request)
-        val response = call.execute()
+        call.execute()
     }
 
     private fun setupToolbar() {

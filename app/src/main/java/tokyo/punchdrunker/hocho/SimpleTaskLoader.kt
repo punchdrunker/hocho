@@ -10,14 +10,12 @@ class SimpleTaskLoader(context: Context) : AsyncTaskLoader<String>(context) {
     private var started = false
 
     override fun loadInBackground(): String {
-        var body = ""
-
         val url = "https://mixi.co.jp"
         val client = OkHttpClient()
         val request = Request.Builder().url(url).build()
         val call = client.newCall(request)
         val response = call.execute()
-        body = response.body().toString()
+        val body = response.body().toString()
 
         return "task complete: " + body
     }
