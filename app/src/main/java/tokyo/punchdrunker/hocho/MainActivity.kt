@@ -63,6 +63,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.nav_item_layout -> startActivity(Intent(this, LayoutActivity::class.java))
                 R.id.nav_item_notification -> startActivity(Intent(this, NotificationActivity::class.java))
+                R.id.nav_item_async -> startActivity(Intent(this, AsyncActivity::class.java))
                 R.id.nav_item_setting -> startActivity(Intent(this, SettingsActivity::class.java))
             }
             true
