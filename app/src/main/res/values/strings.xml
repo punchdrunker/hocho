@@ -46,4 +46,8 @@
     <string name="show_important_notification">show important notification</string>
     <string name="use_big_picture_notification">use big picture</string>
     <string name="async">Async</string>
+    <string name="http_request_on_main_thread">http request on main thread</string>
+    <string name="crash">crash!</string>
+    <string name="http_request_on_another_thread">http request on another thread</string>
+    <string name="get">GET</string>
 </resources>

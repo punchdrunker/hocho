@@ -41,34 +41,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="8dp"
+            android:padding="16dp"
             app:layout_constraintTop_toBottomOf="@id/toolbar">
 
             <TextView
                 style="@style/AsyncActivityTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="http request on main thread" />
+                android:text="@string/http_request_on_main_thread" />
 
             <Button
                 style="@style/AsyncActivityButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="@{activity::crashApp}"
-                android:text="crash!" />
+                android:text="@string/crash" />
 
             <TextView
                 style="@style/AsyncActivityTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="http request on another thread" />
+                android:text="@string/http_request_on_another_thread" />
 
             <Button
                 style="@style/AsyncActivityButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="@{activity::requestOnBackground}"
-                android:text="GET" />
+                android:text="@string/get" />
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>
 </layout>
