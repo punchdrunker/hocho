@@ -68,7 +68,6 @@ class NotificationActivity : AppCompatActivity() {
                 PendingIntent.FLAG_UPDATE_CURRENT
         )
         builder.setContentIntent(resultPendingIntent)
-        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(notificationAppId, builder.build())
 
         Snackbar.make(view, "check notification instatus bar", Snackbar.LENGTH_SHORT).show()
@@ -81,8 +80,6 @@ class NotificationActivity : AppCompatActivity() {
                 .setContentTitle("Using Big Picture")
                 .setContentText("this notification is using big picture style")
                 .setStyle(NotificationCompat.BigPictureStyle().bigPicture(bitmap))
-
-        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(notificationAppId, builder.build())
 
         Snackbar.make(view, "check notification instatus bar", Snackbar.LENGTH_SHORT).show()
@@ -93,8 +90,6 @@ class NotificationActivity : AppCompatActivity() {
                 .setSmallIcon(R.drawable.ic_notifications_active_black_24dp)
                 .setContentTitle("Super Important!!!!")
                 .setContentText("Hello Woooooooooorldddddzdzdz!!!!!")
-
-        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(notificationAppId, builder.build())
 
         Snackbar.make(view, "this is head up notification", Snackbar.LENGTH_SHORT).show()
