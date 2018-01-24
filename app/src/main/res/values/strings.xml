@@ -50,4 +50,5 @@
     <string name="crash">crash!</string>
     <string name="http_request_on_another_thread">http request on another thread</string>
     <string name="get">GET</string>
+    <string name="use_retrofit">use retrofit</string>
 </resources>

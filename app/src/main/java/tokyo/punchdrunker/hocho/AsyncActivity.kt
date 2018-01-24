@@ -2,12 +2,16 @@ package tokyo.punchdrunker.hocho
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.LoaderManager
 import android.support.v4.content.Loader
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import timber.log.Timber
 import tokyo.punchdrunker.hocho.databinding.ActivityAsyncBinding
 
@@ -51,6 +55,20 @@ class AsyncActivity : AppCompatActivity() {
         val args = Bundle()
         args.putString(extraParam, "サンプルパラメータ")
         supportLoaderManager.initLoader<String>(loaderId, args, callback)
+    }
+
+    fun requestWithRetrofit(view: View) {
+        val service = BlogService.create()
+        service.fetch("rss").enqueue(object : Callback<AtomResponse> {
+            override fun onResponse(call: Call<AtomResponse>, response: Response<AtomResponse>) {
+                val atom = response.body()
+                Snackbar.make(view, "Latest blog title: " + atom?.entryList!![0].title, Snackbar.LENGTH_SHORT).show()
+            }
+
+            override fun onFailure(call: Call<AtomResponse>, t: Throwable) {
+                Timber.w(t)
+            }
+        })
     }
 
     private fun httpRequest() {

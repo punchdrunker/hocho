@@ -69,6 +69,19 @@
                 android:layout_height="wrap_content"
                 android:onClick="@{activity::requestOnBackground}"
                 android:text="@string/get" />
+
+            <TextView
+                style="@style/AsyncActivityTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/use_retrofit" />
+
+            <Button
+                style="@style/AsyncActivityButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{activity::requestWithRetrofit}"
+                android:text="@string/get" />
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>
 </layout>
