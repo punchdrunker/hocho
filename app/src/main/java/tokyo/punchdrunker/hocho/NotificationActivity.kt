@@ -53,7 +53,7 @@ class NotificationActivity : AppCompatActivity() {
 
     fun showNotification(view: View) {
         val builder = NotificationCompat.Builder(this, Channel.C1.id)
-                .setSmallIcon(R.drawable.ic_notifications_active_black_24dp)
+                .setSmallIcon(R.drawable.ic_notification)
                 .setContentTitle("My first notification")
                 .setContentText("Hello World!")
         val resultIntent = Intent(this, NotificationActivity::class.java)
@@ -76,7 +76,7 @@ class NotificationActivity : AppCompatActivity() {
     fun showBigPictureNotification(view: View) {
         val bitmap = BitmapFactory.decodeResource(resources, R.drawable.img_drawer_droidkaigi)
         val builder = NotificationCompat.Builder(this, Channel.C1.id)
-                .setSmallIcon(R.drawable.ic_notifications_active_black_24dp)
+                .setSmallIcon(R.drawable.ic_notification)
                 .setContentTitle("Using Big Picture")
                 .setContentText("this notification is using big picture style")
                 .setStyle(NotificationCompat.BigPictureStyle().bigPicture(bitmap))
@@ -87,7 +87,7 @@ class NotificationActivity : AppCompatActivity() {
 
     fun showImportantNotification(view: View) {
         val builder = NotificationCompat.Builder(this, Channel.C4.id)
-                .setSmallIcon(R.drawable.ic_notifications_active_black_24dp)
+                .setSmallIcon(R.drawable.ic_notification)
                 .setContentTitle("Super Important!!!!")
                 .setContentText("Hello Woooooooooorldddddzdzdz!!!!!")
         notificationManager.notify(notificationAppId, builder.build())
