@@ -91,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="@{activity::requestWithRetrofitAndCoroutine}"
-                android:text="@string/button" />
+                android:text="@string/get" />
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>
 </layout>
