@@ -15,7 +15,6 @@
     </style>
     <style name="NotificationActivityTitleText">
         <item name="android:textSize">20sp</item>
-        <item name="android:textStyle"></item>
         <item name="android:fontFamily">serif</item>
         <item name="android:textColor">@color/colorBlack</item>
         <item name="android:layout_marginBottom">8dp</item>
@@ -28,7 +27,6 @@
 
     <style name="AsyncActivityTitleText">
         <item name="android:textSize">20sp</item>
-        <item name="android:textStyle"></item>
         <item name="android:fontFamily">serif</item>
         <item name="android:textColor">@color/colorBlack</item>
         <item name="android:layout_marginBottom">8dp</item>
