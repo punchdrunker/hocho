@@ -48,7 +48,8 @@
     <string name="async">Async</string>
     <string name="http_request_on_main_thread">http request on main thread</string>
     <string name="crash">crash!</string>
-    <string name="http_request_on_another_thread">http request on another thread</string>
+    <string name="async_task_loader">AsyncTaskLoader</string>
     <string name="get">GET</string>
-    <string name="use_retrofit">use retrofit</string>
+    <string name="retrofit">Retrofit</string>
+    <string name="retrofit_and_coroutine">Retrofit and Coroutine</string>
 </resources>

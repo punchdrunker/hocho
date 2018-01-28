@@ -7,18 +7,20 @@ import android.support.v4.app.LoaderManager
 import android.support.v4.content.Loader
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import kotlinx.coroutines.experimental.android.UI
+import kotlinx.coroutines.experimental.launch
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import ru.gildor.coroutines.retrofit.await
 import timber.log.Timber
 import tokyo.punchdrunker.hocho.databinding.ActivityAsyncBinding
 
 
 class AsyncActivity : AppCompatActivity() {
 
-    private var taskResult = ""
     private val loaderId = 1
     private val extraParam = "extra_param"
 
@@ -31,10 +33,10 @@ class AsyncActivity : AppCompatActivity() {
             return SimpleTaskLoader(this@AsyncActivity)
         }
 
-        override fun onLoadFinished(loader: Loader<String>, data: String) {
+        // deliverResultされたものが、bodyに入ってくる
+        override fun onLoadFinished(loader: Loader<String>, body: String) {
             supportLoaderManager.destroyLoader(loader.id)
-            taskResult = data
-            Timber.d(taskResult)
+            Snackbar.make(binding.root, "resopnse body: " + body, Snackbar.LENGTH_SHORT).show()
         }
 
         override fun onLoaderReset(loader: Loader<String>) {}
@@ -47,22 +49,32 @@ class AsyncActivity : AppCompatActivity() {
         setupToolbar()
     }
 
+    // OkHttpを使った通信
     fun crashApp(view: View) {
-        httpRequest()
+        val url = "https://mixi.co.jp"
+        val client = OkHttpClient()
+        val request = Request.Builder().url(url).build()
+        val call = client.newCall(request)
+        // 準備せずに同期実行するとクラッシュする(execute)
+        val response = call.execute()
+
+        Snackbar.make(view, "Blog title: " + response.body()?.string(), Snackbar.LENGTH_SHORT).show()
     }
 
+    // AsyncTaskLoader を使った通信
     fun requestOnBackground(view: View) {
         val args = Bundle()
         args.putString(extraParam, "サンプルパラメータ")
         supportLoaderManager.initLoader<String>(loaderId, args, callback)
     }
 
+    // Retrofit を使った通信
     fun requestWithRetrofit(view: View) {
         val service = BlogService.create()
         service.fetch("rss").enqueue(object : Callback<AtomResponse> {
             override fun onResponse(call: Call<AtomResponse>, response: Response<AtomResponse>) {
                 val atom = response.body()
-                Snackbar.make(view, "Latest blog title: " + atom?.entryList!![0].title, Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(view, "Blog title: " + atom?.entryList!![0].title, Snackbar.LENGTH_SHORT).show()
             }
 
             override fun onFailure(call: Call<AtomResponse>, t: Throwable) {
@@ -71,13 +83,14 @@ class AsyncActivity : AppCompatActivity() {
         })
     }
 
-    private fun httpRequest() {
-        val url = "https://mixi.co.jp"
-        val client = OkHttpClient()
-
-        val request = Request.Builder().url(url).build()
-        val call = client.newCall(request)
-        call.execute()
+    // Retrofit + Coroutine を使った通信 (kotlin-coroutines-retrofit moduleを使用)
+    fun requestWithRetrofitAndCoroutine(view: View) {
+        val service = BlogService.create()
+        launch(UI) {
+            val respnse = service.fetch("rss").await()
+            Snackbar.make(view, "[COROUTINE]Blog title: " + respnse.entryList!![0].title, Snackbar.LENGTH_SHORT).show()
+        }
+        Snackbar.make(view, "TEST TONE 1", Snackbar.LENGTH_SHORT).show()
     }
 
     private fun setupToolbar() {

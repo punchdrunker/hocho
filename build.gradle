@@ -4,10 +4,11 @@ buildscript {
     ext.versions = [
             'buildTools': '27.0.3',
             'glide': '4.4.0',
-            'kotlin': '1.2.20',
+            'kotlin': '1.2.21',
             'supportLibrary': '27.0.2',
             'retrofit': '2.3.0',
-            'okhttp': '3.9.1'
+            'okhttp': '3.9.1',
+            'coroutines': '0.22'
     ]
     repositories {
         google()
