@@ -1,4 +1,4 @@
-package tokyo.punchdrunker.hocho.ViewUtil
+package tokyo.punchdrunker.hocho
 
 import android.content.Context
 import android.graphics.Bitmap

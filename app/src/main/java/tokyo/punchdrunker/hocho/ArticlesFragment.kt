@@ -13,7 +13,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import timber.log.Timber
-import tokyo.punchdrunker.hocho.ViewUtil.bitmapFromVectorDrawable
 import tokyo.punchdrunker.hocho.databinding.FragmentArticlesBinding
 
 class ArticlesFragment : Fragment() {
