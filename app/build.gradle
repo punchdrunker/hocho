@@ -60,6 +60,10 @@ dependencies {
     // rx
     implementation "io.reactivex.rxjava2:rxandroid:2.0.1"                       // <- 利用するライブラリを設定する
 
+    // coroutine
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
+    implementation 'ru.gildor.coroutines:kotlin-coroutines-retrofit:0.9.0'
     // utils
     implementation 'joda-time:joda-time:2.9.9'
 
@@ -71,4 +75,10 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     testImplementation "com.squareup.okhttp3:mockwebserver:$versions.okhttp"
+}
+
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
 }
