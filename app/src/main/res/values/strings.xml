@@ -13,7 +13,7 @@
     <string name="relativelayout">RelativeLayout</string>
     <string name="text1">text1</string>
     <string name="right_of_text1">right of text1</string>
-    <string name="below_text1">below text1</string>
+    <string name="below_text2">below text2</string>
     <string name="framelayout">FrameLayout</string>
     <string name="layered_text">layered text</string>
     <string name="layout_gravity_is_center">layout_gravity is center</string>
