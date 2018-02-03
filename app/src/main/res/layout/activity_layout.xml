@@ -30,8 +30,6 @@
                 android:textColor="@color/colorBlack"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="14dp"
                 tools:text="title" />
         </android.support.v7.widget.Toolbar>
 

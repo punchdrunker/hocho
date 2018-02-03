@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
 import tokyo.punchdrunker.hocho.databinding.ActivityLayoutBinding
 
 class LayoutActivity : AppCompatActivity() {
@@ -25,13 +26,26 @@ class LayoutActivity : AppCompatActivity() {
     }
 
     private fun setupToolbar() {
-        //setSupportActionBar(binding.toolbar)
-//        supportActionBar?.apply {
-//            title = ""
-//            //setDisplayHomeAsUpEnabled(true)
-//        }
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.apply{
+            setDisplayHomeAsUpEnabled(true)
+            setHomeButtonEnabled(true)
+            title = ""
+        }
         binding.toolbarTitle.text = getString(R.string.layout_title)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.getItemId()
+        var result = true
+
+        when (id) {
+            android.R.id.home -> finish()
+            else -> result = super.onOptionsItemSelected(item)
+        }
+
+        return result
+    }
+    
     data class User constructor(val name: String, val title: String)
 }
