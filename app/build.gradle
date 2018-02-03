@@ -15,6 +15,7 @@ android {
         versionName "1.0"                           // <- ユーザーが目にするバージョン名
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"  // <- androidTestに使われるRunner
     }
+
     buildTypes {
         // リリースに使う設定
         release {
@@ -22,7 +23,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'  // <- Proguard(難読化ツールの設定ファイルを指定)
         }
     }
-
     // コンパイルに使うJavaのバージョンの設定
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
