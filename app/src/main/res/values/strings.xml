@@ -56,5 +56,5 @@
     <string name="layout">Layout</string>
     <string name="component">Component</string>
     <string name="this_is_a_title">Guideline is very useful</string>
-    <string name="sample_body">This is a body of something. This is very loooooooooooooooooooooooooooooooooooooong string. \n\n Actually this is really looong string.\n\nThen this is a verrrrrrrrrrrrrrrrry long text. Because it's needed truly.</string>
+    <string name="sample_body">This is a body of something. This is very loooooooooooooooooooooooooooooooooooooong string. \n\n Actually this is really looong string.\n\nThen this is a verrrrrrrrrrrrrrrrry long text. Because it\'s needed truly.</string>
 </resources>
