@@ -19,6 +19,9 @@ class LayoutActivity : AppCompatActivity() {
             Snackbar.make(view, getString(R.string.snackbar_message), Snackbar.LENGTH_SHORT).show()
         })
         binding.user = User("punchdrunker", "engineer")
+        binding.fab.setOnClickListener {
+            Snackbar.make(it, getString(R.string.fab_message), Snackbar.LENGTH_SHORT).show()
+        }
     }
 
     private fun setupToolbar() {
