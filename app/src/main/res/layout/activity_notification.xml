@@ -65,7 +65,7 @@
                 style="@style/NotificationActivityButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="@{activity.navigateToSetting}"
+                android:onClick="@{activity::navigateToSetting}"
                 android:text="@string/setting" />
         </LinearLayout>
     </ScrollView>

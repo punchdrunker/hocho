@@ -13,7 +13,7 @@
     <string name="relativelayout">RelativeLayout</string>
     <string name="text1">text1</string>
     <string name="right_of_text1">right of text1</string>
-    <string name="below_text1">below text1</string>
+    <string name="below_text2">below text2</string>
     <string name="framelayout">FrameLayout</string>
     <string name="layered_text">layered text</string>
     <string name="layout_gravity_is_center">layout_gravity is center</string>
@@ -28,6 +28,7 @@
     <string name="togglebutton">ToggleButton</string>
     <string name="databinding">DataBinding</string>
     <string name="snackbar_message">hi, this is a snackbar!</string>
+    <string name="fab_message">you tapped Floating Action Button</string>
     <string name="show_snackbar">show snackbar</string>
     <string name="notification">Notification</string>
     <string name="channel_name">hocho news</string>
@@ -52,4 +53,8 @@
     <string name="get">GET</string>
     <string name="retrofit">Retrofit</string>
     <string name="retrofit_and_coroutine">Retrofit and Coroutine</string>
+    <string name="layout">Layout</string>
+    <string name="component">Component</string>
+    <string name="this_is_a_title">Guideline is very useful</string>
+    <string name="sample_body">This is a body of something. This is very loooooooooooooooooooooooooooooooooooooong string. \n\n Actually this is really looong string.\n\nThen this is a verrrrrrrrrrrrrrrrry long text. Because it\'s needed truly.</string>
 </resources>
