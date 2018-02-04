@@ -10,7 +10,9 @@ import tokyo.punchdrunker.hocho.databinding.ItemArticleBinding
 class FeedAdapter(val context: Context, private var articles: List<EntryXml>, private val fixSize: Boolean = true) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var onClickListener: ArticleClickListener? = null
-
+    private val bookmarkService = BookmarkService(context)
+    private val bookmarkedImageId = R.drawable.ic_bookmark_black_24dp
+    private val unbookmarkedImageId = R.drawable.ic_bookmark_border_black_24dp
     interface ArticleClickListener {
         fun onClick(view: View, url: String)
     }
@@ -42,8 +44,14 @@ class FeedAdapter(val context: Context, private var articles: List<EntryXml>, pr
                     entryImage.visibility = View.VISIBLE
                     GlideApp.with(context).load(article.imageUrl()).into(entryImage)
                 }
-                imageButton.setOnClickListener { view ->
-                    BookmarkService(view.context).run {
+                val buttonImageId = if (bookmarkService.isBookmarked(article)) {
+                    bookmarkedImageId
+                } else {
+                    unbookmarkedImageId
+                }
+                bookmarkButton.setImageResource(buttonImageId)
+                bookmarkButton.setOnClickListener { view ->
+                    bookmarkService.run {
                         when (isBookmarked(article)) {
                             true -> {
                                 if (!fixSize) {
@@ -51,8 +59,12 @@ class FeedAdapter(val context: Context, private var articles: List<EntryXml>, pr
                                     notifyDataSetChanged()
                                 }
                                 removeBookmark(article)
+                                bookmarkButton.setImageResource(unbookmarkedImageId)
                             }
-                            else -> putBookmark(article)
+                            else -> {
+                                putBookmark(article)
+                                bookmarkButton.setImageResource(bookmarkedImageId)
+                            }
                         }
                     }
                 }
