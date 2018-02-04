@@ -69,6 +69,7 @@ dependencies {
 
     // debug
     implementation 'com.jakewharton.timber:timber:4.6.0'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
 
     // test
     testImplementation 'junit:junit:4.12'

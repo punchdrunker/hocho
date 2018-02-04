@@ -1,5 +1,6 @@
 package tokyo.punchdrunker.hocho
 
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -14,10 +15,14 @@ interface BlogService {
 
     companion object Factory {
         fun create(): BlogService {
+            // Stethoでの監視を有効にする
+            val okhttp = OkHttpClient.Builder()
+                    .addNetworkInterceptor(StethoInterceptor())
+                    .build()
             val retrofit = Retrofit.Builder()
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(SimpleXmlConverterFactory.create())
-                    .client(OkHttpClient())
+                    .client(okhttp)
                     .baseUrl("https://android-developers.googleblog.com/")
                     .build()
 
