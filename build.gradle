@@ -8,6 +8,7 @@ buildscript {
             'supportLibrary': '27.0.2',
             'retrofit': '2.3.0',
             'okhttp': '3.9.1',
+            'leakcanary': '1.5.4',
             'coroutines': '0.22'
     ]
     repositories {
