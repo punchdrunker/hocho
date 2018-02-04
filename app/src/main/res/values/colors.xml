@@ -5,4 +5,8 @@
     <color name="colorAccent">#999999</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
+    <color name="layoutActivityPrimary">#f9a825</color>
+    <color name="layoutActivityLight">#ffd95a</color>
+    <color name="layoutActivityDark">#c17900</color>
+    <color name="layoutActivityBackground">#fff59d</color>
 </resources>
