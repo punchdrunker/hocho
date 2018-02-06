@@ -6,6 +6,7 @@
     <string name="help_title">Help</string>
     <string name="content_description_drawer_open">Open drawer</string>
     <string name="content_description_drawer_close">Close drawer</string>
+    <string name="nav_item_lifecycle">Lifecycle</string>
     <string name="nav_item_setting">Settings</string>
     <string name="settings_title">Settings</string>
     <string name="nav_item_layout">Layout</string>
@@ -57,4 +58,5 @@
     <string name="component">Component</string>
     <string name="this_is_a_title">Guideline is very useful</string>
     <string name="sample_body">This is a body of something. This is very loooooooooooooooooooooooooooooooooooooong string. \n\n Actually this is really looong string.\n\nThen this is a verrrrrrrrrrrrrrrrry long text. Because it\'s needed truly.</string>
+    <string name="finish_activity">Finish Activity</string>
 </resources>
