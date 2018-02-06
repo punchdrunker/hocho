@@ -1,8 +1,12 @@
 package tokyo.punchdrunker.hocho
 
+import android.app.SearchManager
+import android.content.Intent
 import android.databinding.DataBindingUtil
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import timber.log.Timber
 import tokyo.punchdrunker.hocho.databinding.ActivityLifecycleBinding
 
@@ -44,5 +48,21 @@ class LifecycleActivity : AppCompatActivity() {
     override fun onRestart() {
         super.onRestart()
         Timber.v("onRestart")
+    }
+
+    fun onOpenWeb(view: View) {
+        view.context.apply {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://droidkaigi.jp"))
+            startActivity(intent)
+        }
+    }
+
+    fun onSearch(view: View) {
+        view.context.apply {
+            val intent = Intent(Intent.ACTION_WEB_SEARCH).apply {
+                putExtra(SearchManager.QUERY, "droidkaigi")
+            }
+            startActivity(intent)
+        }
     }
 }
