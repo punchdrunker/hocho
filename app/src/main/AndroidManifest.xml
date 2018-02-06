@@ -9,6 +9,7 @@
     a disconnected to a connected network state.
     -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".HochoApplication"
         android:allowBackup="false"
@@ -59,6 +60,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tokyo.punchdrunker.hocho.MainActivity" />
         </activity>
+        <activity android:name=".LifecycleActivity"></activity>
     </application>
 
 </manifest>
