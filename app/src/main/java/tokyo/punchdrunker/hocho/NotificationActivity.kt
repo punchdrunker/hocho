@@ -51,6 +51,7 @@ class NotificationActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    // 普通の通知
     fun showNotification(view: View) {
         val builder = NotificationCompat.Builder(this, Channel.C1.id)
                 .setSmallIcon(R.drawable.ic_notification)
@@ -73,9 +74,10 @@ class NotificationActivity : AppCompatActivity() {
         Snackbar.make(view, "check notification instatus bar", Snackbar.LENGTH_SHORT).show()
     }
 
+    // 大きな画像付きの通知
     fun showBigPictureNotification(view: View) {
         val bitmap = BitmapFactory.decodeResource(resources, R.drawable.img_drawer_droidkaigi)
-        val builder = NotificationCompat.Builder(this, Channel.C1.id)
+        val builder = NotificationCompat.Builder(this, Channel.C2.id)
                 .setSmallIcon(R.drawable.ic_notification)
                 .setContentTitle("Using Big Picture")
                 .setContentText("this notification is using big picture style")
@@ -85,6 +87,7 @@ class NotificationActivity : AppCompatActivity() {
         Snackbar.make(view, "check notification instatus bar", Snackbar.LENGTH_SHORT).show()
     }
 
+    // 重要な通知
     fun showImportantNotification(view: View) {
         val builder = NotificationCompat.Builder(this, Channel.C4.id)
                 .setSmallIcon(R.drawable.ic_notification)
@@ -182,7 +185,7 @@ class NotificationActivity : AppCompatActivity() {
             val channelName: String,
             val description: String,
             val impotance: Int) {
-        C1("channel_1", "news", "This channel is a news from hocho app", NotificationManager.IMPORTANCE_HIGH),
+        C1("channel_1", "news", "This channel is a news from hocho app", NotificationManager.IMPORTANCE_LOW),
         C2("channel_2", "promotion", "This channel is a promotion from hocho app", NotificationManager.IMPORTANCE_LOW),
         C3("channel_3", "comment", "Comments from friends", NotificationManager.IMPORTANCE_DEFAULT),
         C4("channel_4", "like", "like from friends", NotificationManager.IMPORTANCE_MAX),
