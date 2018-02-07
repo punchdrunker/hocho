@@ -15,7 +15,7 @@
             android:title="@string/async" />
         <item
             android:id="@+id/nav_item_lifecycle"
-            android:icon="@drawable/ic_settings_black_24dp"
+            android:icon="@drawable/ic_sync_black_24dp"
             android:title="@string/nav_item_lifecycle" />
     </group>
 </menu>
