@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebSettings.LOAD_CACHE_ELSE_NETWORK
 import android.webkit.WebViewClient
 import timber.log.Timber
 import tokyo.punchdrunker.hocho.databinding.FragmentWikiBinding
@@ -20,6 +21,7 @@ class WikiFragment : Fragment() {
         Timber.v("onCreateView")
 
         binding.webView.setWebViewClient(WebViewClient())
+        binding.webView.settings.cacheMode = LOAD_CACHE_ELSE_NETWORK
         binding.webView.loadUrl(wikiUrl)
 
         return binding.root
