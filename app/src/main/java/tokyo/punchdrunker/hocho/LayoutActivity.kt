@@ -36,7 +36,7 @@ class LayoutActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.getItemId()
+        val id = item.itemId
         var result = true
 
         when (id) {
