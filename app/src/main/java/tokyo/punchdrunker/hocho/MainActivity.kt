@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction().replace(R.id.container, BookmarksFragment.newInstance()).commitAllowingStateLoss()
                 }
                 R.id.navigation_help -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.container, HelpFragment.newInstance()).commitAllowingStateLoss()
+                    supportFragmentManager.beginTransaction().replace(R.id.container, WikiFragment.newInstance()).commitAllowingStateLoss()
                 }
                 else -> throw NotImplementedError()
             }
