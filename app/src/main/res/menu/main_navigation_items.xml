@@ -17,9 +17,5 @@
             android:id="@+id/nav_item_lifecycle"
             android:icon="@drawable/ic_settings_black_24dp"
             android:title="@string/nav_item_lifecycle" />
-        <item
-            android:id="@+id/nav_item_setting"
-            android:icon="@drawable/ic_settings_black_24dp"
-            android:title="@string/nav_item_setting" />
     </group>
 </menu>

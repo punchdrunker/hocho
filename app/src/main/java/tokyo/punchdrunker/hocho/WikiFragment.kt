@@ -20,7 +20,7 @@ class WikiFragment : Fragment() {
         binding = FragmentWikiBinding.inflate(inflater, container!!, false)
         Timber.v("onCreateView")
 
-        binding.webView.setWebViewClient(WebViewClient())
+        binding.webView.webViewClient = WebViewClient()
         binding.webView.settings.cacheMode = LOAD_CACHE_ELSE_NETWORK
         binding.webView.loadUrl(wikiUrl)
 

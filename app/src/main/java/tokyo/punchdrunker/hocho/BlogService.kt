@@ -18,7 +18,7 @@ interface BlogService {
         fun create(): BlogService {
             val logging = HttpLoggingInterceptor()
             val logLevel = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
-            logging.setLevel(logLevel)
+            logging.level = logLevel
 
             val okhttp = OkHttpClient.Builder()
                     .addInterceptor(logging) // response bodyをlogcatに流す
