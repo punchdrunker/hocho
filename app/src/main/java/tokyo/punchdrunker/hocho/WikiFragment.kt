@@ -6,16 +6,24 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebSettings.LOAD_CACHE_ELSE_NETWORK
+import android.webkit.WebViewClient
 import timber.log.Timber
-import tokyo.punchdrunker.hocho.databinding.FragmentHelpBinding
+import tokyo.punchdrunker.hocho.databinding.FragmentWikiBinding
 
-class HelpFragment : Fragment() {
-    private lateinit var binding: FragmentHelpBinding
+class WikiFragment : Fragment() {
+    private lateinit var binding: FragmentWikiBinding
+    private val wikiUrl = "https://github.com/punchdrunker/hocho/wiki"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        binding = FragmentHelpBinding.inflate(inflater, container!!, false)
+        binding = FragmentWikiBinding.inflate(inflater, container!!, false)
         Timber.v("onCreateView")
+
+        binding.webView.setWebViewClient(WebViewClient())
+        binding.webView.settings.cacheMode = LOAD_CACHE_ELSE_NETWORK
+        binding.webView.loadUrl(wikiUrl)
+
         return binding.root
     }
 
@@ -60,6 +68,6 @@ class HelpFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(): HelpFragment = HelpFragment()
+        fun newInstance(): WikiFragment = WikiFragment()
     }
 }
