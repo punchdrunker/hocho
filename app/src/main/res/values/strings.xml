@@ -57,6 +57,6 @@
     <string name="this_is_a_title">Guideline is very useful</string>
     <string name="sample_body">This is a body of something. This is very loooooooooooooooooooooooooooooooooooooong string. \n\n Actually this is really looong string.\n\nThen this is a verrrrrrrrrrrrrrrrry long text. Because it\'s needed truly.</string>
     <string name="finish_activity">Finish Activity</string>
-    <string name="web">Web</string>
-    <string name="search">Search</string>
+    <string name="web">Open web site</string>
+    <string name="search">Search droidkaigi</string>
 </resources>
