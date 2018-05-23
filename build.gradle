@@ -4,8 +4,8 @@ buildscript {
     ext.versions = [
             'buildTools': '27.0.3',
             'glide': '4.4.0',
-            'kotlin': '1.2.21',
-            'supportLibrary': '27.0.2',
+            'kotlin': '1.2.41',
+            'supportLibrary': '27.1.1',
             'retrofit': '2.3.0',
             'okhttp': '3.9.1',
             'leakcanary': '1.5.4',
@@ -16,7 +16,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'                        // <- buildに使うandroid用のpluginの設定
+        classpath 'com.android.tools.build:gradle:3.1.2'
+        // <- buildに使うandroid用のpluginの設定
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"  // <- kotlin用のpluginの設定
     }
 }
