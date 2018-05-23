@@ -29,7 +29,7 @@ class AsyncActivity : AppCompatActivity() {
     }
 
     private val callback = object : LoaderManager.LoaderCallbacks<String> {
-        override fun onCreateLoader(id: Int, args: Bundle): Loader<String> {
+        override fun onCreateLoader(id: Int, args: Bundle?): Loader<String> {
             return SimpleTaskLoader(this@AsyncActivity)
         }
 

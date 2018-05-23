@@ -21,7 +21,7 @@ class FeedAdapter(val context: Context, private var articles: List<EntryXml>, pr
         return articles.size
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(context)
         val holder = ArticleViewHolder(ItemArticleBinding.inflate(inflater, parent, false))
         holder.itemView.setOnClickListener({
@@ -31,7 +31,7 @@ class FeedAdapter(val context: Context, private var articles: List<EntryXml>, pr
         return holder
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is ArticleViewHolder) {
             val article = articles[position]
             holder.binding.apply {

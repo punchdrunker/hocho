@@ -45,13 +45,13 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // <- app/libs の下にある*.jar ファイルを利用する設定(デフォルトで記述されるが大抵の場合不要)
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$versions.kotlin"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
     implementation "com.android.support:appcompat-v7:$versions.supportLibrary"
     implementation "com.android.support:design:$versions.supportLibrary"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0-beta4'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation "com.android.support:cardview-v7:$versions.supportLibrary"
     implementation "com.android.support:customtabs:$versions.supportLibrary"
-    kapt 'com.android.databinding:compiler:3.0.1'
+    kapt 'com.android.databinding:compiler:3.1.2'
     // <- Kotlinでプラグインによる自動生成処理を行うための設定(kotlinを使わない場合はannotationProcessor)
 
     // network
@@ -67,7 +67,7 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:$versions.glide"
 
     // rx
-    implementation "io.reactivex.rxjava2:rxandroid:2.0.1"                       // <- 利用するライブラリを設定する
+    implementation "io.reactivex.rxjava2:rxandroid:2.0.2"                       // <- 利用するライブラリを設定する
 
     // coroutine
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
@@ -77,7 +77,7 @@ dependencies {
     implementation 'joda-time:joda-time:2.9.9'
 
     // debug
-    implementation 'com.jakewharton.timber:timber:4.6.0'
+    implementation 'com.jakewharton.timber:timber:4.7.0'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
     implementation "com.squareup.okhttp3:logging-interceptor:$versions.okhttp"
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary"
@@ -85,8 +85,8 @@ dependencies {
 
     // test
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     testImplementation "com.squareup.okhttp3:mockwebserver:$versions.okhttp"
 }
 
