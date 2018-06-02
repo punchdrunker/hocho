@@ -59,4 +59,7 @@
     <string name="finish_activity">Finish Activity</string>
     <string name="web">Open web site</string>
     <string name="search">Search droidkaigi</string>
+    <string name="title_dynamic_gallery">Dynamic Gallery</string>
+    <string name="nav_item_dynamic_feature">Dynamic feature</string>
+    <string name="title_gallery">Gallery</string>
 </resources>
