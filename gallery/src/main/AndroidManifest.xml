@@ -4,7 +4,7 @@
 
     <dist:module
         dist:onDemand="true"
-        dist:title="@string/title_gallery">
+        dist:title="@string/module_feature_gallery">
         <dist:fusing include="true" />
     </dist:module>
     <application>
