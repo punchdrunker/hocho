@@ -3,12 +3,12 @@ package tokyo.punchdrunker.dynamic.gallery
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import tokyo.punchdrunker.dynamic.gallery.databinding.ActivityMainBinding
+import tokyo.punchdrunker.dynamic.gallery.databinding.ActivityGalleryBinding
 
-class MainActivity : AppCompatActivity() {
+class GalleryActivity : AppCompatActivity() {
 
-    private val binding: ActivityMainBinding by lazy {
-        DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+    private val binding: ActivityGalleryBinding by lazy {
+        DataBindingUtil.setContentView<ActivityGalleryBinding>(this, R.layout.activity_gallery)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

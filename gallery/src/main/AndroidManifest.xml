@@ -8,7 +8,7 @@
         <dist:fusing include="true" />
     </dist:module>
     <application>
-        <activity android:name="tokyo.punchdrunker.dynamic.gallery.MainActivity">
+        <activity android:name="tokyo.punchdrunker.dynamic.gallery.GalleryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
