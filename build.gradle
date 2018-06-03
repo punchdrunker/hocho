@@ -16,9 +16,10 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0-alpha15'
+        classpath 'com.android.tools.build:gradle:3.2.0-alpha16'
         // <- buildに使うandroid用のpluginの設定
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"  // <- kotlin用のpluginの設定
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+        // <- kotlin用のpluginの設定
     }
 }
 

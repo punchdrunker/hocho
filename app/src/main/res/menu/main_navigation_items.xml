@@ -17,5 +17,9 @@
             android:id="@+id/nav_item_lifecycle"
             android:icon="@drawable/ic_sync_black_24dp"
             android:title="@string/nav_item_lifecycle" />
+        <item
+            android:id="@+id/nav_item_dynamic_feature"
+            android:icon="@drawable/ic_work_black_24dp"
+            android:title="@string/nav_item_dynamic_feature" />
     </group>
 </menu>

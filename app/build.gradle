@@ -52,6 +52,9 @@ android {
             enableSplit = true
         }
     }
+    dynamicFeatures = [":gallery"]
+
+
 }
 
 // 利用するライブラリの設定
@@ -59,12 +62,14 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // <- app/libs の下にある*.jar ファイルを利用する設定(デフォルトで記述されるが大抵の場合不要)
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
-    implementation "com.android.support:appcompat-v7:$versions.supportLibrary"
+    api "com.android.support:appcompat-v7:$versions.supportLibrary"
     implementation "com.android.support:design:$versions.supportLibrary"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    api 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation "com.android.support:cardview-v7:$versions.supportLibrary"
     implementation "com.android.support:customtabs:$versions.supportLibrary"
     // <- Kotlinでプラグインによる自動生成処理を行うための設定(kotlinを使わない場合はannotationProcessor)
+
+    api 'com.google.android.play:core:1.2.0' // <- Dynamic Featureのロードに必要
 
     // network
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"

@@ -53,6 +53,7 @@
                 android:value="tokyo.punchdrunker.hocho.MainActivity" />
         </activity>
         <activity android:name=".LifecycleActivity" />
+        <activity android:name=".DynamicFeatureActivity"/>
     </application>
 
 </manifest>
