@@ -152,5 +152,5 @@ class MainActivity : AppCompatActivity() {
 }
 
 private const val ONDEMAND_PACKAGE_NAME = "tokyo.punchdrunker.dynamic.gallery"
-private const val GALLERY_CLASSNAME = "$ONDEMAND_PACKAGE_NAME.MainActivity"
+private const val GALLERY_CLASSNAME = "$ONDEMAND_PACKAGE_NAME.GalleryActivity"
 private const val GALLERY_MODULE_NAME = "gallery"
