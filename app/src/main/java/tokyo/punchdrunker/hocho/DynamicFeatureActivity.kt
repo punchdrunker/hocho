@@ -86,16 +86,12 @@ class DynamicFeatureActivity : AppCompatActivity() {
         state.moduleNames().forEach { name ->
             when (state.status()) {
                 SplitInstallSessionStatus.DOWNLOADING -> {
-                    //  In order to see this, the application has to be uploaded to the Play Store.
+                    // 表示を確認するには、Play Storeにアップロードしたもので確認する必要がある
                     displayLoadingState("Downloading $name")
                 }
                 SplitInstallSessionStatus.REQUIRES_USER_CONFIRMATION -> {
-                    /*
-                      This may occur when attempting to download a sufficiently large module.
-
-                      In order to see this, the application has to be uploaded to the Play Store.
-                      Then features can be requested until the confirmation path is triggered.
-                     */
+                    // モジュールサイズが大きい時に発火するイベント
+                    // 表示を確認するには、Play Storeにアップロードしたもので確認する必要がある
                     startIntentSender(state.resolutionIntent().intentSender, null, 0, 0, 0)
                 }
                 SplitInstallSessionStatus.INSTALLED -> {
@@ -104,6 +100,7 @@ class DynamicFeatureActivity : AppCompatActivity() {
 
                 SplitInstallSessionStatus.INSTALLING -> displayLoadingState("Installing $name")
                 SplitInstallSessionStatus.FAILED -> {
+                    displayLoadingState("Error: ${state.errorCode()} for module ${state.moduleNames()}")
                     Timber.e("Error: ${state.errorCode()} for module ${state.moduleNames()}")
                 }
             }
