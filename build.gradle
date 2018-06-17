@@ -4,7 +4,7 @@ buildscript {
     ext.versions = [
             'buildTools': '27.0.3',
             'glide': '4.4.0',
-            'kotlin': '1.2.50',
+            'kotlin': '1.2.41',
             'supportLibrary': '27.1.1',
             'retrofit': '2.3.0',
             'okhttp': '3.9.1',
