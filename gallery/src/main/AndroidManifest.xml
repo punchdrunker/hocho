@@ -8,10 +8,17 @@
         <dist:fusing include="true" />
     </dist:module>
     <application>
-        <activity android:name="tokyo.punchdrunker.dynamic.gallery.GalleryActivity">
+        <activity
+            android:name="tokyo.punchdrunker.dynamic.gallery.GalleryActivity"
+            android:parentActivityName="tokyo.punchdrunker.hocho.DynamicFeatureActivity"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tokyo.punchdrunker.hocho.DynamicFeatureActivity" />
         </activity>
     </application>
 </manifest>

@@ -7,12 +7,14 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="TitleText">
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold|italic</item>
         <item name="android:fontFamily">serif</item>
         <item name="android:textColor">@color/colorBlack</item>
     </style>
+
     <style name="NotificationActivityTitleText">
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">serif</item>
@@ -31,14 +33,20 @@
         <item name="android:textColor">@color/colorBlack</item>
         <item name="android:layout_marginBottom">8dp</item>
     </style>
+
     <style name="AsyncActivityButton">
         <item name="android:layout_marginBottom">16dp</item>
         <item name="android:layout_gravity">right</item>
     </style>
+
     <style name="toolbar">
         <item name="android:elevation">4dp</item>
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">?attr/actionBarSize</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

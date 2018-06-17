@@ -62,4 +62,9 @@
     <string name="title_dynamic_gallery">Dynamic Gallery</string>
     <string name="nav_item_dynamic_feature">Dynamic feature</string>
     <string name="title_gallery">Gallery</string>
+    <string name="title_activity_dynamic_feature">DynamicFeatureActivity</string>
+    <string name="gallery_is_installed">Gallery is installed</string>
+    <string name="open">Open</string>
+    <string name="gallery_is_not_installed">Gallery is not installed</string>
+    <string name="install">Install</string>
 </resources>

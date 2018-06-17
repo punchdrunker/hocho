@@ -50,25 +50,6 @@
                     android:contentDescription="@string/image"
                     app:srcCompat="@drawable/image1" />
 
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:contentDescription="@string/image"
-                    app:srcCompat="@drawable/image2" />
-
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:contentDescription="@string/image"
-                    app:srcCompat="@drawable/image3" />
             </LinearLayout>
         </ScrollView>
     </android.support.constraint.ConstraintLayout>

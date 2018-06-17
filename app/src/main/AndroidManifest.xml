@@ -53,7 +53,15 @@
                 android:value="tokyo.punchdrunker.hocho.MainActivity" />
         </activity>
         <activity android:name=".LifecycleActivity" />
-        <activity android:name=".DynamicFeatureActivity"/>
+        <activity
+            android:name=".DynamicFeatureActivity"
+            android:label="@string/title_activity_dynamic_feature"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tokyo.punchdrunker.hocho.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
