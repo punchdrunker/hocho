@@ -53,8 +53,6 @@ android {
         }
     }
     dynamicFeatures = [":gallery"]
-
-
 }
 
 // 利用するライブラリの設定
