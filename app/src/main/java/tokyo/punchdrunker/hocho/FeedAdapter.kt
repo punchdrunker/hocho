@@ -1,10 +1,11 @@
 package tokyo.punchdrunker.hocho
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import tokyo.punchdrunker.hocho.databinding.ItemArticleBinding
 
 class FeedAdapter(val context: Context, private var articles: List<EntryXml>, private val fixSize: Boolean = true) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -42,7 +43,7 @@ class FeedAdapter(val context: Context, private var articles: List<EntryXml>, pr
                     entryImage.visibility = View.GONE
                 } else {
                     entryImage.visibility = View.VISIBLE
-                    GlideApp.with(context).load(article.imageUrl()).into(entryImage)
+                    Glide.with(context).load(article.imageUrl()).into(entryImage)
                 }
                 val buttonImageId = if (bookmarkService.isBookmarked(article)) {
                     bookmarkedImageId

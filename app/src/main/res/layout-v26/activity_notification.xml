@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             style="@style/toolbar"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="14dp"
                 tools:text="title" />
-        </android.support.v7.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
         <ScrollView
             android:layout_width="match_parent"

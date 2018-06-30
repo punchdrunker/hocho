@@ -10,11 +10,11 @@
             type="tokyo.punchdrunker.hocho.AsyncActivity" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             style="@style/toolbar"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +32,7 @@
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="14dp"
                 tools:text="title" />
-        </android.support.v7.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -93,5 +93,5 @@
                 android:onClick="@{activity::requestWithRetrofitAndCoroutine}"
                 android:text="@string/get" />
         </LinearLayout>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

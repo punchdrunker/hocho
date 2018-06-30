@@ -3,7 +3,7 @@
 buildscript {
     ext.versions = [
             'buildTools': '27.0.3',
-            'glide': '4.4.0',
+            'glide': '4.8.0-SNAPSHOT',
             'kotlin': '1.2.41',
             'supportLibrary': '27.1.1',
             'retrofit': '2.3.0',
@@ -16,7 +16,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0-alpha18'
+        classpath 'com.android.tools.build:gradle:3.2.0-beta02'
         // <- buildに使うandroid用のpluginの設定
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
         // <- kotlin用のpluginの設定
@@ -30,6 +30,10 @@ allprojects {
     repositories {
         google()    // support library等の依存を解決するリポジトリ
         jcenter()   // 一般的なlibraryの依存を解決するリポジトリ
+        maven {
+            name 'glide-snapshot'
+            url 'http://oss.sonatype.org/content/repositories/snapshots'
+        }
     }
 }
 

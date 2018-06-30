@@ -1,8 +1,8 @@
 package tokyo.punchdrunker.dynamic.gallery
 
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import tokyo.punchdrunker.dynamic.gallery.databinding.ActivityGalleryBinding
 
 class GalleryActivity : AppCompatActivity() {

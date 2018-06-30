@@ -2,11 +2,11 @@ package tokyo.punchdrunker.hocho
 
 import android.app.SearchManager
 import android.content.Intent
-import android.databinding.DataBindingUtil
 import android.net.Uri
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import timber.log.Timber
 import tokyo.punchdrunker.hocho.databinding.ActivityLifecycleBinding
 

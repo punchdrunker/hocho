@@ -1,10 +1,10 @@
 package tokyo.punchdrunker.hocho
 
 import android.content.Intent
-import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import tokyo.punchdrunker.hocho.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
