@@ -4,8 +4,7 @@ buildscript {
     ext.versions = [
             'buildTools': '27.0.3',
             'glide': '4.8.0-SNAPSHOT',
-            'kotlin': '1.2.41',
-            'supportLibrary': '27.1.1',
+            'kotlin': '1.2.50',
             'retrofit': '2.3.0',
             'okhttp': '3.9.1',
             'leakcanary': '1.5.4',
