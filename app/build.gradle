@@ -5,19 +5,19 @@ apply plugin: 'kotlin-kapt'
 
 // androidのブロックでAndroid用の設定をする
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     // compileに使われるandroidSDKのバージョン targetSdkVersionと揃える
     defaultConfig {
         applicationId "tokyo.punchdrunker.hocho"    // <- アプリのID Play Store、端末上で一意になる識別子
         minSdkVersion 21                            // <- サポートする最小のandroidバージョン
-        targetSdkVersion 27
+        targetSdkVersion 28
         // <- ターゲットのandroidバージョン このバージョンによってRuntimePermissionなど一部挙動が変わる(基本的に最新に合わせたほうが良い)
         buildToolsVersion versions.buildTools
         // <- buildに利用するツール郡の設定(Android plugin for Gradle 3.0.0以降なら設定しない場合プラグインに合わせたバージョンが自動で選択される)
         versionCode 7
         // <- アプリのバージョンコード 内部的に使われるもので基本的にユーザーの目にするものではない アプリのインストール時やGoogle Play Consoleでのリリースで使われる
         versionName "1.2.3"                           // <- ユーザーが目にするバージョン名
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         // <- androidTestに使われるRunner
     }
 
@@ -60,11 +60,11 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // <- app/libs の下にある*.jar ファイルを利用する設定(デフォルトで記述されるが大抵の場合不要)
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
-    api "com.android.support:appcompat-v7:$versions.supportLibrary"
-    implementation "com.android.support:design:$versions.supportLibrary"
-    api 'com.android.support.constraint:constraint-layout:1.1.1'
-    implementation "com.android.support:cardview-v7:$versions.supportLibrary"
-    implementation "com.android.support:customtabs:$versions.supportLibrary"
+    api 'androidx.appcompat:appcompat:1.0.0-alpha3'
+    implementation 'com.google.android.material:material:1.0.0-alpha3'
+    api 'androidx.constraintlayout:constraintlayout:1.1.2'
+    implementation 'androidx.cardview:cardview:1.0.0-alpha3'
+    implementation 'androidx.browser:browser:1.0.0-alpha3'
     // <- Kotlinでプラグインによる自動生成処理を行うための設定(kotlinを使わない場合はannotationProcessor)
 
     api 'com.google.android.play:core:1.2.0' // <- Dynamic Featureのロードに必要
@@ -100,8 +100,8 @@ dependencies {
 
     // test
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha3'
     testImplementation "com.squareup.okhttp3:mockwebserver:$versions.okhttp"
 }
 

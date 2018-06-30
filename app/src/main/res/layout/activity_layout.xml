@@ -10,12 +10,12 @@
             type="tokyo.punchdrunker.hocho.LayoutActivity.User" />
     </data>
 
-    <android.support.design.widget.CoordinatorLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             style="@style/toolbar"
             app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 tools:text="title" />
-        </android.support.v7.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
         <ScrollView
             android:id="@+id/scroll_view"
@@ -73,7 +73,7 @@
             </LinearLayout>
         </ScrollView>
 
-        <android.support.design.widget.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,5 +82,5 @@
             app:layout_anchor="@id/container"
             app:layout_anchorGravity="bottom|right|end"
             app:rippleColor="@color/colorPrimaryDark" />
-    </android.support.design.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

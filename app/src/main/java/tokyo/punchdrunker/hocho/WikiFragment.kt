@@ -2,12 +2,12 @@ package tokyo.punchdrunker.hocho
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebSettings.LOAD_CACHE_ELSE_NETWORK
 import android.webkit.WebViewClient
+import androidx.fragment.app.Fragment
 import timber.log.Timber
 import tokyo.punchdrunker.hocho.databinding.FragmentWikiBinding
 

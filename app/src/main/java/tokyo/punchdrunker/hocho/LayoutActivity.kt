@@ -1,10 +1,10 @@
 package tokyo.punchdrunker.hocho
 
-import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import com.google.android.material.snackbar.Snackbar
 import tokyo.punchdrunker.hocho.databinding.ActivityLayoutBinding
 
 class LayoutActivity : AppCompatActivity() {
@@ -16,7 +16,7 @@ class LayoutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setupToolbar()
-        binding.componentInclude?.button?.setOnClickListener({ view ->
+        binding.componentInclude.button.setOnClickListener({ view ->
             Snackbar.make(view, getString(R.string.snackbar_message), Snackbar.LENGTH_SHORT).show()
         })
         binding.user = User("punchdrunker", "engineer")
