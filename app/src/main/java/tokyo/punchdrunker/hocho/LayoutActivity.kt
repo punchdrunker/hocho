@@ -16,7 +16,7 @@ class LayoutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setupToolbar()
-        binding.componentInclude?.button?.setOnClickListener({ view ->
+        binding.componentInclude.button.setOnClickListener({ view ->
             Snackbar.make(view, getString(R.string.snackbar_message), Snackbar.LENGTH_SHORT).show()
         })
         binding.user = User("punchdrunker", "engineer")
