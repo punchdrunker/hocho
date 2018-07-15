@@ -27,7 +27,7 @@ class BlogServiceTest {
         val actual = service.fetch("rss")
                 .execute()
         actual.body()!!.entryList!!.run {
-            assertEquals(25, size)
+            assertEquals(24, size)
             assertEquals("Phasing out legacy recommendations on Android TV", this[0].title)
             assertEquals("12/22/17 10:00 AM", this[0].dateForDisplay())
             assertEquals("http://android-developers.googleblog.com/2017/12/phasing-out-legacy-recommendations-on.html", this[0].articleUrl())
