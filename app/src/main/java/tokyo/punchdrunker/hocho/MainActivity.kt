@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_item_async -> startActivity(Intent(this, AsyncActivity::class.java))
                 R.id.nav_item_lifecycle -> startActivity(Intent(this, LifecycleActivity::class.java))
                 R.id.nav_item_dynamic_feature -> startActivity(Intent(this, DynamicFeatureActivity::class.java))
+                R.id.nav_item_progress -> startActivity(Intent(this, ProgressActivity::class.java))
             }
             true
         }

@@ -67,4 +67,7 @@
     <string name="open">Open</string>
     <string name="gallery_is_not_installed">Gallery is not installed</string>
     <string name="install">Install</string>
+    <string name="progress_indicators">Progress indicators</string>
+    <string name="title_activity_progress">ProgressActivity</string>
+    <string name="progress_title">Progress indecator</string>
 </resources>
