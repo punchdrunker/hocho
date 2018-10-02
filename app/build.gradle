@@ -53,6 +53,7 @@ android {
         }
     }
     dynamicFeatures = [":gallery"]
+    buildToolsVersion = '28.0.2'
 }
 
 // 利用するライブラリの設定
@@ -60,14 +61,14 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // <- app/libs の下にある*.jar ファイルを利用する設定(デフォルトで記述されるが大抵の場合不要)
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
-    api 'androidx.appcompat:appcompat:1.0.0-alpha3'
-    implementation 'com.google.android.material:material:1.0.0-alpha3'
-    api 'androidx.constraintlayout:constraintlayout:1.1.2'
-    implementation 'androidx.cardview:cardview:1.0.0-alpha3'
-    implementation 'androidx.browser:browser:1.0.0-alpha3'
+    api 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    api 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.browser:browser:1.0.0'
     // <- Kotlinでプラグインによる自動生成処理を行うための設定(kotlinを使わない場合はannotationProcessor)
 
-    api 'com.google.android.play:core:1.2.0' // <- Dynamic Featureのロードに必要
+    api 'com.google.android.play:core:1.3.4' // <- Dynamic Featureのロードに必要
 
     // network
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
@@ -92,7 +93,7 @@ dependencies {
     implementation 'joda-time:joda-time:2.9.9'
 
     // debug
-    implementation 'com.jakewharton.timber:timber:4.7.0'
+    implementation 'com.jakewharton.timber:timber:4.7.1'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
     implementation "com.squareup.okhttp3:logging-interceptor:$versions.okhttp"
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary"
@@ -100,8 +101,8 @@ dependencies {
 
     // test
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha3'
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
     testImplementation "com.squareup.okhttp3:mockwebserver:$versions.okhttp"
 }
 
