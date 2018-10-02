@@ -11,8 +11,6 @@ android {
         applicationId "tokyo.punchdrunker.hocho"    // <- アプリのID Play Store、端末上で一意になる識別子
         minSdkVersion 21                            // <- サポートする最小のandroidバージョン
         targetSdkVersion 28
-        // <- ターゲットのandroidバージョン このバージョンによってRuntimePermissionなど一部挙動が変わる(基本的に最新に合わせたほうが良い)
-        buildToolsVersion versions.buildTools
         // <- buildに利用するツール郡の設定(Android plugin for Gradle 3.0.0以降なら設定しない場合プラグインに合わせたバージョンが自動で選択される)
         versionCode 7
         // <- アプリのバージョンコード 内部的に使われるもので基本的にユーザーの目にするものではない アプリのインストール時やGoogle Play Consoleでのリリースで使われる
@@ -53,7 +51,6 @@ android {
         }
     }
     dynamicFeatures = [":gallery"]
-    buildToolsVersion = '28.0.2'
 }
 
 // 利用するライブラリの設定
