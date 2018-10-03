@@ -11,14 +11,11 @@ class ProgressActivity : AppCompatActivity() {
     private val binding: ActivityProgressBinding by lazy {
         DataBindingUtil.setContentView<ActivityProgressBinding>(this, R.layout.activity_progress)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_progress)
-//        setSupportActionBar(toolbar)
-
         setupToolbar()
     }
-
 
     private fun setupToolbar() {
         setSupportActionBar(binding.toolbar)
@@ -29,5 +26,4 @@ class ProgressActivity : AppCompatActivity() {
         }
         binding.toolbarTitle.text = getString(R.string.progress_title)
     }
-
 }
