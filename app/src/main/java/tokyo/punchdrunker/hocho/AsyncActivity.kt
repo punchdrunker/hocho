@@ -35,8 +35,8 @@ class AsyncActivity : AppCompatActivity() {
 
         // deliverResultされたものが、bodyに入ってくる
         override fun onLoadFinished(loader: Loader<String>, body: String) {
-            supportLoaderManager.destroyLoader(loader.id)
-            Snackbar.make(binding.root, "resopnse body: " + body, Snackbar.LENGTH_SHORT).show()
+            LoaderManager.getInstance(this@AsyncActivity).destroyLoader(loader.id)
+            Snackbar.make(binding.root, "resopnse body: $body", Snackbar.LENGTH_SHORT).show()
         }
 
         override fun onLoaderReset(loader: Loader<String>) {}
@@ -65,7 +65,7 @@ class AsyncActivity : AppCompatActivity() {
     fun requestOnBackground(view: View) {
         val args = Bundle()
         args.putString(extraParam, "サンプルパラメータ")
-        supportLoaderManager.initLoader<String>(loaderId, args, callback)
+        LoaderManager.getInstance(this).initLoader<String>(loaderId, args, callback)
     }
 
     // Retrofit を使った通信
