@@ -15,6 +15,8 @@ class ProgressActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupToolbar()
+
+        binding.customButton.setOnClickListener {button -> (button as CustomButton).toggle()}
     }
 
     private fun setupToolbar() {
