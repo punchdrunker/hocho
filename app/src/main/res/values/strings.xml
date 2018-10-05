@@ -70,4 +70,5 @@
     <string name="progress_indicators">Progress indicators</string>
     <string name="title_activity_progress">ProgressActivity</string>
     <string name="progress_title">Progress indecator</string>
+    <string name="invoke">Invoke</string>
 </resources>
