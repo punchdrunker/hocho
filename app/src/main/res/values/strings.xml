@@ -71,4 +71,11 @@
     <string name="title_activity_progress">ProgressActivity</string>
     <string name="progress_title">Progress indecator</string>
     <string name="invoke">Invoke</string>
+    <string name="indeterminate_indicators">Indeterminate indicators</string>
+    <string name="determinate_indicator">Determinate indicator</string>
+    <string name="zero_percent">0%</string>
+    <string name="fifty_percent">50%</string>
+    <string name="hundred_percent">100%</string>
+    <string name="embeded_indicator">Embeded indicator</string>
+    <string name="tap">Tap!</string>
 </resources>
