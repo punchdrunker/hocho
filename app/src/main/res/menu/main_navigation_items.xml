@@ -21,5 +21,9 @@
             android:id="@+id/nav_item_dynamic_feature"
             android:icon="@drawable/ic_work_black_24dp"
             android:title="@string/nav_item_dynamic_feature" />
+        <item
+            android:id="@+id/nav_item_progress"
+            android:icon="@drawable/ic_network_check_black_24dp"
+            android:title="@string/progress_indicators" />
     </group>
 </menu>
