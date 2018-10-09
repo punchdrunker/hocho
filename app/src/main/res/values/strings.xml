@@ -78,4 +78,5 @@
     <string name="hundred_percent">100%</string>
     <string name="embeded_indicator">Embeded indicator</string>
     <string name="tap">Tap!</string>
+    <string name="transition">Transition</string>
 </resources>
