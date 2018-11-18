@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.GlideException
+import timber.log.Timber
 import tokyo.punchdrunker.hocho.databinding.ItemArticleBinding
 
 class FeedAdapter(val context: Context, private var articles: List<EntryXml>, private val fixSize: Boolean = true) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -14,6 +16,7 @@ class FeedAdapter(val context: Context, private var articles: List<EntryXml>, pr
     private val bookmarkService = BookmarkService(context)
     private val bookmarkedImageId = R.drawable.ic_bookmark_black_24dp
     private val unbookmarkedImageId = R.drawable.ic_bookmark_border_black_24dp
+
     interface ArticleClickListener {
         fun onClick(view: View, url: String)
     }
@@ -26,7 +29,6 @@ class FeedAdapter(val context: Context, private var articles: List<EntryXml>, pr
         val inflater = LayoutInflater.from(context)
         val holder = ArticleViewHolder(ItemArticleBinding.inflate(inflater, parent, false))
         holder.itemView.setOnClickListener({
-
             onClickListener?.onClick(it, articles[holder.adapterPosition].articleUrl())
         })
         return holder
