@@ -83,7 +83,7 @@ class DynamicFeatureActivity : AppCompatActivity() {
 
     // Dynamic Feature Moduleのロードの準備
     private val listener = SplitInstallStateUpdatedListener { state ->
-        state.moduleNames().forEach { name ->
+        state.moduleNames().forEach { _ ->
             when (state.status()) {
                 SplitInstallSessionStatus.DOWNLOADING -> {
                     // 表示を確認するには、Play Storeにアップロードしたもので確認する必要がある
