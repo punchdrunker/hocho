@@ -7,6 +7,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.Loader
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.experimental.CoroutineStart
+import kotlinx.coroutines.experimental.Dispatchers
+import kotlinx.coroutines.experimental.GlobalScope
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import okhttp3.OkHttpClient
@@ -86,10 +89,10 @@ class AsyncActivity : AppCompatActivity() {
     // Retrofit + Coroutine を使った通信 (kotlin-coroutines-retrofit moduleを使用)
     fun requestWithRetrofitAndCoroutine(view: View) {
         val service = BlogService.create()
-        launch(UI) {
+        GlobalScope.launch(Dispatchers.Main, CoroutineStart.DEFAULT, {
             val respnse = service.fetch("rss").await()
             Snackbar.make(view, "[COROUTINE]Blog title: " + respnse.entryList!![0].title, Snackbar.LENGTH_SHORT).show()
-        }
+        })
         Snackbar.make(view, "TEST TONE 1", Snackbar.LENGTH_SHORT).show()
     }
 
