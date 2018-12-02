@@ -1,40 +1,22 @@
 package tokyo.punchdrunker.hocho
 
-import android.app.ActivityOptions
-import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.transition.Explode
-import android.transition.Fade
-import android.view.View
-import android.view.Window
 import androidx.databinding.DataBindingUtil
 import tokyo.punchdrunker.hocho.databinding.ActivityTransitionBinding
 
-class TransitionActivity : AppCompatActivity() {
-    private val binding: ActivityTransitionBinding by lazy {
-        DataBindingUtil.setContentView<ActivityTransitionBinding>(this, R.layout.activity_transition)
+class TransitionActivity : AppCompatActivity(), TransitionFragment.OnFragmentInteractionListener {
+    override fun onFragmentInteraction(uri: Uri) {
     }
+
+    private lateinit var binding: ActivityTransitionBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_transition)
 
-        with(window) {
-            requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
-
-            // set an exit transition
-            exitTransition = Fade()
-        }
-
-        binding.activity = this
-    }
-
-    fun openActivity(view: View) {
-        val intent = Intent(this, TransitionDetailActivity::class.java)
-        startActivity(intent)
-    }
-
-    fun openActivityWithTransition(view: View) {
-        val intent = Intent(this, TransitionDetailActivity::class.java)
-        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
+        supportFragmentManager.beginTransaction()
+                .add(R.id.fragment_container, TransitionFragment.newInstance())
+                .commitAllowingStateLoss()
     }
 }
