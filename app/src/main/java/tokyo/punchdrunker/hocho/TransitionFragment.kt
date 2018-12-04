@@ -9,9 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import timber.log.Timber
 import tokyo.punchdrunker.hocho.databinding.FragmentTransitionBinding
 
-class TransitionFragment : Fragment() {
+class TransitionFragment : Fragment(), TransitionNavigator {
     private var listener: OnFragmentInteractionListener? = null
     private lateinit var binding: FragmentTransitionBinding
 
@@ -19,7 +20,7 @@ class TransitionFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         binding = FragmentTransitionBinding.inflate(inflater, container, false)
-        binding.list.adapter = PhotoAdapter()
+        binding.list.adapter = PhotoAdapter(this)
         return binding.root
     }
 
@@ -37,19 +38,25 @@ class TransitionFragment : Fragment() {
         listener = null
     }
 
-    fun openActivity(view: View) {
-        val intent = Intent(activity, TransitionDetailActivity::class.java)
-        startActivity(intent)
+    override fun transition(v: View, position: Int) {
+        when (position %4) {
+            0 -> openFragment(v, position)
+            1 -> openActivity(v, position)
+            2 -> {}
+            3 -> {}
+        }
     }
 
-    fun openActivityWithTransition(view: View) {
+
+
+    fun openFragment (v: View, position: Int) {}
+
+    fun openActivity(view: View, position: Int) {
 //        val icon = binding.icon
 //        val intent = Intent(activity, TransitionDetailActivity::class.java)
 //        val option = ActivityOptions.makeSceneTransitionAnimation(activity, icon, "transition_icon").toBundle()
 //        startActivity(intent, option)
     }
-
-    fun openFragmentWithTransition (view: View) {}
 
     interface OnFragmentInteractionListener {
         fun onFragmentInteraction(uri: Uri)
