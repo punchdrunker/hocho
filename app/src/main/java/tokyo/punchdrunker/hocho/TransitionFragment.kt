@@ -48,7 +48,11 @@ class TransitionFragment : Fragment(), TransitionNavigator {
 
 
 
-    fun openFragment (v: View, position: Int) {}
+    fun openFragment (v: View, position: Int) {
+        fragmentManager?.
+                beginTransaction()?.addSharedElement(v, "transition")?.
+                replace(R.id.fragment_container, TransitionDetailFragment(), TransitionDetailFragment::class.simpleName)?.commit()
+    }
 
     fun openActivity(view: View, position: Int) {
         val intent = Intent(activity, TransitionDetailActivity::class.java)
