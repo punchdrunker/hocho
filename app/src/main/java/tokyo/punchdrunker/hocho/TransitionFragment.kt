@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import timber.log.Timber
 import tokyo.punchdrunker.hocho.databinding.FragmentTransitionBinding
 
 class TransitionFragment : Fragment(), TransitionNavigator {
@@ -52,10 +51,9 @@ class TransitionFragment : Fragment(), TransitionNavigator {
     fun openFragment (v: View, position: Int) {}
 
     fun openActivity(view: View, position: Int) {
-//        val icon = binding.icon
-//        val intent = Intent(activity, TransitionDetailActivity::class.java)
-//        val option = ActivityOptions.makeSceneTransitionAnimation(activity, icon, "transition_icon").toBundle()
-//        startActivity(intent, option)
+        val intent = Intent(activity, TransitionDetailActivity::class.java)
+        val option = ActivityOptions.makeSceneTransitionAnimation(activity, view, "transition").toBundle()
+        startActivity(intent, option)
     }
 
     interface OnFragmentInteractionListener {
