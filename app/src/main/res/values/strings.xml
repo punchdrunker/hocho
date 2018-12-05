@@ -79,6 +79,7 @@
     <string name="embeded_indicator">Embeded indicator</string>
     <string name="tap">Tap!</string>
     <string name="transition">Transition</string>
+    <string name="shared_element">shared_photo</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

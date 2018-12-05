@@ -81,7 +81,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tokyo.punchdrunker.hocho.MainActivity" />
         </activity>
-        <activity android:name=".TransitionDetailActivity"></activity>
+        <activity
+            android:name=".TransitionDetailActivity"
+            android:label="@string/transition"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+
+        </activity>
     </application>
 
 </manifest>
