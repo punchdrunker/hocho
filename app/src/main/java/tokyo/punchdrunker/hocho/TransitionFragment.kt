@@ -3,6 +3,7 @@ package tokyo.punchdrunker.hocho
 import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
+import android.media.Image
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -24,8 +25,7 @@ class TransitionFragment : Fragment(), TransitionNavigator {
         // Inflate the layout for this fragment
         binding = FragmentTransitionBinding.inflate(inflater, container, false)
         binding.list.adapter = PhotoAdapter(this)
-        exitTransition = TransitionSet().addTransition(ChangeImageTransform())
-        enterTransition = TransitionSet().addTransition(ChangeImageTransform())
+        prepareTransition()
 
         return binding.root
     }
@@ -55,7 +55,6 @@ class TransitionFragment : Fragment(), TransitionNavigator {
         }
     }
 
-
     fun openFragment(v: View, position: Int) {
         val fragment = TransitionDetailFragment.newInstance(position)
         val ts = TransitionSet().addTransition(ChangeImageTransform())
@@ -64,16 +63,31 @@ class TransitionFragment : Fragment(), TransitionNavigator {
         fragment.exitTransition = ts
         fragment.sharedElementReturnTransition = ts
         val sharedView = v.findViewById<ImageView>(R.id.card_photo)
+        sharedView.transitionName = getString(R.string.shared_element)
         (exitTransition as TransitionSet).excludeTarget(sharedView, true)
 
-        fragmentManager?.beginTransaction()?.setReorderingAllowed(true)?.
-                addToBackStack(null)?.addSharedElement(sharedView, getString(R.string.shared_element))?.replace(R.id.fragment_container, fragment, TransitionDetailFragment::class.java.simpleName)?.commit()
+        fragmentManager?.beginTransaction()?.setReorderingAllowed(true)?.addToBackStack(null)?.addSharedElement(sharedView, getString(R.string.shared_element))?.replace(R.id.fragment_container, fragment, TransitionDetailFragment::class.java.simpleName)?.commit()
     }
 
     fun openActivity(view: View, position: Int) {
         val intent = Intent(activity, TransitionDetailActivity::class.java)
         val option = ActivityOptions.makeSceneTransitionAnimation(activity, view, getString(R.string.shared_element)).toBundle()
         startActivity(intent, option)
+    }
+
+    private fun prepareTransition() {
+        exitTransition = TransitionSet().addTransition(ChangeImageTransform())
+        enterTransition = TransitionSet().addTransition(ChangeImageTransform())
+
+        setExitSharedElementCallback(object : SharedElementCallback() {
+            override fun onMapSharedElements(names: MutableList<String>?, sharedElements: MutableMap<String, View>?) {
+                val viewHolder = binding.list.findViewHolderForAdapterPosition(0)
+                val itemView = viewHolder?.itemView ?: return
+                val photoView = itemView.findViewById<ImageView>(R.id.card_photo)
+                photoView.transitionName = getString(R.string.transition)
+                sharedElements!![names!![0]] = photoView
+            }
+        })
     }
 
     interface OnFragmentInteractionListener {

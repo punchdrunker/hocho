@@ -17,6 +17,5 @@
         android:id="@+id/card_photo"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:transitionName="@string/shared_element"
         android:scaleType="fitCenter" />
 </androidx.cardview.widget.CardView>

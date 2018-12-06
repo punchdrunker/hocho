@@ -13,6 +13,7 @@ import tokyo.punchdrunker.hocho.databinding.FragmentTransitionDetailBinding
 
 class TransitionDetailFragment : Fragment() {
     private lateinit var binding: FragmentTransitionDetailBinding
+    private val images = arrayOf(R.drawable.img_cat, R.drawable.img_dog, R.drawable.img_parts, R.drawable.img_view)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +22,9 @@ class TransitionDetailFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentTransitionDetailBinding.inflate(inflater, container, false)
+        val position = arguments?.getInt("position")
+        val key = position!! % 4
+        binding.photo.setImageResource(images[key])
         setEnterSharedElementCallback( object: SharedElementCallback() {
             override fun onMapSharedElements(names: MutableList<String>?, sharedElements: MutableMap<String, View>?) {
                 Timber.w("names %s", names!![0])
