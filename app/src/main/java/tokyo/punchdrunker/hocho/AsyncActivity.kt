@@ -7,17 +7,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.Loader
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.experimental.CoroutineStart
-import kotlinx.coroutines.experimental.Dispatchers
-import kotlinx.coroutines.experimental.GlobalScope
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import ru.gildor.coroutines.retrofit.await
 import timber.log.Timber
 import tokyo.punchdrunker.hocho.databinding.ActivityAsyncBinding
 
@@ -88,11 +86,11 @@ class AsyncActivity : AppCompatActivity() {
 
     // Retrofit + Coroutine を使った通信 (kotlin-coroutines-retrofit moduleを使用)
     fun requestWithRetrofitAndCoroutine(view: View) {
-        val service = BlogService.create()
-        GlobalScope.launch(Dispatchers.Main, CoroutineStart.DEFAULT, {
-            val respnse = service.fetch("rss").await()
-            Snackbar.make(view, "[COROUTINE]Blog title: " + respnse.entryList!![0].title, Snackbar.LENGTH_SHORT).show()
-        })
+        val service = BlogServiceWithCoroutine.create()
+        GlobalScope.launch(Dispatchers.Main, CoroutineStart.DEFAULT) {
+            val response = service.fetch("rss").await()
+            Snackbar.make(view, "[COROUTINE]Blog title: " + response.entryList!![0].title, Snackbar.LENGTH_SHORT).show()
+        }
         Snackbar.make(view, "TEST TONE 1", Snackbar.LENGTH_SHORT).show()
     }
 
