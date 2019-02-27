@@ -58,14 +58,14 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // <- app/libs の下にある*.jar ファイルを利用する設定(デフォルトで記述されるが大抵の場合不要)
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
-    api 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'com.google.android.material:material:1.0.0'
-    api 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.browser:browser:1.0.0'
     // <- Kotlinでプラグインによる自動生成処理を行うための設定(kotlinを使わない場合はannotationProcessor)
 
-    api 'com.google.android.play:core:1.3.6' // <- Dynamic Featureのロードに必要
+    implementation 'com.google.android.play:core:1.4.0' // <- Dynamic Featureのロードに必要
 
     // network
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
@@ -83,9 +83,10 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:2.0.2" // <- 利用するライブラリを設定する
 
     // coroutine
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
-    implementation 'ru.gildor.coroutines:kotlin-coroutines-retrofit:0.13.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0"
+    //implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:1.0.0'
+    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+
     // utils
     implementation 'joda-time:joda-time:2.9.9'
 
@@ -98,8 +99,8 @@ dependencies {
 
     // test
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     testImplementation "com.squareup.okhttp3:mockwebserver:$versions.okhttp"
 }
 
