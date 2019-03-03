@@ -1,23 +1,21 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.transition
 
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import tokyo.punchdrunker.hocho.databinding.ActivityTransitionBinding
+import tokyo.punchdrunker.hocho.R
+import tokyo.punchdrunker.hocho.databinding.ActivityFromBinding
 
-class TransitionActivity : AppCompatActivity(), TransitionFragment.OnFragmentInteractionListener {
-    override fun onFragmentInteraction(uri: Uri) {
-    }
+class FromActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityFromBinding
 
-    private lateinit var binding: ActivityTransitionBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_transition)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_from)
         setupToolbar()
 
         supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, TransitionFragment.newInstance())
+                .add(R.id.fragment_container, FromFragment.newInstance())
                 .commitAllowingStateLoss()
     }
 

@@ -7,19 +7,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorWhite"
-        tools:context=".TransitionDetailActivity">
+        tools:context=".transition.ToActivity">
 
         <ImageView
-            android:id="@+id/icon"
+            android:id="@+id/photo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="1dp"
-            android:src="@drawable/img_dog"
+            android:contentDescription="@string/image_description"
             android:transitionName="@string/shared_element"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/img_dog" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

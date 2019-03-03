@@ -1,4 +1,4 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.transition
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.transition.ChangeImageTransform
 import androidx.transition.TransitionSet
 import timber.log.Timber
+import tokyo.punchdrunker.hocho.R
 import tokyo.punchdrunker.hocho.databinding.FragmentTransitionDetailBinding
 
 class TransitionDetailFragment : Fragment() {
@@ -25,7 +26,7 @@ class TransitionDetailFragment : Fragment() {
         val position = arguments?.getInt("position")
         val key = position!! % 4
         binding.photo.setImageResource(images[key])
-        setEnterSharedElementCallback( object: SharedElementCallback() {
+        setEnterSharedElementCallback(object : SharedElementCallback() {
             override fun onMapSharedElements(names: MutableList<String>?, sharedElements: MutableMap<String, View>?) {
                 Timber.w("names %s", names!![0])
                 sharedElements!![names!![0]] = view!!.findViewById(R.id.photo)

@@ -73,7 +73,7 @@
                 android:value="tokyo.punchdrunker.hocho.MainActivity" />
         </activity>
         <activity
-            android:name=".TransitionActivity"
+            android:name=".transition.FromActivity"
             android:label="@string/transition"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
@@ -82,7 +82,14 @@
                 android:value="tokyo.punchdrunker.hocho.MainActivity" />
         </activity>
         <activity
-            android:name=".TransitionDetailActivity"
+            android:name=".transition.ToActivity"
+            android:label="@string/transition"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+
+        </activity>
+        <activity
+            android:name=".transition.PagerActivity"
             android:label="@string/transition"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">

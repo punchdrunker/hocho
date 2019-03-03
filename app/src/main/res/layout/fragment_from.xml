@@ -7,7 +7,7 @@
 
         <variable
             name="fragment"
-            type="tokyo.punchdrunker.hocho.TransitionFragment" />
+            type="tokyo.punchdrunker.hocho.transition.FromFragment" />
     </data>
 
     <androidx.recyclerview.widget.RecyclerView

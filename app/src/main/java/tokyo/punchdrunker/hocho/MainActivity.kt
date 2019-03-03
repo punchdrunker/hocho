@@ -6,6 +6,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import tokyo.punchdrunker.hocho.databinding.ActivityMainBinding
+import tokyo.punchdrunker.hocho.transition.FromActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -65,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_item_lifecycle -> startActivity(Intent(this, LifecycleActivity::class.java))
                 R.id.nav_item_dynamic_feature -> startActivity(Intent(this, DynamicFeatureActivity::class.java))
                 R.id.nav_item_progress -> startActivity(Intent(this, ProgressActivity::class.java))
-                R.id.nav_item_transition -> startActivity(Intent(this, TransitionActivity::class.java))
+                R.id.nav_item_transition -> startActivity(Intent(this, FromActivity::class.java))
             }
             true
         }
