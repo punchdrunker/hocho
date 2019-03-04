@@ -26,6 +26,10 @@ class FromFragment : Fragment(), TransitionNavigator {
         return binding.root
     }
 
+    override fun onStart() {
+        super.onStart()
+        scrollToCurrentPosition()
+    }
     override fun transition(v: View, position: Int) {
         when (position % 4) {
             0 -> openToActivity(v, position)
@@ -101,6 +105,29 @@ class FromFragment : Fragment(), TransitionNavigator {
                 val itemView = viewHolder?.itemView ?: return
                 val photoView = itemView.findViewById<ImageView>(R.id.card_photo)
                 sharedElements!![names!![0]] = photoView
+            }
+        })
+    }
+
+    private fun scrollToCurrentPosition() {
+        val position = PhotoStore.getCurrentPosition(activity as Context)
+        binding.list.addOnLayoutChangeListener(object : View.OnLayoutChangeListener {
+            override fun onLayoutChange(v: View,
+                                        left: Int,
+                                        top: Int,
+                                        right: Int,
+                                        bottom: Int,
+                                        oldLeft: Int,
+                                        oldTop: Int,
+                                        oldRight: Int,
+                                        oldBottom: Int) {
+                binding.list.removeOnLayoutChangeListener(this)
+                val layoutManager = binding.list.layoutManager
+                val viewAtPosition = layoutManager?.findViewByPosition(position)
+                if (viewAtPosition == null || layoutManager
+                                .isViewPartiallyVisible(viewAtPosition, false, true)) {
+                    binding.list.post({ layoutManager?.scrollToPosition(position) })
+                }
             }
         })
     }

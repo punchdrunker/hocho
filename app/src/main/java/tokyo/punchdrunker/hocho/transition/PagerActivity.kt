@@ -3,15 +3,15 @@ package tokyo.punchdrunker.hocho.transition
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.SharedElementCallback
 import androidx.databinding.DataBindingUtil
+import androidx.viewpager.widget.ViewPager
 import tokyo.punchdrunker.hocho.R
 import tokyo.punchdrunker.hocho.databinding.ActivityPagerBinding
-import androidx.core.app.ActivityCompat.setEnterSharedElementCallback
-import androidx.core.app.SharedElementCallback
-import androidx.viewpager.widget.ViewPager
 
 
 class PagerActivity : AppCompatActivity() {
@@ -24,15 +24,24 @@ class PagerActivity : AppCompatActivity() {
         val selectedPosition = intent.getIntExtra(KEY_POSITION, 0)
         adapter = PhotoPagerAdapter(supportFragmentManager)
         binding.viewPager.also {
-            it.setAdapter(adapter)
-            it.setCurrentItem(selectedPosition)
+            it.adapter = adapter
+            it.currentItem = selectedPosition
             it.addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener() {
                 override fun onPageSelected(position: Int) {
-                    // updatePosition
+                    PhotoStore.setCurrentPosition(this@PagerActivity, position)
                 }
             })
         }
         prepareEnterTransition()
+    }
+
+    override fun dispatchKeyEvent(event: KeyEvent?): Boolean {
+        // Backボタン検知する
+        if (event?.keyCode == KeyEvent.KEYCODE_BACK) {
+            finishViewer()
+            return false
+        }
+        return super.dispatchKeyEvent(event)
     }
 
     private fun prepareEnterTransition() {
@@ -44,6 +53,10 @@ class PagerActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    private fun finishViewer() {
+        finish()
     }
 
     companion object {

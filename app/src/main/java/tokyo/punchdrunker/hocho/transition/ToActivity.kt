@@ -20,6 +20,10 @@ class ToActivity : AppCompatActivity() {
         binding.photo.setImageResource(PhotoStore.getImage(selectedPosition))
     }
 
+    override fun onDestroy() {
+        PhotoStore.setCurrentPosition(this, 0)
+        super.onDestroy()
+    }
     companion object {
         fun createIntent(context: Context, position: Int): Intent {
             return Intent(context, ToActivity::class.java).also {
