@@ -20,7 +20,7 @@ buildscript {
     }
 }
 
-// 全てのsubmoduleに共通しsて設定したい項目を設定する
+// 全てのsubmoduleに共通して設定したい項目を設定する
 allprojects {
     // dependenciesで依存解決をするrepositoryを指定する
     // 大体はこの設定で解決出来る 使うlibraryが指定するRepositoryがある場合はそれも追記する(app側に書いても良い)
