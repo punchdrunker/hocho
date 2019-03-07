@@ -14,6 +14,8 @@ class FromActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_from)
         setupToolbar()
 
+        PhotoStore.setCurrentPosition(this, 0)
+
         supportFragmentManager.beginTransaction()
                 .add(R.id.fragment_container, FromFragment.newInstance())
                 .commitAllowingStateLoss()

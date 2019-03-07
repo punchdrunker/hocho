@@ -15,17 +15,21 @@ import tokyo.punchdrunker.hocho.databinding.ActivityPagerBinding
 
 
 class PagerActivity : AppCompatActivity() {
+    private var initialPosition = 0
     private lateinit var binding: ActivityPagerBinding
     private lateinit var adapter: PhotoPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_pager)
-        val selectedPosition = intent.getIntExtra(KEY_POSITION, 0)
+
+        initialPosition = intent.getIntExtra(KEY_POSITION, 0)
+        PhotoStore.setCurrentPosition(this, initialPosition)
+
         adapter = PhotoPagerAdapter(supportFragmentManager)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_pager)
         binding.viewPager.also {
             it.adapter = adapter
-            it.currentItem = selectedPosition
+            it.currentItem = initialPosition
             it.addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener() {
                 override fun onPageSelected(position: Int) {
                     PhotoStore.setCurrentPosition(this@PagerActivity, position)
@@ -56,7 +60,11 @@ class PagerActivity : AppCompatActivity() {
     }
 
     private fun finishViewer() {
-        finish()
+        if (initialPosition == PhotoStore.getCurrentPosition(this)) {
+            finishAfterTransition()
+        } else {
+            finish()
+        }
     }
 
     companion object {
