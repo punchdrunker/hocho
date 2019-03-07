@@ -11,6 +11,7 @@ import android.widget.ImageView
 import androidx.core.app.SharedElementCallback
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import tokyo.punchdrunker.hocho.R
 import tokyo.punchdrunker.hocho.databinding.FragmentFromBinding
 
@@ -26,16 +27,23 @@ class FromFragment : Fragment(), TransitionNavigator {
         return binding.root
     }
 
+    fun getViewHolder(position: Int): RecyclerView.ViewHolder? {
+        return binding.list.findViewHolderForAdapterPosition(position)
+    }
+
     override fun onStart() {
         super.onStart()
         scrollToCurrentPosition()
     }
+
     override fun transition(v: View, position: Int) {
-        when (position % 4) {
+        PhotoStore.setCurrentPosition(activity as Context, position)
+        when (position % 5) {
             0 -> openToActivity(v, position)
             1 -> openToActivityWithScroll(v, position)
             2 -> openToActivityWithScrollWaiting(v, position)
-            3 -> openPagerActivityWithScrollWaiting(v, position)
+            3 -> openPagerActivity(v, position)
+            4 -> openPagerActivityWithoutTransition(v, position)
         }
     }
 
@@ -68,8 +76,22 @@ class FromFragment : Fragment(), TransitionNavigator {
         }
     }
 
-    private fun openPagerActivityWithScrollWaiting(view: View, position: Int) {
+    private fun openPagerActivity(view: View, position: Int) {
         val intent = PagerActivity.createIntent(activity as Context, position)
+        val option = ActivityOptions.makeSceneTransitionAnimation(activity, view, getString(R.string.shared_element)).toBundle()
+
+        if (shoulScrollList(view)) {
+            binding.list.smoothScrollToPosition(position)
+            Handler().postDelayed({
+                startActivity(intent, option)
+            }, 200)
+        } else {
+            startActivity(intent, option)
+        }
+    }
+
+    private fun openPagerActivityWithoutTransition(view: View, position: Int) {
+        val intent = PagerActivity.createIntent(activity as Context, position, false)
         val option = ActivityOptions.makeSceneTransitionAnimation(activity, view, getString(R.string.shared_element)).toBundle()
 
         if (shoulScrollList(view)) {
@@ -98,18 +120,7 @@ class FromFragment : Fragment(), TransitionNavigator {
         return (diffToAppBar < 0 || diffToBottom > 0)
     }
 
-    private fun prepareEnterTransition() {
-        setEnterSharedElementCallback(object : SharedElementCallback() {
-            override fun onMapSharedElements(names: MutableList<String>?, sharedElements: MutableMap<String, View>?) {
-                val viewHolder = binding.list.findViewHolderForAdapterPosition(2)
-                val itemView = viewHolder?.itemView ?: return
-                val photoView = itemView.findViewById<ImageView>(R.id.card_photo)
-                sharedElements!![names!![0]] = photoView
-            }
-        })
-    }
-
-    private fun scrollToCurrentPosition() {
+    fun scrollToCurrentPosition() {
         val position = PhotoStore.getCurrentPosition(activity as Context)
         binding.list.addOnLayoutChangeListener(object : View.OnLayoutChangeListener {
             override fun onLayoutChange(v: View,
