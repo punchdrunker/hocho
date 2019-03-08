@@ -25,5 +25,8 @@
             android:id="@+id/nav_item_progress"
             android:icon="@drawable/ic_network_check_black_24dp"
             android:title="@string/progress_indicators" />
+        <item android:id="@+id/nav_item_transition"
+            android:icon="@drawable/ic_transform_black_24dp"
+            android:title="@string/transition" />
     </group>
 </menu>

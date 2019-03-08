@@ -72,6 +72,29 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tokyo.punchdrunker.hocho.MainActivity" />
         </activity>
+        <activity
+            android:name=".transition.FromActivity"
+            android:label="@string/transition"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tokyo.punchdrunker.hocho.MainActivity" />
+        </activity>
+        <activity
+            android:name=".transition.ToActivity"
+            android:label="@string/transition"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+
+        </activity>
+        <activity
+            android:name=".transition.PagerActivity"
+            android:label="@string/transition"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+
+        </activity>
     </application>
 
 </manifest>
