@@ -2,9 +2,14 @@ package tokyo.punchdrunker.hocho
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.*
 import androidx.databinding.DataBindingUtil
+import timber.log.Timber
 import tokyo.punchdrunker.hocho.databinding.ActivityMainBinding
 import tokyo.punchdrunker.hocho.transition.FromActivity
 
@@ -30,6 +35,37 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         setupBottomNavigation()
         setupDrawer()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.switch_mode -> {
+                val mode = if (AppCompatDelegate.getDefaultNightMode() == MODE_NIGHT_YES
+                        || AppCompatDelegate.getDefaultNightMode() == MODE_NIGHT_FOLLOW_SYSTEM
+                        || AppCompatDelegate.getDefaultNightMode() == MODE_NIGHT_UNSPECIFIED)
+                    MODE_NIGHT_NO else MODE_NIGHT_YES
+                AppCompatDelegate.setDefaultNightMode(mode)
+                restartActivity()
+                return true
+            }
+
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun restartActivity() {
+        val intent = intent
+        overridePendingTransition(0, 0)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+        finish()
+
+        overridePendingTransition(0, 0)
+        startActivity(intent)
     }
 
     private fun setupBottomNavigation() {

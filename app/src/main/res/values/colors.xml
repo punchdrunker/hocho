@@ -7,6 +7,6 @@
     <color name="layoutActivityLight">#ffd95a</color>
     <color name="layoutActivityDark">#c17900</color>
     <color name="layoutActivityBackground">#fff59d</color>
-    <color name="iconTint">#ffffff</color>
+    <color name="iconTint">#000000</color>
     <color name="colorTransparent">#00000000</color>
 </resources>
