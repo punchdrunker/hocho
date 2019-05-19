@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#030303</color>
+    <color name="colorPrimary">#121212</color>
     <color name="colorPrimaryDark">#c7c7c7</color>
     <color name="colorAccent">#999999</color>
-    <color name="colorWhite">#FFFFFF</color>
-    <color name="colorBlack">#000000</color>
-    <color name="layoutActivityPrimary">#f9a825</color>
-    <color name="layoutActivityLight">#ffd95a</color>
-    <color name="layoutActivityDark">#c17900</color>
-    <color name="layoutActivityBackground">#fff59d</color>
+    <color name="iconTint">#ffffff</color>
 </resources>

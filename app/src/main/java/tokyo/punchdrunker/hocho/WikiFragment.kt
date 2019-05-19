@@ -27,7 +27,7 @@ class WikiFragment : Fragment() {
         return binding.root
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         Timber.v("onAttach")
     }

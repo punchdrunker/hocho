@@ -52,8 +52,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="4dp"
-                app:itemIconTint="@color/colorBlack"
-                app:itemTextColor="@color/colorBlack"
+                app:itemIconTint="@color/iconTint"
+                app:itemTextColor="@color/iconTint"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/container"
                 app:menu="@menu/bottom_navigation" />
