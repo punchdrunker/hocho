@@ -1,16 +1,13 @@
 package tokyo.punchdrunker.hocho
 
+import android.app.UiModeManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
-import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_UNSPECIFIED
-import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.databinding.DataBindingUtil
 import tokyo.punchdrunker.hocho.databinding.ActivityMainBinding
 import tokyo.punchdrunker.hocho.transition.FromActivity
@@ -45,30 +42,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val defaultMode = AppCompatDelegate.getDefaultNightMode()
         when (item?.itemId) {
             R.id.switch_mode -> {
-                val mode = if (defaultMode == MODE_NIGHT_YES
-                        || defaultMode == MODE_NIGHT_FOLLOW_SYSTEM
-                        || defaultMode == MODE_NIGHT_UNSPECIFIED)
-                    MODE_NIGHT_NO else MODE_NIGHT_YES
-                AppCompatDelegate.setDefaultNightMode(mode)
-                restartActivity()
+                val umm = getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
+                val currentMode = umm.nightMode
+                // todo: consider MODE_NIGHT_AUTO or error(-1)
+                umm.nightMode = if (currentMode == UiModeManager.MODE_NIGHT_YES) UiModeManager.MODE_NIGHT_NO else UiModeManager.MODE_NIGHT_YES
                 return true
             }
 
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    private fun restartActivity() {
-        val intent = intent
-        overridePendingTransition(0, 0)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-        finish()
-
-        overridePendingTransition(0, 0)
-        startActivity(intent)
     }
 
     private fun setupBottomNavigation() {
