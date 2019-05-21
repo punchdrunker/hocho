@@ -62,17 +62,7 @@ class MainActivity : AppCompatActivity() {
                 || defaultMode == MODE_NIGHT_UNSPECIFIED)
             MODE_NIGHT_NO else MODE_NIGHT_YES
         AppCompatDelegate.setDefaultNightMode(mode)
-        restartActivity()
-    }
-
-    private fun restartActivity() {
-        val intent = intent
-        overridePendingTransition(0, 0)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-        finish()
-
-        overridePendingTransition(0, 0)
-        startActivity(intent)
+        delegate.applyDayNight()
     }
 
     private fun setupBottomNavigation() {
