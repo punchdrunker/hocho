@@ -1,0 +1,3 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="current_night_mode">night</string>
+</resources>

@@ -47,7 +47,10 @@
                 android:padding="16dp">
 
                 <include layout="@layout/include_layout" />
-                <include android:id="@+id/component_include" layout="@layout/include_component" />
+
+                <include
+                    android:id="@+id/component_include"
+                    layout="@layout/include_component" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -70,6 +73,21 @@
                     android:text="@{user.title}"
                     android:textSize="30sp"
                     tools:text="@string/text2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/night_or_not_night"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/current_night_mode"
+                    android:textSize="32sp" />
             </LinearLayout>
         </ScrollView>
 
