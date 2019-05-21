@@ -62,7 +62,6 @@ class MainActivity : AppCompatActivity() {
                 || defaultMode == MODE_NIGHT_UNSPECIFIED)
             MODE_NIGHT_NO else MODE_NIGHT_YES
         AppCompatDelegate.setDefaultNightMode(mode)
-        delegate.applyDayNight()
     }
 
     private fun setupBottomNavigation() {
