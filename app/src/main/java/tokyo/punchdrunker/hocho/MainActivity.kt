@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNavigation() {
-        binding.bottomNavigation.setOnNavigationItemSelectedListener({ item ->
+        binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {
                     supportFragmentManager.beginTransaction().replace(R.id.container, ArticlesFragment.newInstance()).commitAllowingStateLoss()
@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
             binding.toolbarTitle.text = item.title
 
             true
-        })
+        }
         binding.bottomNavigation.selectedItemId = R.id.navigation_home
     }
 
