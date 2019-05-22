@@ -44,7 +44,7 @@
             android:layout_margin="16dp"
             android:background="@color/layoutActivityDark"
             android:text="@string/below_text2"
-            android:textColor="@color/colorWhite" />
+            android:textColor="?android:attr/textColorPrimary" />
     </RelativeLayout>
 
     <TextView

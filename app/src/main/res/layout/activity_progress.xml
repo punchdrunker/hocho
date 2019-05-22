@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
+            app:layout_constraintTop_toTopOf="parent"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <TextView
@@ -28,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
-                android:textColor="@color/colorBlack"
+                android:textColor="?android:attr/textColorPrimary"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="16dp"
@@ -133,10 +134,10 @@
             android:textColor="#000"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_goneMarginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button1" />
+            app:layout_constraintTop_toBottomOf="@id/button1"
+            app:layout_goneMarginTop="8dp" />
 
         <tokyo.punchdrunker.hocho.CustomButton
             android:id="@+id/custom_button"

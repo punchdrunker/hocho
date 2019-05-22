@@ -2,4 +2,7 @@
 <!-- http://tools.android.com/tips/lint-checks -->
 <lint>
   <issue id="UnusedResources" severity="ignore"/>
+  <issue id="InvalidPackage">
+    <ignore path="**/simple-xml-2.7.1.jar"/>
+  </issue>
 </lint>

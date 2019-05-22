@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- enable window content transitions -->
         <item name="android:windowActivityTransitions">true</item>
 
@@ -15,31 +15,33 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold|italic</item>
         <item name="android:fontFamily">serif</item>
-        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
     <style name="NotificationActivityTitleText">
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">serif</item>
-        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:layout_marginBottom">8dp</item>
     </style>
 
     <style name="NotificationActivityButton">
         <item name="android:layout_marginBottom">16dp</item>
         <item name="android:layout_gravity">right</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
     <style name="AsyncActivityTitleText">
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">serif</item>
-        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:layout_marginBottom">8dp</item>
     </style>
 
     <style name="AsyncActivityButton">
         <item name="android:layout_marginBottom">16dp</item>
         <item name="android:layout_gravity">right</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
     <style name="toolbar">
