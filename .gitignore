@@ -7,3 +7,7 @@
 /captures
 /app/release
 .externalNativeBuild
+
+# Include shared settings
+!.idea/codeStyles/
+!.idea/inspectionProfiles/
