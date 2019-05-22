@@ -38,6 +38,10 @@ android {
         enabled = true
     }
 
+    lintOptions {
+        abortOnError true
+    }
+
     // app bundleを有効にする
     bundle {
         language {
@@ -74,6 +78,8 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-simplexml:$versions.retrofit") {
         exclude module: 'xpp3'
         exclude module: 'stax-api'
+        exclude module: 'stax'
+        exclude module: 'stream'
     }
     implementation "com.squareup.okhttp3:okhttp:$versions.okhttp"
     implementation "com.github.bumptech.glide:glide:$versions.glide"
