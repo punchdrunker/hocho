@@ -59,7 +59,7 @@ class AsyncActivity : AppCompatActivity() {
         // 準備せずに同期実行するとクラッシュする(execute)
         val response = call.execute()
 
-        Snackbar.make(view, "Blog title: " + response.body()?.string(), Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(view, "Blog title: " + response.body?.string(), Snackbar.LENGTH_SHORT).show()
     }
 
     // AsyncTaskLoader を使った通信
