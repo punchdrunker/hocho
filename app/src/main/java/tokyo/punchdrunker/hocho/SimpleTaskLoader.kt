@@ -16,7 +16,7 @@ class SimpleTaskLoader(context: Context) : AsyncTaskLoader<String>(context) {
         val request = Request.Builder().url(url).build()
         val call = client.newCall(request)
         val response = call.execute()
-        return response.body()?.string() ?: ""
+        return response.body?.string() ?: ""
     }
 
     override fun onStartLoading() {
