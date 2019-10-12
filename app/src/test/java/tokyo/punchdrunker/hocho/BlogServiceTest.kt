@@ -29,7 +29,7 @@ class BlogServiceTest {
         actual.body()!!.entryList!!.run {
             assertEquals(25, size)
             assertEquals("Phasing out legacy recommendations on Android TV", this[0].title)
-            assertEquals("17/12/22 10:00", this[0].dateForDisplay())
+            assertEquals("12/22/17 10:00 AM", this[0].dateForDisplay())
             assertEquals("http://android-developers.googleblog.com/2017/12/phasing-out-legacy-recommendations-on.html", this[0].articleUrl())
             assertEquals(" At Google I/O 2017, we announced a redesign of the Android TV's home screen. We expanded the recommendation row concept so that each app ca...", this[0].shortContent())
             assertEquals("https://1.bp.blogspot.com/-RikbUBpFVUo/Wjwe6_5qNdI/AAAAAAAAE8A/-oxT_LLrYzsToH0Jf2XOjeOAV3DIkUf4ACLcBGAs/s1600/image1.png", this[0].imageUrl())
