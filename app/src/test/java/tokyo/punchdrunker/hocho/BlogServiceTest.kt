@@ -17,7 +17,7 @@ class BlogServiceTest {
 
     @Test
     fun fetchFeed() {
-        val stream = javaClass.classLoader.getResourceAsStream("android-developer-blog.xml")
+        val stream = javaClass.classLoader!!.getResourceAsStream("android-developer-blog.xml")
         val mockXmlString = stream.bufferedReader().use { it.readText()}
         val response = createMockResponse(mockXmlString)
         server.enqueue(response)
