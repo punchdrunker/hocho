@@ -23,6 +23,8 @@ jobs:
         gem install bundler
         bundle install
     - name: Danger
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: bundle exec danger
     - name: Test
       run: ./gradlew --stacktrace testDebug
