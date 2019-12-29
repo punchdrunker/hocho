@@ -13,8 +13,15 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - name: Setup ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: '2.6'
+        architecture: 'x64'
     - name: bundle install
-      run: bundle install
+      run: |
+        gem install bundler
+        bundle install
     - name: Danger
       run: bundle exec danger
     - name: Test
