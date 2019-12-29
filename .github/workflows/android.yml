@@ -25,6 +25,6 @@ jobs:
     - name: Danger
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: bundle exec danger
+      run: danger
     - name: Test
       run: ./gradlew --stacktrace testDebug
