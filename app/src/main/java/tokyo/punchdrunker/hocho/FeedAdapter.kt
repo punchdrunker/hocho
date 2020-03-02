@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.GlideException
-import timber.log.Timber
 import tokyo.punchdrunker.hocho.databinding.ItemArticleBinding
 
 class FeedAdapter(val context: Context, private var articles: List<EntryXml>, private val fixSize: Boolean = true) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -28,9 +26,9 @@ class FeedAdapter(val context: Context, private var articles: List<EntryXml>, pr
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(context)
         val holder = ArticleViewHolder(ItemArticleBinding.inflate(inflater, parent, false))
-        holder.itemView.setOnClickListener({
+        holder.itemView.setOnClickListener {
             onClickListener?.onClick(it, articles[holder.adapterPosition].articleUrl())
-        })
+        }
         return holder
     }
 

@@ -7,8 +7,6 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.core.app.SharedElementCallback
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -120,7 +118,7 @@ class FromFragment : Fragment(), TransitionNavigator {
         return (diffToAppBar < 0 || diffToBottom > 0)
     }
 
-    fun scrollToCurrentPosition() {
+    private fun scrollToCurrentPosition() {
         val position = PhotoStore.getCurrentPosition(activity as Context)
         binding.list.addOnLayoutChangeListener(object : View.OnLayoutChangeListener {
             override fun onLayoutChange(v: View,
@@ -137,7 +135,7 @@ class FromFragment : Fragment(), TransitionNavigator {
                 val viewAtPosition = layoutManager?.findViewByPosition(position)
                 if (viewAtPosition == null || layoutManager
                                 .isViewPartiallyVisible(viewAtPosition, false, true)) {
-                    binding.list.post({ layoutManager?.scrollToPosition(position) })
+                    binding.list.post { layoutManager?.scrollToPosition(position) }
                 }
             }
         })

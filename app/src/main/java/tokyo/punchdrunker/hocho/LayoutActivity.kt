@@ -16,9 +16,9 @@ class LayoutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setupToolbar()
-        binding.componentInclude.button.setOnClickListener({ view ->
+        binding.componentInclude.button.setOnClickListener { view ->
             Snackbar.make(view, getString(R.string.snackbar_message), Snackbar.LENGTH_SHORT).show()
-        })
+        }
         binding.user = User("punchdrunker", "engineer")
         binding.fab.setOnClickListener {
             Snackbar.make(it, getString(R.string.fab_message), Snackbar.LENGTH_SHORT).show()
@@ -27,7 +27,7 @@ class LayoutActivity : AppCompatActivity() {
 
     private fun setupToolbar() {
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.apply{
+        supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             setHomeButtonEnabled(true)
             title = ""
@@ -46,6 +46,6 @@ class LayoutActivity : AppCompatActivity() {
 
         return result
     }
-    
+
     data class User constructor(val name: String, val title: String)
 }

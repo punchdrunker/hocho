@@ -29,7 +29,7 @@ class TransitionDetailFragment : Fragment() {
         setEnterSharedElementCallback(object : SharedElementCallback() {
             override fun onMapSharedElements(names: MutableList<String>?, sharedElements: MutableMap<String, View>?) {
                 Timber.w("names %s", names!![0])
-                sharedElements!![names!![0]] = view!!.findViewById(R.id.photo)
+                sharedElements!![names[0]] = view!!.findViewById(R.id.photo)
             }
         })
         return binding.root

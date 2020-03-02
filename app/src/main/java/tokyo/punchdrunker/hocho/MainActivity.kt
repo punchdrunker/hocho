@@ -9,13 +9,9 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY
-import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
-import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_UNSPECIFIED
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.databinding.DataBindingUtil
-import timber.log.Timber
 import tokyo.punchdrunker.hocho.databinding.ActivityMainBinding
 import tokyo.punchdrunker.hocho.transition.FromActivity
 
@@ -60,8 +56,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun switchMode() {
-        val uiMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
-        val mode = when (uiMode) {
+        val mode = when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
             UI_MODE_NIGHT_YES ->
                 MODE_NIGHT_NO
             else ->
