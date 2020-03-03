@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.SharedElementCallback
 import androidx.databinding.DataBindingUtil
@@ -14,7 +13,7 @@ import tokyo.punchdrunker.hocho.databinding.ActivityToBinding
 
 class ToActivity : AppCompatActivity() {
     private lateinit var binding: ActivityToBinding
-    var selectedPosition = 0
+    private var selectedPosition = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

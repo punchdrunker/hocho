@@ -63,13 +63,13 @@ dependencies {
     // <- app/libs の下にある*.jar ファイルを利用する設定(デフォルトで記述されるが大抵の場合不要)
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.google.android.material:material:1.2.0-alpha03'
+    implementation 'com.google.android.material:material:1.2.0-alpha05'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.browser:browser:1.2.0'
     // <- Kotlinでプラグインによる自動生成処理を行うための設定(kotlinを使わない場合はannotationProcessor)
 
-    implementation 'com.google.android.play:core:1.6.4' // <- Dynamic Featureのロードに必要
+    implementation 'com.google.android.play:core:1.6.5' // <- Dynamic Featureのロードに必要
 
     // network
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
@@ -103,7 +103,7 @@ dependencies {
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary"
 
     // test
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     testImplementation "com.squareup.okhttp3:mockwebserver:$versions.okhttp"

@@ -6,8 +6,8 @@ import tokyo.punchdrunker.hocho.R
 class PhotoStore {
     companion object {
         private val images = arrayOf(R.drawable.img_cat, R.drawable.img_dog, R.drawable.img_parts, R.drawable.img_view, R.drawable.img_sea)
-        private val storeName = "storeName"
-        private val positionKey = "positionKey"
+        private const val storeName = "storeName"
+        private const val positionKey = "positionKey"
 
         fun getCount() = 35
 

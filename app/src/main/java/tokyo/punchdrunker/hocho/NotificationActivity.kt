@@ -46,7 +46,7 @@ class NotificationActivity : AppCompatActivity() {
     }
 
     fun navigateToSetting(view: View) {
-        val uriString = "package:" + packageName
+        val uriString = "package:$packageName"
         val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse(uriString))
         startActivity(intent)
     }

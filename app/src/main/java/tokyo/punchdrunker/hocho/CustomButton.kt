@@ -7,7 +7,6 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.ProgressBar
 import androidx.constraintlayout.widget.ConstraintLayout
-import android.R.attr.onClick
 import android.widget.TextView
 
 class CustomButton(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
@@ -17,7 +16,7 @@ class CustomButton(context: Context, attrs: AttributeSet?) : ConstraintLayout(co
     constructor(context: Context) : this(context, null)
 
     init {
-        LayoutInflater.from(getContext()).inflate(R.layout.button_progress, this);
+        LayoutInflater.from(getContext()).inflate(R.layout.button_progress, this)
     }
 
     override fun setOnClickListener(l: OnClickListener?) {
