@@ -180,6 +180,7 @@ class NotificationActivity : AppCompatActivity() {
         Third("group_3", "Tokyo")
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     enum class Channel(
             val id: String,
             val channelName: String,

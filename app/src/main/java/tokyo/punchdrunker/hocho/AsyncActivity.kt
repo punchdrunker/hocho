@@ -19,7 +19,6 @@ import retrofit2.Response
 import timber.log.Timber
 import tokyo.punchdrunker.hocho.databinding.ActivityAsyncBinding
 
-
 class AsyncActivity : AppCompatActivity() {
 
     private val loaderId = 1
@@ -66,7 +65,7 @@ class AsyncActivity : AppCompatActivity() {
     fun requestOnBackground(view: View) {
         val args = Bundle()
         args.putString(extraParam, "サンプルパラメータ")
-        LoaderManager.getInstance(this).initLoader<String>(loaderId, args, callback)
+        LoaderManager.getInstance(this).initLoader(loaderId, args, callback)
     }
 
     // Retrofit を使った通信

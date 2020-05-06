@@ -51,7 +51,7 @@ class FeedAdapter(val context: Context, private var articles: List<EntryXml>, pr
                     unbookmarkedImageId
                 }
                 bookmarkButton.setImageResource(buttonImageId)
-                bookmarkButton.setOnClickListener { view ->
+                bookmarkButton.setOnClickListener { _ ->
                     bookmarkService.run {
                         when (isBookmarked(article)) {
                             true -> {

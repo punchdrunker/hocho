@@ -106,6 +106,7 @@ class DynamicFeatureActivity : AppCompatActivity() {
                     displayLoadingState("STATUS: Error/ ${state.errorCode()} for module ${state.moduleNames()}")
                     Timber.e("Error: ${state.errorCode()} for module ${state.moduleNames()}")
                 }
+                else -> {}
             }
         }
     }
