@@ -28,5 +28,8 @@
         <item android:id="@+id/nav_item_transition"
             android:icon="@drawable/ic_transform_black_24dp"
             android:title="@string/transition" />
+        <item android:id="@+id/nav_item_simple_storage"
+            android:icon="@drawable/ic_baseline_storage_24"
+            android:title="@string/simple_storage" />
     </group>
 </menu>

@@ -100,6 +100,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_item_dynamic_feature -> startActivity(Intent(this, DynamicFeatureActivity::class.java))
                 R.id.nav_item_progress -> startActivity(Intent(this, ProgressActivity::class.java))
                 R.id.nav_item_transition -> startActivity(Intent(this, FromActivity::class.java))
+                R.id.nav_item_simple_storage -> startActivity(Intent(this, SimpleStorageActivity::class.java))
             }
             true
         }

@@ -13,8 +13,8 @@ android {
     }
 
     // data binding用の設定
-    dataBinding {
-        enabled = true
+    buildFeatures{
+        dataBinding = true
     }
 }
 
@@ -24,7 +24,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
     // 暫定的な対応...
     implementation 'androidx.appcompat:appcompat:1.3.0-alpha01'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta6'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta8'
 
 
 

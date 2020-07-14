@@ -97,6 +97,13 @@
             android:theme="@style/AppTheme">
 
         </activity>
+        <activity
+            android:name=".SimpleStorageActivity"
+            android:label="@string/simple_storage"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+
+        </activity>
     </application>
 
 </manifest>
