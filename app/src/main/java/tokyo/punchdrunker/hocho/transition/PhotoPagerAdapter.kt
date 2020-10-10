@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 
-class PhotoPagerAdapter(manager: FragmentManager) : FragmentStatePagerAdapter(manager) {
+class PhotoPagerAdapter(manager: FragmentManager) : FragmentStatePagerAdapter(manager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     private lateinit var currentFragment: Fragment
     override fun getItem(position: Int): Fragment {
         return PagerItemFragment.newInstance(position)
