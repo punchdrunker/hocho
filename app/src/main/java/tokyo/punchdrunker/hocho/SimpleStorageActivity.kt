@@ -6,15 +6,13 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
-import android.os.ParcelFileDescriptor
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import kotlinx.android.synthetic.main.activity_simple_storage.view.*
 import kotlinx.coroutines.*
 import timber.log.Timber
 import tokyo.punchdrunker.hocho.databinding.ActivitySimpleStorageBinding
 import java.io.File
-import java.io.FileDescriptor
 import java.io.FileOutputStream
 import java.io.IOException
 
@@ -22,7 +20,16 @@ class SimpleStorageActivity : AppCompatActivity() {
     private val scope = MainScope()
 
     private val binding: ActivitySimpleStorageBinding by lazy {
-        DataBindingUtil.setContentView<ActivitySimpleStorageBinding>(this, R.layout.activity_simple_storage)
+        DataBindingUtil.setContentView(this, R.layout.activity_simple_storage)
+    }
+
+    private val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == Activity.RESULT_OK) {
+            it.data?.data?.also { uri ->
+                Timber.w(uri.toString())
+                binding.image.setImageBitmap(getBitmapFromUri(uri))
+            }
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,21 +38,6 @@ class SimpleStorageActivity : AppCompatActivity() {
         binding.activity = this
         createFileOnPrivateArea()
         viewFiles()
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == READ_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            // The document selected by the user won't be returned in the intent.
-            // Instead, a URI to that document will be contained in the return intent
-            // provided to this method as a parameter.
-            // Pull that URI using resultData.getData().
-            data?.data?.also { uri ->
-                Timber.w(uri.toString())
-                binding.image.setImageBitmap(getBitmapFromUri(uri))
-                //showImage(uri)
-            }
-        }
     }
 
     override fun onDestroy() {
@@ -72,8 +64,7 @@ class SimpleStorageActivity : AppCompatActivity() {
         }
     }
 
-
-    fun viewFiles() {
+    private fun viewFiles() {
         scope.launch {
             withContext(Dispatchers.Main) {
                 getExternalFilesDir(null)?.listFiles()?.let {
@@ -99,7 +90,7 @@ class SimpleStorageActivity : AppCompatActivity() {
             type = "image/*"
         }
 
-        startActivityForResult(intent, READ_REQUEST_CODE)
+        startForResult.launch(intent)
     }
 
     @Throws(IOException::class)
@@ -108,9 +99,5 @@ class SimpleStorageActivity : AppCompatActivity() {
         val image: Bitmap = BitmapFactory.decodeFileDescriptor(parcelFileDescriptor?.fileDescriptor)
         parcelFileDescriptor?.close()
         return image
-    }
-
-    companion object {
-        private const val READ_REQUEST_CODE: Int = 42
     }
 }
