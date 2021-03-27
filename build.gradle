@@ -14,7 +14,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.0-alpha14'
+        classpath 'com.android.tools.build:gradle:4.2.0-beta06'
         // <- buildに使うandroid用のpluginの設定
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
         // <- kotlin用のpluginの設定
