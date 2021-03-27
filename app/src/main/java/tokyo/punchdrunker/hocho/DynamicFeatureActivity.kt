@@ -94,7 +94,7 @@ class DynamicFeatureActivity : AppCompatActivity() {
 
                     // モジュールサイズが大きい時に発火するイベント
                     // 表示を確認するには、Play Storeにアップロードしたもので確認する必要がある
-                    startIntentSender(state.resolutionIntent().intentSender, null, 0, 0, 0)
+                    startIntentSender(state.resolutionIntent()?.intentSender, null, 0, 0, 0)
                 }
                 SplitInstallSessionStatus.INSTALLED -> {
                     displayLoadingState("STATUS: INSTALLED")

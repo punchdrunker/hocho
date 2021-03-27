@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 // androidのブロックでAndroid用の設定をする
@@ -35,6 +34,7 @@ android {
 
     buildFeatures{
         dataBinding = true
+        viewBinding true
     }
 
     lintOptions {
@@ -61,14 +61,14 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // <- app/libs の下にある*.jar ファイルを利用する設定(デフォルトで記述されるが大抵の場合不要)
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
-    implementation 'androidx.appcompat:appcompat:1.3.0-alpha02'
-    implementation 'com.google.android.material:material:1.3.0-alpha03'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    implementation 'androidx.appcompat:appcompat:1.3.0-rc01'
+    implementation 'com.google.android.material:material:1.4.0-alpha01'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'androidx.browser:browser:1.3.0-alpha06'
+    implementation 'androidx.browser:browser:1.3.0'
     // <- Kotlinでプラグインによる自動生成処理を行うための設定(kotlinを使わない場合はannotationProcessor)
 
-    implementation 'com.google.android.play:core:1.8.2' // <- Dynamic Featureのロードに必要
+    implementation 'com.google.android.play:core:1.10.0' // <- Dynamic Featureのロードに必要
 
     // network
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"

@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import kotlinx.android.synthetic.main.activity_progress.*
 
 import tokyo.punchdrunker.hocho.databinding.ActivityProgressBinding
 
 class ProgressActivity : AppCompatActivity() {
 
     private val binding: ActivityProgressBinding by lazy {
-        DataBindingUtil.setContentView<ActivityProgressBinding>(this, R.layout.activity_progress)
+        DataBindingUtil.setContentView(this, R.layout.activity_progress)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,15 +24,15 @@ class ProgressActivity : AppCompatActivity() {
     }
 
     fun setProgress0(view: View) {
-        progress3.progress = 0
+        binding.progress3.progress = 0
     }
 
     fun setProgress50(view: View) {
-        progress3.progress = 50
+        binding.progress3.progress = 50
     }
 
     fun setProgress100(view: View) {
-        progress3.progress = 100
+        binding.progress3.progress = 100
     }
 
     private fun setupToolbar() {
