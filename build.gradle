@@ -17,7 +17,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.0-beta06'
+        classpath 'com.android.tools.build:gradle:7.0.0-beta03'
         // <- buildに使うandroid用のpluginの設定
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
         // <- kotlin用のpluginの設定
@@ -34,7 +34,7 @@ allprojects {
         mavenCentral() // 一般的なlibraryの依存を解決するリポジトリ
         maven {
             name 'glide-snapshot'
-            url 'http://oss.sonatype.org/content/repositories/snapshots'
+            url 'https://oss.sonatype.org/content/repositories/snapshots'
         }
     }
 }
