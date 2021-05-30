@@ -21,7 +21,7 @@ class PagerItemFragment : Fragment() {
         var position = 0
         arguments
         if (arguments != null) {
-            position = arguments!!.getInt(POSITION, 0)
+            position = requireArguments().getInt(POSITION, 0)
         }
         val resourceId = PhotoStore.getImage(position)
 

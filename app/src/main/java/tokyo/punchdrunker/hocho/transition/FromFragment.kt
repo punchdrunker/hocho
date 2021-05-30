@@ -4,6 +4,7 @@ import android.app.ActivityOptions
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,12 +14,14 @@ import androidx.recyclerview.widget.RecyclerView
 import tokyo.punchdrunker.hocho.R
 import tokyo.punchdrunker.hocho.databinding.FragmentFromBinding
 
-
 class FromFragment : Fragment(), TransitionNavigator {
     private lateinit var binding: FragmentFromBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_from, container, false)
         binding.list.adapter = PhotoAdapter(this)
 
@@ -47,7 +50,11 @@ class FromFragment : Fragment(), TransitionNavigator {
 
     private fun openToActivity(view: View, position: Int) {
         val intent = ToActivity.createIntent(activity as Context, position)
-        val option = ActivityOptions.makeSceneTransitionAnimation(activity, view, getString(R.string.shared_element)).toBundle()
+        val option = ActivityOptions.makeSceneTransitionAnimation(
+            activity,
+            view,
+            getString(R.string.shared_element)
+        ).toBundle()
         startActivity(intent, option)
     }
 
@@ -56,17 +63,25 @@ class FromFragment : Fragment(), TransitionNavigator {
             binding.list.smoothScrollToPosition(position)
         }
         val intent = ToActivity.createIntent(activity as Context, position)
-        val option = ActivityOptions.makeSceneTransitionAnimation(activity, view, getString(R.string.shared_element)).toBundle()
+        val option = ActivityOptions.makeSceneTransitionAnimation(
+            activity,
+            view,
+            getString(R.string.shared_element)
+        ).toBundle()
         startActivity(intent, option)
     }
 
     private fun openToActivityWithScrollWaiting(view: View, position: Int) {
         val intent = ToActivity.createIntent(activity as Context, position)
-        val option = ActivityOptions.makeSceneTransitionAnimation(activity, view, getString(R.string.shared_element)).toBundle()
+        val option = ActivityOptions.makeSceneTransitionAnimation(
+            activity,
+            view,
+            getString(R.string.shared_element)
+        ).toBundle()
 
         if (shoulScrollList(view)) {
             binding.list.smoothScrollToPosition(position)
-            Handler().postDelayed({
+            Handler(Looper.getMainLooper()).postDelayed({
                 startActivity(intent, option)
             }, 200)
         } else {
@@ -76,11 +91,14 @@ class FromFragment : Fragment(), TransitionNavigator {
 
     private fun openPagerActivity(view: View, position: Int) {
         val intent = PagerActivity.createIntent(activity as Context, position)
-        val option = ActivityOptions.makeSceneTransitionAnimation(activity, view, getString(R.string.shared_element)).toBundle()
+        val option = ActivityOptions.makeSceneTransitionAnimation(
+            activity,
+            view,
+            getString(R.string.shared_element)
+        ).toBundle()
 
         if (shoulScrollList(view)) {
-            binding.list.smoothScrollToPosition(position)
-            Handler().postDelayed({
+            Handler(Looper.getMainLooper()).postDelayed({
                 startActivity(intent, option)
             }, 200)
         } else {
@@ -90,11 +108,15 @@ class FromFragment : Fragment(), TransitionNavigator {
 
     private fun openPagerActivityWithoutTransition(view: View, position: Int) {
         val intent = PagerActivity.createIntent(activity as Context, position, false)
-        val option = ActivityOptions.makeSceneTransitionAnimation(activity, view, getString(R.string.shared_element)).toBundle()
+        val option = ActivityOptions.makeSceneTransitionAnimation(
+            activity,
+            view,
+            getString(R.string.shared_element)
+        ).toBundle()
 
         if (shoulScrollList(view)) {
             binding.list.smoothScrollToPosition(position)
-            Handler().postDelayed({
+            Handler(Looper.getMainLooper()).postDelayed({
                 startActivity(intent, option)
             }, 200)
         } else {
@@ -121,20 +143,23 @@ class FromFragment : Fragment(), TransitionNavigator {
     private fun scrollToCurrentPosition() {
         val position = PhotoStore.getCurrentPosition(activity as Context)
         binding.list.addOnLayoutChangeListener(object : View.OnLayoutChangeListener {
-            override fun onLayoutChange(v: View,
-                                        left: Int,
-                                        top: Int,
-                                        right: Int,
-                                        bottom: Int,
-                                        oldLeft: Int,
-                                        oldTop: Int,
-                                        oldRight: Int,
-                                        oldBottom: Int) {
+            override fun onLayoutChange(
+                v: View,
+                left: Int,
+                top: Int,
+                right: Int,
+                bottom: Int,
+                oldLeft: Int,
+                oldTop: Int,
+                oldRight: Int,
+                oldBottom: Int
+            ) {
                 binding.list.removeOnLayoutChangeListener(this)
                 val layoutManager = binding.list.layoutManager
                 val viewAtPosition = layoutManager?.findViewByPosition(position)
                 if (viewAtPosition == null || layoutManager
-                                .isViewPartiallyVisible(viewAtPosition, false, true)) {
+                        .isViewPartiallyVisible(viewAtPosition, false, true)
+                ) {
                     binding.list.post { layoutManager?.scrollToPosition(position) }
                 }
             }
