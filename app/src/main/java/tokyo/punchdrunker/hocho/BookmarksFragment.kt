@@ -11,12 +11,16 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import tokyo.punchdrunker.hocho.databinding.FragmentBookmarksBinding
 
+import androidx.browser.customtabs.CustomTabColorSchemeParams
+
 class BookmarksFragment : Fragment() {
     private lateinit var binding: FragmentBookmarksBinding
     private lateinit var recyclerView: RecyclerView
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = FragmentBookmarksBinding.inflate(inflater, container!!, false)
         recyclerView = binding.myRecyclerView
         return binding.root
@@ -37,13 +41,25 @@ class BookmarksFragment : Fragment() {
                 override fun onClick(view: View, url: String) {
                     view.context.run {
                         val backArrow = bitmapFromVectorDrawable(this, R.drawable.ic_arrow_back)
+                        val params = CustomTabColorSchemeParams.Builder()
+                            .setToolbarColor(
+                                ContextCompat.getColor(
+                                    activity!!,
+                                    R.color.colorPrimary
+                                )
+                            )
+                            .build()
                         val tabsIntent = CustomTabsIntent.Builder()
-                                .setShowTitle(true)
-                                .setCloseButtonIcon(backArrow)
-                                .setToolbarColor(ContextCompat.getColor(this, R.color.colorPrimary))
-                                .setStartAnimations(this, R.anim.slide_in_right, R.anim.slide_out_left)
-                                .setExitAnimations(this, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
-                                .build()
+                            .setShowTitle(true)
+                            .setCloseButtonIcon(backArrow)
+                            .setDefaultColorSchemeParams(params)
+                            .setStartAnimations(this, R.anim.slide_in_right, R.anim.slide_out_left)
+                            .setExitAnimations(
+                                this,
+                                android.R.anim.slide_in_left,
+                                android.R.anim.slide_out_right
+                            )
+                            .build()
 
                         tabsIntent.launchUrl(this, Uri.parse(url))
                     }
