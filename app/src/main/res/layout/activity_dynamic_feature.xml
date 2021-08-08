@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 style="@style/CommonButton"
                 android:layout_gravity="end"
-                android:onClick="@{activity::openGallery}"
+                android:onClick="@{_ -> activity.openGallery()}"
                 android:text="@string/open" />
         </LinearLayout>
 
@@ -82,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:onClick="@{activity::loadAndLaunchDynamicGallery}"
+                android:onClick="@{_ -> activity.loadAndLaunchDynamicGallery()}"
                 android:text="@string/install" />
         </LinearLayout>
 
@@ -90,7 +90,7 @@
             android:id="@+id/status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{activity::loadAndLaunchDynamicGallery}"
+            android:onClick="@{_ -> activity.loadAndLaunchDynamicGallery()}"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

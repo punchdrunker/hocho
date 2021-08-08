@@ -23,15 +23,15 @@ class ProgressActivity : AppCompatActivity() {
         }
     }
 
-    fun setProgress0(view: View) {
+    fun setProgress0() {
         binding.progress3.progress = 0
     }
 
-    fun setProgress50(view: View) {
+    fun setProgress50() {
         binding.progress3.progress = 50
     }
 
-    fun setProgress100(view: View) {
+    fun setProgress100() {
         binding.progress3.progress = 100
     }
 

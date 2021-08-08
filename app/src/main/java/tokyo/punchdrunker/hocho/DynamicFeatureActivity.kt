@@ -53,13 +53,13 @@ class DynamicFeatureActivity : AppCompatActivity() {
     }
 
     // Open Button
-    fun openGallery(view: View) {
+    fun openGallery() {
         startGallery()
     }
 
     // Install Button
     // Dynamic featureなActivityをインストールしてから起動する
-    fun loadAndLaunchDynamicGallery(view: View) {
+    fun loadAndLaunchDynamicGallery() {
         // Dynamic featureをインストール
         val request = SplitInstallRequest.newBuilder()
                 .addModule(GALLERY_MODULE_NAME)
