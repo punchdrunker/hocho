@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.lifecycleScope
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.Loader
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -62,7 +62,7 @@ class AsyncActivity : AppCompatActivity() {
     }
 
     // AsyncTaskLoader を使った通信
-    fun requestOnBackground(view: View) {
+    fun requestOnBackground() {
         val args = Bundle()
         args.putString(extraParam, "サンプルパラメータ")
         LoaderManager.getInstance(this).initLoader(loaderId, args, callback)
@@ -86,7 +86,7 @@ class AsyncActivity : AppCompatActivity() {
     // Retrofit + Coroutine を使った通信 (kotlin-coroutines-retrofit moduleを使用)
     fun requestWithRetrofitAndCoroutine(view: View) {
         val service = BlogServiceWithCoroutine.create()
-        GlobalScope.launch(Dispatchers.Main, CoroutineStart.DEFAULT) {
+        lifecycleScope.launch(Dispatchers.Main, CoroutineStart.DEFAULT) {
             val response = service.fetch("rss").await()
             Snackbar.make(view, "[COROUTINE]Blog title: " + response.entryList!![0].title, Snackbar.LENGTH_SHORT).show()
         }
