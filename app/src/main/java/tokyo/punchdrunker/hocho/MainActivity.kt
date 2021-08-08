@@ -18,7 +18,7 @@ import tokyo.punchdrunker.hocho.transition.FromActivity
 class MainActivity : AppCompatActivity() {
 
     private val binding: ActivityMainBinding by lazy {
-        DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        DataBindingUtil.setContentView(this, R.layout.activity_main)
     }
 
     private val actionBarDrawerToggle by lazy {
