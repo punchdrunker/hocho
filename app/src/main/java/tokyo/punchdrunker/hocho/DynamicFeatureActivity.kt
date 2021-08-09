@@ -17,7 +17,7 @@ class DynamicFeatureActivity : AppCompatActivity() {
     private lateinit var manager: SplitInstallManager
 
     private val binding: ActivityDynamicFeatureBinding by lazy {
-        DataBindingUtil.setContentView<ActivityDynamicFeatureBinding>(this, R.layout.activity_dynamic_feature)
+        DataBindingUtil.setContentView(this, R.layout.activity_dynamic_feature)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -94,7 +94,7 @@ class DynamicFeatureActivity : AppCompatActivity() {
 
                     // モジュールサイズが大きい時に発火するイベント
                     // 表示を確認するには、Play Storeにアップロードしたもので確認する必要がある
-                    startIntentSender(state.resolutionIntent()?.intentSender, null, 0, 0, 0)
+                    manager.startConfirmationDialogForResult(state, this, CONFIRMATION_REQUEST_CODE)
                 }
                 SplitInstallSessionStatus.INSTALLED -> {
                     displayLoadingState("STATUS: INSTALLED")
@@ -123,3 +123,4 @@ class DynamicFeatureActivity : AppCompatActivity() {
 private const val ONDEMAND_PACKAGE_NAME = "tokyo.punchdrunker.dynamic.gallery"
 private const val GALLERY_CLASSNAME = "$ONDEMAND_PACKAGE_NAME.GalleryActivity"
 private const val GALLERY_MODULE_NAME = "gallery"
+private const val CONFIRMATION_REQUEST_CODE = 111
