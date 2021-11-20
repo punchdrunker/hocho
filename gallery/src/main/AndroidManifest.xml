@@ -11,6 +11,7 @@
         <activity
             android:name="tokyo.punchdrunker.dynamic.gallery.GalleryActivity"
             android:parentActivityName="tokyo.punchdrunker.hocho.DynamicFeatureActivity"
+            android:exported="true"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

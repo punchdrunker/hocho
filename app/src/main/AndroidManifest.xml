@@ -22,6 +22,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".MainActivity"
+            android:exported="true"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,6 +32,7 @@
         </activity>
         <activity
             android:name=".LayoutActivity"
+            android:exported="true"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
             <meta-data
@@ -39,6 +41,7 @@
         </activity>
         <activity
             android:name=".NotificationActivity"
+            android:exported="true"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
             <meta-data
@@ -47,6 +50,7 @@
         </activity>
         <activity
             android:name=".AsyncActivity"
+            android:exported="true"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
             <meta-data
@@ -55,9 +59,11 @@
         </activity>
         <activity
             android:name=".LifecycleActivity"
+            android:exported="true"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".DynamicFeatureActivity"
+            android:exported="true"
             android:label="@string/title_activity_dynamic_feature"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
@@ -67,6 +73,7 @@
         </activity>
         <activity
             android:name=".ProgressActivity"
+            android:exported="true"
             android:label="@string/title_activity_progress"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
@@ -76,6 +83,7 @@
         </activity>
         <activity
             android:name=".transition.FromActivity"
+            android:exported="true"
             android:label="@string/transition"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
@@ -85,6 +93,7 @@
         </activity>
         <activity
             android:name=".transition.ToActivity"
+            android:exported="true"
             android:label="@string/transition"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
@@ -92,6 +101,7 @@
         </activity>
         <activity
             android:name=".transition.PagerActivity"
+            android:exported="true"
             android:label="@string/transition"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
@@ -99,6 +109,7 @@
         </activity>
         <activity
             android:name=".SimpleStorageActivity"
+            android:exported="true"
             android:label="@string/simple_storage"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
