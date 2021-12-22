@@ -28,11 +28,11 @@ class BlogServiceTest {
                 .execute()
         actual.body()!!.entryList!!.run {
             assertEquals(25, size)
-            assertEquals("Phasing out legacy recommendations on Android TV", this[0].title)
-            assertEquals("12/22/17 10:00 AM", this[0].dateForDisplay())
-            assertEquals("http://android-developers.googleblog.com/2017/12/phasing-out-legacy-recommendations-on.html", this[0].articleUrl())
-            assertEquals(" At Google I/O 2017, we announced a redesign of the Android TV's home screen. We expanded the recommendation row concept so that each app ca...", this[0].shortContent())
-            assertEquals("https://1.bp.blogspot.com/-RikbUBpFVUo/Wjwe6_5qNdI/AAAAAAAAE8A/-oxT_LLrYzsToH0Jf2XOjeOAV3DIkUf4ACLcBGAs/s1600/image1.png", this[0].imageUrl())
+            assertEquals("Creating an app to help your community during the pandemic with Gaston Saillen #IamaGDE", this[0].title)
+            assertEquals("2021/12/20 9:59", this[0].dateForDisplay())
+            assertEquals("http://android-developers.googleblog.com/2021/12/creating-app-to-help-your-community.html", this[0].articleUrl())
+            assertEquals("Posted by Alicja Heisig, Developer Relations Program Manager   Welcome to #IamaGDE - a series of spotlights presenting Google Developer Expe...", this[0].shortContent())
+            assertEquals("https://blogger.googleusercontent.com/img/a/AVvXsEgHl1OMxu_r7B6C2OHY0OsAyNn8j00v_A2ASjMKfjrw2JO0B9fbD6-5uohhucBeSLh_6ngRqhyARan_Tn1Sd-veSxOc3b-Lo1H_Q0PktyH5hrpCkhX54T8PoLWqFlfkRWIIy_0GWkK84s1CgfSk8w05GanB28I5mnb4vDPrHqG0CBmkcNuiqNygPjgP", this[0].imageUrl())
         }
     }
 
