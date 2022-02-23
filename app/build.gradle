@@ -37,9 +37,6 @@ android {
         viewBinding true
     }
 
-    lintOptions {
-        abortOnError true
-    }
 
     // app bundleを有効にする
     bundle {
@@ -54,6 +51,9 @@ android {
         }
     }
     dynamicFeatures = [":gallery"]
+    lint {
+        abortOnError true
+    }
 }
 
 // 利用するライブラリの設定
