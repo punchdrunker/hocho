@@ -96,25 +96,24 @@
             android:exported="true"
             android:label="@string/transition"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme">
-
-        </activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".transition.PagerActivity"
             android:exported="true"
             android:label="@string/transition"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme">
-
-        </activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".SimpleStorageActivity"
             android:exported="true"
             android:label="@string/simple_storage"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme">
-
-        </activity>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".hilt.HiltSampleActivity"
+            android:exported="true"
+            android:label="@string/title_activity_hilt_sample"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
