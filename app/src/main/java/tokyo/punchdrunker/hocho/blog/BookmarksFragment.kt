@@ -1,4 +1,4 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.blog
 
 import android.net.Uri
 import android.os.Bundle
@@ -12,6 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import tokyo.punchdrunker.hocho.databinding.FragmentBookmarksBinding
 
 import androidx.browser.customtabs.CustomTabColorSchemeParams
+import tokyo.punchdrunker.hocho.R
+import tokyo.punchdrunker.hocho.bitmapFromVectorDrawable
+import tokyo.punchdrunker.hocho.data.BookmarkService
 
 class BookmarksFragment : Fragment() {
     private lateinit var binding: FragmentBookmarksBinding
@@ -45,7 +48,7 @@ class BookmarksFragment : Fragment() {
                             .setToolbarColor(
                                 ContextCompat.getColor(
                                     activity!!,
-                                    R.color.colorPrimary
+                                        R.color.colorPrimary
                                 )
                             )
                             .build()

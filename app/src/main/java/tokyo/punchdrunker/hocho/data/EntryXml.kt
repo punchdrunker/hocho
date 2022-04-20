@@ -1,4 +1,4 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.data
 
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat

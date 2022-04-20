@@ -1,4 +1,4 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.data
 
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.OkHttpClient
@@ -9,6 +9,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
+import tokyo.punchdrunker.hocho.BuildConfig
 
 interface BlogService {
     @GET("/feeds/posts/default")
