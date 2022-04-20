@@ -6,8 +6,8 @@ buildscript {
             'glide': '4.12.0',
             'kotlin': '1.6.10',
             'retrofit': '2.9.0',
-            'okhttp': '4.9.1',
-            'leakcanary': '2.7',
+            'okhttp': '4.9.3',
+            'leakcanary': '2.8.1',
     ]
     repositories {
         google()
