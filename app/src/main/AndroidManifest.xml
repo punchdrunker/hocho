@@ -72,7 +72,7 @@
                 android:value="tokyo.punchdrunker.hocho.MainActivity" />
         </activity>
         <activity
-            android:name=".ProgressActivity"
+            android:name=".progress.ProgressActivity"
             android:exported="true"
             android:label="@string/title_activity_progress"
             android:parentActivityName=".MainActivity"

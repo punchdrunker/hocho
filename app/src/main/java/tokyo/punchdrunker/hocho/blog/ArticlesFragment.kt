@@ -1,4 +1,4 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.blog
 
 import android.net.Uri
 import android.os.Bundle
@@ -14,6 +14,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import timber.log.Timber
+import tokyo.punchdrunker.hocho.*
+import tokyo.punchdrunker.hocho.data.AtomResponse
+import tokyo.punchdrunker.hocho.data.BlogService
 import tokyo.punchdrunker.hocho.databinding.FragmentArticlesBinding
 
 class ArticlesFragment : Fragment() {
@@ -55,7 +58,7 @@ class ArticlesFragment : Fragment() {
                                     .setToolbarColor(
                                         ContextCompat.getColor(
                                             activity!!,
-                                            R.color.colorPrimary
+                                                R.color.colorPrimary
                                         )
                                     )
                                     .build()
@@ -65,8 +68,8 @@ class ArticlesFragment : Fragment() {
                                     .setDefaultColorSchemeParams(params)
                                     .setStartAnimations(
                                         this,
-                                        R.anim.slide_in_right,
-                                        R.anim.slide_out_left
+                                            R.anim.slide_in_right,
+                                            R.anim.slide_out_left
                                     )
                                     .setExitAnimations(
                                         this,

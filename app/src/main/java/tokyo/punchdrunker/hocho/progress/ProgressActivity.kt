@@ -1,9 +1,9 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.progress
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import tokyo.punchdrunker.hocho.R
 
 import tokyo.punchdrunker.hocho.databinding.ActivityProgressBinding
 
