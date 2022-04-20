@@ -54,9 +54,6 @@ android {
     lint {
         abortOnError true
     }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
 }
 
 // 利用するライブラリの設定

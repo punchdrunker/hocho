@@ -87,5 +87,4 @@
     <string name="switch_dark_theme">switch dark theme</string>
     <string name="current_night_mode">not night</string>
     <string name="night_or_not_night">night or not night?</string>
-    <string name="title_activity_hilt_sample">Hilt sample</string>
 </resources>
