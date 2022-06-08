@@ -7,6 +7,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 import retrofit2.Retrofit
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory
+import tokyo.punchdrunker.hocho.data.BlogService
 
 class BlogServiceTest {
     private var server = MockWebServer()

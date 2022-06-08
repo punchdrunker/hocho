@@ -1,4 +1,4 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.blog
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import tokyo.punchdrunker.hocho.R
+import tokyo.punchdrunker.hocho.data.BookmarkService
+import tokyo.punchdrunker.hocho.data.EntryXml
 import tokyo.punchdrunker.hocho.databinding.ItemArticleBinding
 
 class FeedAdapter(val context: Context, private var articles: List<EntryXml>, private val fixSize: Boolean = true) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

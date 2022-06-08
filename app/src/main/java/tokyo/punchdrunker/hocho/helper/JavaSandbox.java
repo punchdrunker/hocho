@@ -1,4 +1,4 @@
-package tokyo.punchdrunker.hocho;
+package tokyo.punchdrunker.hocho.helper;
 
 public class JavaSandbox {
     private String name = "Jake";

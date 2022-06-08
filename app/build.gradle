@@ -4,12 +4,12 @@ apply plugin: 'kotlin-kapt'
 
 // androidのブロックでAndroid用の設定をする
 android {
-    compileSdkVersion 31
+    compileSdkVersion 32
     // compileに使われるandroidSDKのバージョン targetSdkVersionと揃える
     defaultConfig {
         applicationId "tokyo.punchdrunker.hocho"    // <- アプリのID Play Store、端末上で一意になる識別子
         minSdkVersion 24                           // <- サポートする最小のandroidバージョン
-        targetSdkVersion 31
+        targetSdkVersion 32
         // <- buildに利用するツール郡の設定(Android plugin for Gradle 3.0.0以降なら設定しない場合プラグインに合わせたバージョンが自動で選択される)
         versionCode 8
         // <- アプリのバージョンコード 内部的に使われるもので基本的にユーザーの目にするものではない アプリのインストール時やGoogle Play Consoleでのリリースで使われる
@@ -55,6 +55,9 @@ android {
         }
     }
     dynamicFeatures = [":gallery"]
+    lint {
+        abortOnError true
+    }
 }
 
 // 利用するライブラリの設定
@@ -62,14 +65,14 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // <- app/libs の下にある*.jar ファイルを利用する設定(デフォルトで記述されるが大抵の場合不要)
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
-    implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'com.google.android.material:material:1.6.0-alpha01'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.6.0-alpha02'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.browser:browser:1.4.0'
     // <- Kotlinでプラグインによる自動生成処理を行うための設定(kotlinを使わない場合はannotationProcessor)
 
-    implementation 'com.google.android.play:core:1.10.2' // <- Dynamic Featureのロードに必要
+    implementation 'com.google.android.play:core:1.10.3' // <- Dynamic Featureのロードに必要
 
     // network
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
