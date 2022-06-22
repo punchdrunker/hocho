@@ -33,7 +33,7 @@ class BlogServiceTest {
                 "Creating an app to help your community during the pandemic with Gaston Saillen #IamaGDE",
                 this[0].title
             )
-            assertEquals("2021/12/20 9:59", this[0].dateForDisplay())
+            assertEquals("2021-12-20T09:59:00.001-08:00", this[0].published)
             assertEquals(
                 "http://android-developers.googleblog.com/2021/12/creating-app-to-help-your-community.html",
                 this[0].articleUrl()
