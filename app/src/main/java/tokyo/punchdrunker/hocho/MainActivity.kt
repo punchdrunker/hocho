@@ -12,7 +12,10 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.databinding.DataBindingUtil
+import tokyo.punchdrunker.hocho.blog.ArticlesFragment
+import tokyo.punchdrunker.hocho.blog.BookmarksFragment
 import tokyo.punchdrunker.hocho.databinding.ActivityMainBinding
+import tokyo.punchdrunker.hocho.progress.ProgressActivity
 import tokyo.punchdrunker.hocho.transition.FromActivity
 
 class MainActivity : AppCompatActivity() {

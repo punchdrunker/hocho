@@ -17,6 +17,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import timber.log.Timber
+import tokyo.punchdrunker.hocho.data.AtomResponse
+import tokyo.punchdrunker.hocho.data.BlogService
+import tokyo.punchdrunker.hocho.data.BlogServiceWithCoroutine
+import tokyo.punchdrunker.hocho.data.SimpleTaskLoader
 import tokyo.punchdrunker.hocho.databinding.ActivityAsyncBinding
 
 class AsyncActivity : AppCompatActivity() {

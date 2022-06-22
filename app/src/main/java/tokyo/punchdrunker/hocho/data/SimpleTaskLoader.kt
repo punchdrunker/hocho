@@ -1,4 +1,4 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.data
 
 import android.content.Context
 import androidx.loader.content.AsyncTaskLoader

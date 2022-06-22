@@ -1,9 +1,11 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.data
 
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
 import org.joda.time.format.DateTimeFormatter
+import org.simpleframework.xml.Attribute
 import org.simpleframework.xml.Element
+import org.simpleframework.xml.ElementList
 import org.simpleframework.xml.Root
 
 @Root(name = "entry", strict = false)
@@ -20,9 +22,9 @@ class EntryXml {
     @get:Element
     var published: String = ""
 
-    @set:Element
-    @get:Element
-    var origLink: String = ""
+    @set:ElementList(inline = true)
+    @get:ElementList(inline = true)
+    var links: List<Link>? = null
 
     fun dateForDisplay(): String {
         val dateTime = DateTime.parse(published)
@@ -50,11 +52,25 @@ class EntryXml {
         return null
     }
 
-    fun articleUrl(): String {
-        return origLink
+    fun articleUrl(): String? {
+        return links?.first {
+            it.rel == "alternate"
+        }?.href
     }
 
     companion object {
         val DATE_FORMATTER: DateTimeFormatter = DateTimeFormat.shortDateTime()
     }
 }
+
+@Root(name = "link", strict = false)
+class Link {
+    @get:Attribute
+    @set:Attribute
+    var rel: String = ""
+
+    @get:Attribute
+    @set:Attribute
+    var href: String = ""
+}
+

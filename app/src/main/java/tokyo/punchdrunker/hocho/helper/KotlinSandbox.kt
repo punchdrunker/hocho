@@ -1,4 +1,4 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.helper
 
 class KotlinSandbox {
     private val name = "Jake"

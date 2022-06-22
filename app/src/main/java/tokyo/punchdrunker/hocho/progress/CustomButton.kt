@@ -1,4 +1,4 @@
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.progress
 
 import android.content.Context
 import android.util.AttributeSet
@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.ProgressBar
 import androidx.constraintlayout.widget.ConstraintLayout
 import android.widget.TextView
+import tokyo.punchdrunker.hocho.R
 
 class CustomButton(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
 

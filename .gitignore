@@ -11,3 +11,4 @@
 # Include shared settings
 !.idea/codeStyles/
 !.idea/inspectionProfiles/
+.envrc　
