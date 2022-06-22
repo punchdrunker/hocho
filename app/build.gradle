@@ -28,15 +28,14 @@ android {
     }
     // コンパイルに使うJavaのバージョンの設定
     compileOptions {
-        targetCompatibility JavaVersion.VERSION_1_8
-        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_11
     }
 
     buildFeatures{
         dataBinding = true
         viewBinding true
     }
-
 
     // app bundleを有効にする
     bundle {
@@ -106,4 +105,5 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     testImplementation "com.squareup.okhttp3:mockwebserver:$versions.okhttp"
+    implementation 'androidx.test.ext:junit-ktx:1.1.3'
 }

@@ -30,7 +30,7 @@ class FeedAdapter(val context: Context, private var articles: List<EntryXml>, pr
         val inflater = LayoutInflater.from(context)
         val holder = ArticleViewHolder(ItemArticleBinding.inflate(inflater, parent, false))
         holder.itemView.setOnClickListener {
-            onClickListener?.onClick(it, articles[holder.adapterPosition].articleUrl())
+            articles[holder.adapterPosition].articleUrl()?.let { url -> onClickListener?.onClick(it, url) }
         }
         return holder
     }
