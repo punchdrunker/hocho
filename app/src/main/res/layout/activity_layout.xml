@@ -89,10 +89,16 @@
                     android:text="@string/current_night_mode"
                     android:textSize="32sp" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/compose"
+                    android:textSize="32sp" />
+
                 <androidx.compose.ui.platform.ComposeView
                     android:id="@+id/greeting"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
             </LinearLayout>
         </ScrollView>
 

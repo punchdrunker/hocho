@@ -81,6 +81,7 @@
     <string name="transition" tools:ignore="ExtraTranslation">Transition</string>
     <string name="shared_element">shared_photo</string>
     <string name="simple_storage">Simple storage</string>
+    <string name="compose">Compose</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

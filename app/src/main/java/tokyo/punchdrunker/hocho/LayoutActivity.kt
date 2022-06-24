@@ -3,6 +3,7 @@ package tokyo.punchdrunker.hocho
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
@@ -13,6 +14,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.databinding.DataBindingUtil
 import com.google.android.material.composethemeadapter.MdcTheme
 import com.google.android.material.snackbar.Snackbar
@@ -68,13 +71,20 @@ class LayoutActivity : AppCompatActivity() {
 
 @Composable
 private fun Greeting() {
-    Text(
+    Column(modifier = Modifier.padding(24.dp)) {
+        Text(
             text = stringResource(R.string.greeting),
             style = MaterialTheme.typography.h5,
             modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = dimensionResource(R.dimen.margin_small))
-                    .wrapContentWidth(Alignment.CenterHorizontally)
-    )
-    Text(text = "Wonderful tonight", style = MaterialTheme.typography.h3)
+                .padding(horizontal = dimensionResource(R.dimen.margin_small))
+        )
+        Text(text = "Wonderful tonight", style = MaterialTheme.typography.h3)
+        Text(text = "tonight", style = MaterialTheme.typography.h3)
+    }
+}
+
+@Preview
+@Composable
+private fun preview() {
+    Greeting()
 }
