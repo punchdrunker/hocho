@@ -53,6 +53,7 @@ android {
     lint {
         abortOnError true
     }
+    namespace 'tokyo.punchdrunker.hocho'
 }
 
 // 利用するライブラリの設定

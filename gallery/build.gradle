@@ -13,6 +13,7 @@ android {
     buildFeatures{
         dataBinding = true
     }
+    namespace 'tokyo.punchdrunker.dynamic.gallery'
 }
 
 dependencies {
