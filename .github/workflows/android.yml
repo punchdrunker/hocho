@@ -15,7 +15,7 @@ jobs:
         java-version: 11
         distribution: 'adopt'
     - name: Setup ruby
-      uses: actions/setup-ruby@v1
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.2.2'
     - name: bundle install
