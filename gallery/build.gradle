@@ -14,6 +14,14 @@ android {
         dataBinding = true
     }
     namespace 'tokyo.punchdrunker.dynamic.gallery'
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlin {
+        jvmToolchain(17)
+    }
 }
 
 dependencies {
@@ -21,7 +29,7 @@ dependencies {
     implementation project(':app')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
     // 暫定的な対応...
-    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
 
