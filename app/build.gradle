@@ -4,12 +4,12 @@ apply plugin: 'kotlin-kapt'
 
 // androidのブロックでAndroid用の設定をする
 android {
-    compileSdkVersion 33
+    compileSdkVersion 34
     // compileに使われるandroidSDKのバージョン targetSdkVersionと揃える
     defaultConfig {
         applicationId "tokyo.punchdrunker.hocho"    // <- アプリのID Play Store、端末上で一意になる識別子
         minSdkVersion 24                           // <- サポートする最小のandroidバージョン
-        targetSdkVersion 33
+        targetSdkVersion 34
         // <- buildに利用するツール郡の設定(Android plugin for Gradle 3.0.0以降なら設定しない場合プラグインに合わせたバージョンが自動で選択される)
         versionCode 9
         // <- アプリのバージョンコード 内部的に使われるもので基本的にユーザーの目にするものではない アプリのインストール時やGoogle Play Consoleでのリリースで使われる
@@ -65,7 +65,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'androidx.browser:browser:1.5.0'
+    implementation 'androidx.browser:browser:1.6.0'
     // <- Kotlinでプラグインによる自動生成処理を行うための設定(kotlinを使わない場合はannotationProcessor)
 
     implementation 'com.google.android.play:core:1.10.3' // <- Dynamic Featureのロードに必要
