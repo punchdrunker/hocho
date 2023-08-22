@@ -4,7 +4,7 @@ apply plugin: 'kotlin-kapt'
 
 // androidのブロックでAndroid用の設定をする
 android {
-    compileSdkVersion 34
+    compileSdk 34
     // compileに使われるandroidSDKのバージョン targetSdkVersionと揃える
     defaultConfig {
         applicationId "tokyo.punchdrunker.hocho"    // <- アプリのID Play Store、端末上で一意になる識別子
