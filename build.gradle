@@ -7,7 +7,7 @@ buildscript {
             'kotlin': '1.8.10',
             'retrofit': '2.9.0',
             'okhttp': '4.11.0',
-            'leakcanary': '2.8.1',
+            'leakcanary': '2.12',
     ]
     repositories {
         google()
