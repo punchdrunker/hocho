@@ -4,11 +4,11 @@ apply plugin: 'com.github.ben-manes.versions'
 buildscript {
     ext.versions = [
             'glide': '4.14.0',
-            'kotlin': '1.9.0',
+            'kotlin': '1.9.10',
             'retrofit': '2.9.0',
             'okhttp': '4.11.0',
             'leakcanary': '2.12',
-            'compose': '1.5.0',
+            'compose': '1.6.0-alpha04',
     ]
     repositories {
         google()

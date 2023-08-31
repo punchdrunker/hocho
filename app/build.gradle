@@ -39,7 +39,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion versions.compose
+        kotlinCompilerExtensionVersion "1.5.3"
     }
 
     // app bundleを有効にする
