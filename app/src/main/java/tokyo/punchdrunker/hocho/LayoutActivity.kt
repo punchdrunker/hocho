@@ -78,8 +78,8 @@ private fun Greeting() {
             modifier = Modifier
                 .padding(horizontal = dimensionResource(R.dimen.margin_small))
         )
-        Text(text = "Wonderful tonight", style = MaterialTheme.typography.h3)
-        Text(text = "tonight", style = MaterialTheme.typography.h3)
+        Text(text = "Wonderful tonight", style = MaterialTheme.typography.h4)
+        Text(text = "tonight", style = MaterialTheme.typography.h4)
     }
 }
 
