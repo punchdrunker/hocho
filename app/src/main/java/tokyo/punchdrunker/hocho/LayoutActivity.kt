@@ -4,26 +4,26 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewDynamicColors
+import androidx.compose.ui.tooling.preview.PreviewFontScale
+import androidx.compose.ui.tooling.preview.PreviewLightDark
+import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.dp
 import androidx.databinding.DataBindingUtil
-import com.google.android.material.composethemeadapter.MdcTheme
 import com.google.android.material.snackbar.Snackbar
 import tokyo.punchdrunker.hocho.databinding.ActivityLayoutBinding
 
 class LayoutActivity : AppCompatActivity() {
     private val binding: ActivityLayoutBinding by lazy {
-        DataBindingUtil.setContentView<ActivityLayoutBinding>(this, R.layout.activity_layout)
+        DataBindingUtil.setContentView(this, R.layout.activity_layout)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +38,7 @@ class LayoutActivity : AppCompatActivity() {
             Snackbar.make(it, getString(R.string.fab_message), Snackbar.LENGTH_SHORT).show()
         }
         binding.greeting.setContent {
-            MdcTheme {
+            MaterialTheme {
                 Greeting()
             }
         }
@@ -74,17 +74,20 @@ private fun Greeting() {
     Column(modifier = Modifier.padding(24.dp)) {
         Text(
             text = stringResource(R.string.greeting),
-            style = MaterialTheme.typography.h5,
+            style = MaterialTheme.typography.headlineSmall,
             modifier = Modifier
                 .padding(horizontal = dimensionResource(R.dimen.margin_small))
         )
-        Text(text = "Wonderful tonight", style = MaterialTheme.typography.h4)
-        Text(text = "tonight", style = MaterialTheme.typography.h4)
+        Text(text = "Wonderful tonight", style = MaterialTheme.typography.headlineSmall)
     }
 }
 
+@PreviewScreenSizes
+@PreviewFontScale
+@PreviewLightDark
+@PreviewDynamicColors
 @Preview
 @Composable
-private fun preview() {
+private fun Preview() {
     Greeting()
 }
