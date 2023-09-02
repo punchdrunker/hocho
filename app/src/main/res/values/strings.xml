@@ -81,10 +81,12 @@
     <string name="transition" tools:ignore="ExtraTranslation">Transition</string>
     <string name="shared_element">shared_photo</string>
     <string name="simple_storage">Simple storage</string>
+    <string name="compose">Compose</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="switch_dark_theme">switch dark theme</string>
     <string name="current_night_mode">not night</string>
     <string name="night_or_not_night">night or not night?</string>
+    <string name="greeting">hello!</string>
 </resources>
