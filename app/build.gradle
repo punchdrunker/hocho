@@ -11,9 +11,9 @@ android {
         minSdkVersion 24                           // <- サポートする最小のandroidバージョン
         targetSdkVersion 34
         // <- buildに利用するツール郡の設定(Android plugin for Gradle 3.0.0以降なら設定しない場合プラグインに合わせたバージョンが自動で選択される)
-        versionCode 9
+        versionCode 10
         // <- アプリのバージョンコード 内部的に使われるもので基本的にユーザーの目にするものではない アプリのインストール時やGoogle Play Consoleでのリリースで使われる
-        versionName "1.4.0"                           // <- ユーザーが目にするバージョン名
+        versionName "1.4.1"                           // <- ユーザーが目にするバージョン名
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         // <- androidTestに使われるRunner
     }
