@@ -74,7 +74,8 @@ dependencies {
     implementation 'androidx.browser:browser:1.8.0'
     // <- Kotlinでプラグインによる自動生成処理を行うための設定(kotlinを使わない場合はannotationProcessor)
 
-    implementation 'com.google.android.play:core:1.10.3' // <- Dynamic Featureのロードに必要
+    implementation 'com.google.android.play:feature-delivery:2.1.0' // <- Dynamic Featureのロードに必要
+    implementation 'com.google.android.play:feature-delivery-ktx:2.1.0'
 
     // network
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
