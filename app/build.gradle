@@ -65,7 +65,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // <- app/libs の下にある*.jar ファイルを利用する設定(デフォルトで記述されるが大抵の場合不要)
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -99,10 +98,10 @@ dependencies {
 
     // compose
     implementation 'androidx.activity:activity-compose:1.7.2'
-    implementation "androidx.compose.material3:material3:1.1.1"
+    implementation "androidx.compose.material3:material3:1.1.2"
     implementation "androidx.compose.animation:animation:$versions.compose"
     implementation "androidx.compose.ui:ui-tooling:$versions.compose"
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2'
     implementation "com.google.android.material:compose-theme-adapter:1.2.1"
 
     // utils
