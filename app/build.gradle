@@ -11,9 +11,9 @@ android {
         minSdkVersion 24                           // <- サポートする最小のandroidバージョン
         targetSdkVersion 34
         // <- buildに利用するツール郡の設定(Android plugin for Gradle 3.0.0以降なら設定しない場合プラグインに合わせたバージョンが自動で選択される)
-        versionCode 9
+        versionCode 10
         // <- アプリのバージョンコード 内部的に使われるもので基本的にユーザーの目にするものではない アプリのインストール時やGoogle Play Consoleでのリリースで使われる
-        versionName "1.4.0"                           // <- ユーザーが目にするバージョン名
+        versionName "1.4.1"                           // <- ユーザーが目にするバージョン名
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         // <- androidTestに使われるRunner
     }
@@ -39,7 +39,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion "1.5.3"
+        kotlinCompilerExtensionVersion "1.5.14"
     }
 
     // app bundleを有効にする
@@ -65,15 +65,17 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // <- app/libs の下にある*.jar ファイルを利用する設定(デフォルトで記述されるが大抵の場合不要)
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation "androidx.activity:activity-ktx:1.7.2"
-    implementation 'androidx.browser:browser:1.6.0'
+    implementation "androidx.activity:activity-ktx:1.9.0"
+    implementation 'androidx.browser:browser:1.8.0'
     // <- Kotlinでプラグインによる自動生成処理を行うための設定(kotlinを使わない場合はannotationProcessor)
 
-    implementation 'com.google.android.play:core:1.10.3' // <- Dynamic Featureのロードに必要
+    implementation 'com.google.android.play:feature-delivery:2.1.0' // <- Dynamic Featureのロードに必要
+    implementation 'com.google.android.play:feature-delivery-ktx:2.1.0'
 
     // network
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
@@ -93,15 +95,15 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1' // <- 利用するライブラリを設定する
 
     // coroutine
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0'
     implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
 
     // compose
-    implementation 'androidx.activity:activity-compose:1.7.2'
-    implementation "androidx.compose.material3:material3:1.1.2"
+    implementation 'androidx.activity:activity-compose:1.9.0'
+    implementation "androidx.compose.material3:material3:1.2.1"
     implementation "androidx.compose.animation:animation:$versions.compose"
     implementation "androidx.compose.ui:ui-tooling:$versions.compose"
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.8.2'
     implementation "com.google.android.material:compose-theme-adapter:1.2.1"
 
     // utils
