@@ -4,12 +4,12 @@ apply plugin: 'kotlin-kapt'
 
 // androidのブロックでAndroid用の設定をする
 android {
-    compileSdk 34
+    compileSdk 36
     // compileに使われるandroidSDKのバージョン targetSdkVersionと揃える
     defaultConfig {
         applicationId "tokyo.punchdrunker.hocho"    // <- アプリのID Play Store、端末上で一意になる識別子
         minSdkVersion 24                           // <- サポートする最小のandroidバージョン
-        targetSdkVersion 34
+        targetSdkVersion 36
         // <- buildに利用するツール郡の設定(Android plugin for Gradle 3.0.0以降なら設定しない場合プラグインに合わせたバージョンが自動で選択される)
         versionCode 12
         // <- アプリのバージョンコード 内部的に使われるもので基本的にユーザーの目にするものではない アプリのインストール時やGoogle Play Consoleでのリリースで使われる
@@ -28,8 +28,8 @@ android {
     }
     // コンパイルに使うJavaのバージョンの設定
     compileOptions {
-        targetCompatibility JavaVersion.VERSION_17
-        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_21
+        sourceCompatibility JavaVersion.VERSION_21
     }
 
     buildFeatures{
