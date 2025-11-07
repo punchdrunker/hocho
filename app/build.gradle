@@ -63,7 +63,15 @@ android {
     kotlin {
         compilerOptions {
             freeCompilerArgs.addAll(
-                    "-Xcontext-parameters"
+                    "-Xcontext-parameters",
+                    "-Xreturn-value-checker=check",
+                    "-Xnested-type-aliases",
+                    "-Xdata-flow-based-exhaustiveness",
+                    "-Xallow-reified-type-in-catch",
+                    "-Xallow-contracts-on-more-functions",
+                    "-Xallow-condition-implies-returns-contracts",
+                    "-Xallow-holdsin-contract",
+                    "-Xwhen-expressions=indy",
             )
         }
     }

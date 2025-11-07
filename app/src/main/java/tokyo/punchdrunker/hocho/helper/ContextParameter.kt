@@ -63,9 +63,9 @@ class UserRepository {
 }
 
 sealed interface Country {
-    data class Japan(val language: String): Country
-    data class Us(val language: String, val currency: String): Country
-    data class Korea(val language: String, val population: Int): Country
+    data class Japan(val language: String) : Country
+    data class Us(val language: String, val currency: String) : Country
+    data class Korea(val language: String, val population: Int) : Country
 }
 
 class GuardConditionUseCase() {
@@ -88,3 +88,11 @@ class GuardConditionUseCase() {
         println(country.language)
     }
 }
+
+class NestedTypeAliasTest {
+    typealias Token = Set<String>
+
+    fun hasToken(existing: Token, token: String): Boolean = existing.contains(token)
+}
+
+enum class UserRole { ADMIN, MEMBER, GUEST }
