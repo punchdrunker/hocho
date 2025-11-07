@@ -1,5 +1,6 @@
 package tokyo.punchdrunker.hocho.helper
 
+// new features in Kotlin 2.x
 class UpdateUserUseCase {
     context(logger: Logger, ds: UserDataSource)
     suspend operator fun invoke(name: String) {
