@@ -22,6 +22,8 @@ jobs:
       run: |
         gem install bundler
         bundle install
+    - name: Run lint
+      run: ./gradlew app:lintDebug
     - name: Danger
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
