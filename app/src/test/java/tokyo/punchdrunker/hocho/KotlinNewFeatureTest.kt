@@ -15,19 +15,7 @@ import tokyo.punchdrunker.hocho.helper.UpdateUserUseCase
 import tokyo.punchdrunker.hocho.helper.UserRole
 
 // tests to try new functions for Kotlin 2.2, 2.3
-class ContextParameterTest {
-    @Test
-    fun testContextParameter() = runTest {
-        val target = UpdateUserUseCase()
-        target.hi()
-
-        val logger = ConsoleLogger()
-        val ds = InMemoryUserDataSource()
-        context(logger, ds) {
-            target.invoke("Paul")
-        }
-    }
-
+class KotlinNewFeatureTest {
     @Test
     fun testGuardCondition() {
         val target = GuardConditionUseCase()
@@ -60,6 +48,19 @@ class ContextParameterTest {
         )
     }
 
+    @Test
+    fun testContextParameter() = runTest {
+        val target = UpdateUserUseCase()
+        target.hi()
+
+        val logger = ConsoleLogger()
+        val ds = InMemoryUserDataSource()
+        context(logger, ds) { // <= available from A to V
+            target.invoke("Paul")
+        }
+    }
+
+    // kotlin 2.3
     @Test
     fun testUnusedReturnValue() {
         formatGreeting("punchdrunker")
