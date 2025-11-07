@@ -4,11 +4,11 @@ apply plugin: 'com.github.ben-manes.versions'
 buildscript {
     ext.versions = [
             'glide': '4.16.0',
-            'kotlin': '1.9.24',
+            'kotlin': '2.2.21',
             'retrofit': '2.11.0',
             'okhttp': '4.12.0',
             'leakcanary': '2.14',
-            'compose': '1.6.0-alpha04',
+            'compose': '1.9.4',
     ]
     repositories {
         google()
@@ -16,10 +16,12 @@ buildscript {
         gradlePluginPortal()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.3.2'
+        classpath 'com.android.tools.build:gradle:8.13.0'
         // <- buildに使うandroid用のpluginの設定
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
         // <- kotlin用のpluginの設定
+        classpath "org.jetbrains.kotlin:compose-compiler-gradle-plugin:$versions.kotlin"
+        // <- Compose Compiler用のpluginの設定（Kotlin 2.0以降必須）
         classpath "com.github.ben-manes:gradle-versions-plugin:0.46.0"
     }
 }

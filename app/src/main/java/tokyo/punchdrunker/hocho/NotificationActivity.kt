@@ -13,6 +13,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
+import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
@@ -34,8 +35,10 @@ class NotificationActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
+        setupEdgeToEdge()
         setupToolbar()
         binding.activity = this
 
@@ -43,6 +46,10 @@ class NotificationActivity : AppCompatActivity() {
         if (intent.getBooleanExtra(intentExtraKey, false)) {
             Snackbar.make(binding.root, "Did you tap notification?", Snackbar.LENGTH_SHORT).show()
         }
+    }
+
+    private fun setupEdgeToEdge() {
+        binding.toolbar.applyTopSystemBarInsets()
     }
 
     fun navigateToSetting() {

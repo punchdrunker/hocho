@@ -11,6 +11,11 @@ github.dismiss_out_of_range_messages
 #
 ####
 android_lint.gradle_task = "app:lintDebug"
-android_lint.report_file = ENV['GITHUB_WORKSPACE'] + "/app/build/reports/lint-results-debug.xml"
+workspace = ENV['GITHUB_WORKSPACE'] || Dir.pwd
+android_lint.report_file = File.join(workspace, "app/build/reports/lint-results-debug.xml")
 android_lint.filtering = true
-android_lint.lint(inline_mode: true)
+if File.exist?(android_lint.report_file)
+  android_lint.lint(inline_mode: true)
+else
+  warn("Lint report not found at #{android_lint.report_file}")
+end

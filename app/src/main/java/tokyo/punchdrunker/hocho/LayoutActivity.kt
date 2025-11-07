@@ -2,6 +2,7 @@ package tokyo.punchdrunker.hocho
 
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -27,8 +28,10 @@ class LayoutActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
+        setupEdgeToEdge()
         setupToolbar()
         binding.componentInclude.button.setOnClickListener { view ->
             Snackbar.make(view, getString(R.string.snackbar_message), Snackbar.LENGTH_SHORT).show()
@@ -42,6 +45,10 @@ class LayoutActivity : AppCompatActivity() {
                 Greeting()
             }
         }
+    }
+
+    private fun setupEdgeToEdge() {
+        binding.toolbar.applyTopSystemBarInsets()
     }
 
     private fun setupToolbar() {

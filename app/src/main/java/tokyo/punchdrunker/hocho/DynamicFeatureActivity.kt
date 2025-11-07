@@ -3,6 +3,7 @@ package tokyo.punchdrunker.hocho
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.google.android.play.core.splitinstall.SplitInstallManager
@@ -21,11 +22,17 @@ class DynamicFeatureActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
         binding.activity = this
         manager = SplitInstallManagerFactory.create(this)
+        setupEdgeToEdge()
         setupToolbar()
+    }
+
+    private fun setupEdgeToEdge() {
+        binding.toolbar.applyTopSystemBarInsets()
     }
 
     override fun onResume() {
