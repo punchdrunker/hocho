@@ -33,7 +33,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_21
     }
 
-    buildFeatures{
+    buildFeatures {
         dataBinding = true
         viewBinding true
         compose true
@@ -59,6 +59,14 @@ android {
         abortOnError true
     }
     namespace 'tokyo.punchdrunker.hocho'
+
+    kotlin {
+        compilerOptions {
+            freeCompilerArgs.addAll(
+                    "-Xcontext-parameters"
+            )
+        }
+    }
 }
 
 // 利用するライブラリの設定
