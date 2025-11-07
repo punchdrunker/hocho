@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'org.jetbrains.kotlin.plugin.compose'
 
 // androidのブロックでAndroid用の設定をする
 android {
@@ -38,9 +39,8 @@ android {
         compose true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion "1.5.14"
-    }
+    // composeOptions は Compose Compiler Plugin が自動的に管理します
+    // Kotlin 2.0以降では kotlinCompilerExtensionVersion の明示的な指定は不要です
 
     // app bundleを有効にする
     bundle {
@@ -66,8 +66,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // <- app/libs の下にある*.jar ファイルを利用する設定(デフォルトで記述されるが大抵の場合不要)
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
-    implementation 'androidx.appcompat:appcompat:1.7.0'
-    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'com.google.android.material:material:1.13.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation "androidx.activity:activity-ktx:1.9.0"
