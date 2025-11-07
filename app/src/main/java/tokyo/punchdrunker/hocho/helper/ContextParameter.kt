@@ -15,7 +15,7 @@ class UpdateUserUseCase {
     }
 
     fun hi() {
-        print("hi!")
+        println("hi!")
     }
 }
 
