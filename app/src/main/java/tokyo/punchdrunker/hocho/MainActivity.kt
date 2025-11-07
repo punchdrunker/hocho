@@ -6,11 +6,14 @@ import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import tokyo.punchdrunker.hocho.blog.ArticlesFragment
 import tokyo.punchdrunker.hocho.blog.BookmarksFragment
@@ -35,11 +38,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
+        setupEdgeToEdge()
         setSupportActionBar(binding.toolbar)
         setupBottomNavigation()
         setupDrawer()
+    }
+
+    private fun setupEdgeToEdge() {
+        // ツールバーに上部インセットを適用（上マージンで配置）
+        binding.toolbar.applyTopSystemBarInsets()
+
+        // ボトムナビゲーションに下部インセットを適用（下マージンで配置）
+        binding.bottomNavigation.applyBottomSystemBarInsets()
+
+        // NavigationViewに上部インセットをパディングで適用（ドロワーヘッダー用）
+        ViewCompat.setOnApplyWindowInsetsListener(binding.navigation) { view, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+            view.setPadding(0, insets.top, 0, 0)
+            windowInsets
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

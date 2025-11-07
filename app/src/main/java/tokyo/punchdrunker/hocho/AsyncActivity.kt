@@ -2,6 +2,7 @@ package tokyo.punchdrunker.hocho
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
@@ -47,10 +48,16 @@ class AsyncActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
         binding.activity = this
+        setupEdgeToEdge()
         setupToolbar()
+    }
+
+    private fun setupEdgeToEdge() {
+        binding.toolbar.applyTopSystemBarInsets()
     }
 
     // OkHttpを使った通信
