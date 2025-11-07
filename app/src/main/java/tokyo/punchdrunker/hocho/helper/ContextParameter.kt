@@ -61,3 +61,30 @@ class UserRepository {
         dataSource.saveUser(current.copy(name = newName))
     }
 }
+
+sealed interface Country {
+    data class Japan(val language: String): Country
+    data class Us(val language: String, val currency: String): Country
+    data class Korea(val language: String, val population: Int): Country
+}
+
+class GuardConditionUseCase() {
+    operator fun invoke(user: User?) {
+        if (user == null) {
+            println("user is null")
+            return
+        }
+        // available as non-optional
+        println(user.name)
+    }
+
+    fun guardConditionForType(country: Country) {
+        if (country !is Country.Japan) {
+            println("$country is not Japan")
+            return
+        }
+
+        // smart cast
+        println(country.language)
+    }
+}
