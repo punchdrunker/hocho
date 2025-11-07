@@ -53,7 +53,7 @@ class KotlinNewFeatureTest {
     // kotlin 2.3
     @Test
     fun testUnusedReturnValue() {
-        formatGreeting("punchdrunker")
+        formatGreeting("yamada taro")
     }
 
     private fun formatGreeting(name: String): String {
