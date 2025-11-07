@@ -1,18 +1,8 @@
-@file:MustUseReturnValues
-
-package tokyo.punchdrunker.hocho
+package tokyo.punchdrunker.hocho.helper
 
 import kotlinx.coroutines.test.runTest
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
+import org.junit.Assert
 import org.junit.Test
-import tokyo.punchdrunker.hocho.helper.ConsoleLogger
-import tokyo.punchdrunker.hocho.helper.Country
-import tokyo.punchdrunker.hocho.helper.GuardConditionUseCase
-import tokyo.punchdrunker.hocho.helper.InMemoryUserDataSource
-import tokyo.punchdrunker.hocho.helper.NestedTypeAliasTest
-import tokyo.punchdrunker.hocho.helper.UpdateUserUseCase
-import tokyo.punchdrunker.hocho.helper.UserRole
 
 // tests to try new functions for Kotlin 2.2, 2.3
 class KotlinNewFeatureTest {
@@ -32,7 +22,7 @@ class KotlinNewFeatureTest {
     fun testNestedTypeAlias() {
         val target = NestedTypeAliasTest()
         val tokens: NestedTypeAliasTest.Token = setOf("abc")
-        assertFalse(
+        Assert.assertFalse(
             target.hasToken(
                 existing = tokens,
                 token = "new",
@@ -42,7 +32,7 @@ class KotlinNewFeatureTest {
 
     @Test
     fun testExhaustiveness() {
-        assertEquals(
+        Assert.assertEquals(
             10,
             getPermissionLevel(UserRole.MEMBER)
         )
