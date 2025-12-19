@@ -40,7 +40,7 @@ class ArticlesFragment : Fragment() {
 
     private fun fetchEntries() {
         val service = BlogService.create()
-        service.fetch("rss").enqueue(object : Callback<AtomResponse> {
+        service.fetch("atom").enqueue(object : Callback<AtomResponse> {
             override fun onResponse(call: Call<AtomResponse>, response: Response<AtomResponse>) {
                 val atom = response.body()
                 if (atom?.entryList == null) return
