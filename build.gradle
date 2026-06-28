@@ -3,7 +3,7 @@ apply plugin: 'com.github.ben-manes.versions'
 
 buildscript {
     ext.versions = [
-            'glide': '4.16.0',
+            'glide': '5.0.5',
             'kotlin' : '2.3.0',
             'retrofit': '3.0.0',
             'okhttp'  : '5.4.0',
