@@ -3,16 +3,16 @@ apply plugin: 'org.jetbrains.kotlin.plugin.compose'
 
 // androidのブロックでAndroid用の設定をする
 android {
-    compileSdk 36
+    compileSdk 37
     // compileに使われるandroidSDKのバージョン targetSdkVersionと揃える
     defaultConfig {
         applicationId "tokyo.punchdrunker.hocho"    // <- アプリのID Play Store、端末上で一意になる識別子
         minSdkVersion 24                           // <- サポートする最小のandroidバージョン
-        targetSdkVersion 36
+        targetSdkVersion 37
         // <- buildに利用するツール郡の設定(Android plugin for Gradle 3.0.0以降なら設定しない場合プラグインに合わせたバージョンが自動で選択される)
-        versionCode 13
+        versionCode 14
         // <- アプリのバージョンコード 内部的に使われるもので基本的にユーザーの目にするものではない アプリのインストール時やGoogle Play Consoleでのリリースで使われる
-        versionName "1.7.0"                           // <- ユーザーが目にするバージョン名
+        versionName "1.8.0"                           // <- ユーザーが目にするバージョン名
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         // <- androidTestに使われるRunner
     }

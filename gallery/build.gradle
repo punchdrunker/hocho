@@ -1,7 +1,7 @@
 apply plugin: 'com.android.dynamic-feature'
 
 android {
-    compileSdk 36
+    compileSdk 37
 
     defaultConfig {
         minSdkVersion 24
