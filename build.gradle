@@ -16,12 +16,10 @@ buildscript {
         gradlePluginPortal()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.13.0'
+        classpath 'com.android.tools.build:gradle:9.2.1'
         // <- buildに使うandroid用のpluginの設定
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
-        // <- kotlin用のpluginの設定
         classpath "org.jetbrains.kotlin:compose-compiler-gradle-plugin:$versions.kotlin"
-        // <- Compose Compiler用のpluginの設定（Kotlin 2.0以降必須）
+        // <- Compose Compiler用のpluginの設定
         classpath "com.github.ben-manes:gradle-versions-plugin:0.46.0"
     }
 }
